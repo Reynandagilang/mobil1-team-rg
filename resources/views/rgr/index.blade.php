@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Rey Gilang Racing — Home')
 @section('meta_description', 'Rey Gilang Racing — Indonesian Formula 1 Team. Meet our drivers, explore the RGR-26 E Performance, and track our 2026 season.')
@@ -658,7 +658,8 @@
                 @if($driver->profile_image)
                     <img src="{{ asset('storage/' . $driver->profile_image) }}"
                          alt="{{ $driver->name }} — M1TRG Race Driver"
-                         class="driver-portrait">
+                         class="driver-portrait"
+                         loading="lazy" decoding="async">
                 @else
                     {{-- Placeholder portrait with animated silhouette --}}
                     <div class="driver-portrait-placeholder">

@@ -1,6 +1,6 @@
 @extends('layouts.rgr-premium')
 
-@section('title', 'Gabung Bersama Tim RGR')
+@section('title', 'Bergabung Bersama Tim | Mobil 1 Team RG')
 @section('meta_description', 'Buka karir motorsport impian Anda. Temukan lowongan insinyur aerodinamika, mekanik pit-stop, dan staf operasional RGR.')
 
 @section('content')

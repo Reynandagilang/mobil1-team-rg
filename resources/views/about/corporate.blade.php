@@ -1,6 +1,6 @@
 @extends('layouts.rgr-premium')
 
-@section('title', 'Struktur Korporat Tim')
+@section('title', 'Struktur Korporat Tim | Mobil 1 Team RG')
 @section('meta_description', 'Tata kelola korporat, dewan direksi, kepemimpinan tim, dan struktur manajemen Mobil 1 Team RG.')
 
 @section('content')

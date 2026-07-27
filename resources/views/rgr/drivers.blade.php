@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Drivers — Rey Gilang Racing')
 @section('meta_description', 'Meet the Rey Gilang Racing drivers for the 2026 F1 season. Enzo Valentini and Kael Adriansen lead the charge for RGR.')
@@ -147,7 +147,8 @@
                         @if($driver->profile_image)
                         <div class="driver-img-area">
                             <img src="{{ asset('storage/'.$driver->profile_image) }}"
-                                 alt="{{ $driver->name }} — M1TRG Driver">
+                                 alt="{{ $driver->name }} — M1TRG Driver"
+                                 loading="lazy" decoding="async">
                         </div>
                         @else
                         <div class="driver-img-placeholder">

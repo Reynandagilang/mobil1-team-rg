@@ -114,3 +114,10 @@ Route::middleware(['auth'])->prefix('fan')->name('fan.')->group(function () {
     Route::post('/profile/update', [FanController::class, 'updateProfile'])->name('profile.update');
     Route::post('/predict', [FanController::class, 'storePrediction'])->name('predict');
 });
+
+// ── Sitemap ───────────────────────────────────────────────────────────────
+Route::get('/sitemap.xml', function () {
+    return response()->view('sitemap', [], 200, [
+        'Content-Type' => 'application/xml',
+    ]);
+})->name('sitemap');

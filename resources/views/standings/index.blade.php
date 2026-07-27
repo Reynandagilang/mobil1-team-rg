@@ -1,6 +1,6 @@
 @extends('layouts.rgr-premium')
 
-@section('title', 'Klasemen Kejuaraan Dunia')
+@section('title', 'Klasemen Kejuaraan Dunia 2026 | Mobil 1 Team RG')
 @section('meta_description', 'Pantau posisi klasemen langsung pembalap dan konstruktor Mobil 1 Team RG di kejuaraan Formula 1 2026.')
 
 @section('content')

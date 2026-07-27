@@ -1,6 +1,6 @@
 @extends('layouts.rgr-premium')
 
-@section('title', 'Line-up Pembalap')
+@section('title', 'Line-up Pembalap 2026 | Mobil 1 Team RG')
 @section('meta_description', 'Temui roster pembalap kelas dunia Mobil 1 Team RG yang berlaga di Formula 1, Le Mans 24 Jam, Spa 24 Jam, Nürburgring 24 Jam, dan IMSA.')
 
 @section('content')
@@ -140,6 +140,13 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+            @if($drivers->isEmpty())
+            <div class="empty-state" role="status">
+                <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-11h2v4h-2zm0 6h2v2h-2z" fill="currentColor"/></svg>
+                <h4>Belum Ada Pembalap</h4>
+                <p>Data pembalap sedang diperbarui. Silakan kembali lagi nanti.</p>
+            </div>
+            @else
             @foreach($drivers as $driver)
             @php
             $categoryImages = $driverImages[$driver->category] ?? $driverImages['Academy'];
@@ -254,6 +261,7 @@
                 </div>
             </div>
             @endforeach
+            @endif
 
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.rgr-premium')
 
-@section('title', 'Divisi Formula 1')
+@section('title', 'Divisi Formula 1 | Mobil 1 Team RG')
 @section('meta_description', 'Jelajahi Divisi Formula 1 Mobil 1 Team RG. Spesifikasi mesin Mercedes F1, pembalap utama Max Verstappen & George Russel, serta jadwal balapan.')
 
 @section('content')

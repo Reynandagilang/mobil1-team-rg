@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Mobil 1 Team RG — Kekuatan Motorsport Global')
 @section('meta_description', 'Mobil 1 Team RG — Konstruktor balap Formula 1 dan Endurance asal Indonesia. Berkompetisi di FIA F1, WEC, IMSA, dan Nürburgring 24 Jam.')
@@ -835,7 +835,7 @@ html.view-mode-mobile .hero-buttons-container a {
                     <div class="driver-card-front absolute inset-0 w-full h-full bg-white border border-steel/15 flex flex-col justify-between" style="backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius:0 !important;">
                         <!-- Portrait -->
                         @if($driver->avatar_url)
-                        <img src="{{ asset('storage/'.$driver->avatar_url) }}" alt="{{ $driver->name }}" class="driver-portrait h-[320px] w-full object-cover object-top flex-shrink-0">
+                        <img src="{{ asset('storage/'.$driver->avatar_url) }}" alt="{{ $driver->name }}" class="driver-portrait h-[320px] w-full object-cover object-top flex-shrink-0" loading="lazy" decoding="async">
                         @else
                         <div class="driver-portrait-placeholder h-[320px] w-full bg-zinc-950 flex items-center justify-center flex-shrink-0">
                             <span class="font-display font-black text-[8rem] text-rgr/10">#{{ $driver->permanent_number }}</span>
@@ -991,7 +991,8 @@ html.view-mode-mobile .hero-buttons-container a {
                 @if($article->main_image)
                 <img src="{{ asset('storage/'.$article->main_image) }}"
                      alt="{{ $article->title }}"
-                     class="w-full h-52 object-cover">
+                     class="w-full h-52 object-cover"
+                     loading="lazy" decoding="async">
                 @else
                 <div class="news-image-placeholder">
                     <span class="text-faint font-ui text-sm tracking-widest uppercase">{{ $article->category }}</span>

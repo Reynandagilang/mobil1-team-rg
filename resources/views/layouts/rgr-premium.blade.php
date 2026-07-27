@@ -1,19 +1,47 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="@yield('meta_description', 'Mobil 1 Team RG — Kekuatan Motorsport Global asal Indonesia. F1, WEC, IMSA & Balapan Ketahanan.')">
-    <meta property="og:title" content="@yield('title', 'Mobil 1 Team RG') | M1TRG Motorsport">
+    {{-- SEO: Primary Meta Tags --}}
+    <title>@yield('title', 'Mobil 1 Team RG | Official Motorsport')</title>
+    <meta name="description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
+
+    {{-- Open Graph / Facebook --}}
     <meta property="og:type" content="website">
-    <title>@yield('title', 'Mobil 1 Team RG') | M1TRG Motorsport</title>
+    <meta property="og:site_name" content="Mobil 1 Team RG">
+    <meta property="og:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport')">
+    <meta property="og:description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
+    <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+
+    {{-- JSON-LD Structured Data --}}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "Mobil 1 Team RG",
+      "sport": "Motorsport",
+      "url": "https://mobil1teamrg.com",
+      "description": "Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more."
+    }
+    </script>
     {{-- Google Fonts: Orbitron (Racing Display) + Inter (Body) + Rajdhani (UI) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     {{-- Tailwind CSS CDN --}}
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -582,12 +610,240 @@
             text-transform: uppercase;
             flex-shrink: 0;
         }
+        /* ══ STANDARDIZED COMPONENT SYSTEM ══════════════════════════ */
+        /* Buttons */
+        .btn-primary-rgr {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: #C8FF2E;
+            color: #0B0D10;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary-rgr:hover {
+            background: #ffffff;
+            color: #0B0D10;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(200, 255, 46, 0.3);
+        }
+        .btn-primary-rgr:focus-visible {
+            outline: 2px solid #C8FF2E;
+            outline-offset: 3px;
+        }
+        .btn-secondary-rgr {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: transparent;
+            color: #C8FF2E;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1.5px solid rgba(200, 255, 46, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .btn-secondary-rgr:hover {
+            border-color: #C8FF2E;
+            background: rgba(200, 255, 46, 0.08);
+            transform: translateY(-1px);
+        }
+        .btn-secondary-rgr:focus-visible {
+            outline: 2px solid #C8FF2E;
+            outline-offset: 3px;
+        }
+
+        /* Cards */
+        .card-rgr {
+            background: #15181D;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .card-rgr:hover {
+            border-color: rgba(200, 255, 46, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 40px rgba(200, 255, 46, 0.06);
+        }
+        .card-rgr-glass {
+            background: rgba(21, 24, 29, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .card-rgr-glass:hover {
+            border-color: rgba(200, 255, 46, 0.2);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+        }
+
+        /* Badges */
+        .badge-rgr {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background: rgba(200, 255, 46, 0.12);
+            color: #C8FF2E;
+            border: 1px solid rgba(200, 255, 46, 0.25);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .badge-rgr-orange {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background: rgba(245, 166, 35, 0.12);
+            color: #F5A623;
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .badge-rgr-neutral {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.06);
+            color: #9CA3AF;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Section Headings */
+        .section-eyebrow {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #C8FF2E;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #C8FF2E;
+            flex-shrink: 0;
+        }
+        .section-title-std {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-family: 'Sora', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #9CA3AF;
+            max-width: 580px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px dashed rgba(255,255,255,0.12);
+            border-radius: 16px;
+            color: #9CA3AF;
+        }
+        .empty-state svg {
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+        .empty-state h4 {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+        .empty-state p {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.9rem;
+            color: #9CA3AF;
+        }
+
+        /* Focus Visibility (Accessibility) */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #C8FF2E;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Skip Navigation (Accessibility) */
+        .skip-nav {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 10000;
+            background: #C8FF2E;
+            color: #0B0D10;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+        .skip-nav:focus {
+            top: 1rem;
+        }
     </style>
 
     @stack('styles')
 </head>
 
 <body class="antialiased">
+<a href="#main-content" class="skip-nav">Lewati ke konten utama</a>
 
 
 
@@ -1145,7 +1401,7 @@
 </nav>
 
 {{-- Page Content --}}
-<main>
+<main id="main-content">
     @yield('content')
 </main>
 
