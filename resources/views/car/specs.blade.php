@@ -9,26 +9,26 @@
 .car-hero {
     position: relative; min-height: 65vh;
     display: flex; align-items: flex-end;
-    overflow: hidden; background: #0F181A;
+    overflow: hidden; background: #0B0D10;
     padding-bottom: 80px;
 }
 .car-hero-grid {
     position: absolute; inset: 0;
     background-image:
-        linear-gradient(rgba(196,229,56,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196,229,56,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(200,255,46,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,255,46,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
 }
 .car-hero-glow {
     position: absolute; top: 20%; left: 50%;
     transform: translateX(-50%);
     width: 900px; height: 450px;
-    background: radial-gradient(ellipse, rgba(196,229,56,0.06) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(200,255,46,0.06) 0%, transparent 65%);
     pointer-events: none;
 }
 .scan-line {
     position: absolute; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(196,229,56,0.25), transparent);
+    background: linear-gradient(90deg, transparent, rgba(200,255,46,0.25), transparent);
     animation: sScan 5s linear infinite; pointer-events: none;
 }
 @keyframes sScan { 0%{top:-2px} 100%{top:100%} }
@@ -40,31 +40,31 @@
     font-weight: 700; font-size: 0.78rem;
     letter-spacing: 0.15em; text-transform: uppercase;
     padding: 0.65rem 1.5rem;
-    border: 1px solid rgba(196,229,56,0.12);
+    border: 1px solid rgba(200,255,46,0.12);
     color: #4B5563; background: transparent;
     cursor: pointer; transition: all 0.3s ease;
     clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
 }
-.cat-tab:hover { color: #111827; border-color: rgba(196,229,56,0.35); }
+.cat-tab:hover { color: #111827; border-color: rgba(200,255,46,0.35); }
 .cat-tab.active {
-    color: #FFFFFF; background: #C4E538;
-    border-color: #C4E538;
-    box-shadow: 0 0 25px rgba(196,229,56,0.25);
+    color: #FFFFFF; background: #C8FF2E;
+    border-color: #C8FF2E;
+    box-shadow: 0 0 25px rgba(200,255,46,0.25);
 }
 
 /* ── Spec Card ─────────────────────────────────────────────────── */
 .spec-card {
     position: relative; overflow: hidden;
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(196,229,56,0.08);
+    border: 1px solid rgba(200,255,46,0.08);
     transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
 }
 .spec-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     opacity: 0; transition: opacity 0.4s;
 }
-.spec-card.accent-rgr::before   { background: linear-gradient(90deg, transparent, #C4E538, transparent); opacity: 0.7; }
-.spec-card.accent-hyper::before { background: linear-gradient(90deg, transparent, #CFEA5F, transparent); opacity: 0.7; }
+.spec-card.accent-rgr::before   { background: linear-gradient(90deg, transparent, #C8FF2E, transparent); opacity: 0.7; }
+.spec-card.accent-hyper::before { background: linear-gradient(90deg, transparent, #F5A623, transparent); opacity: 0.7; }
 .spec-card.accent-hybrid::before{ background: linear-gradient(90deg, transparent, #00C853, transparent); opacity: 0.7; }
 .spec-card.accent-gt3::before   { background: linear-gradient(90deg, transparent, #FF6D00, transparent); opacity: 0.7; }
 .spec-card.accent-gtp::before   { background: linear-gradient(90deg, transparent, #AA00FF, transparent); opacity: 0.7; }
@@ -121,15 +121,15 @@
 /* ── Fleet Stat Pills ──────────────────────────────────────────── */
 .fleet-pill {
     padding: 1.2rem 2rem; text-align: center;
-    border: 1px solid rgba(196,229,56,0.08);
+    border: 1px solid rgba(200,255,46,0.08);
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
     transition: all 0.3s ease;
 }
-.fleet-pill:hover { border-color: rgba(196,229,56,0.22); }
+.fleet-pill:hover { border-color: rgba(200,255,46,0.22); }
 .fleet-pill-val {
     font-family: 'Orbitron', sans-serif;
     font-weight: 900; font-size: 2.2rem; line-height: 1;
-    color: #C4E538; text-shadow: 0 1px 2px rgba(196,229,56,0.15);
+    color: #C8FF2E; text-shadow: 0 1px 2px rgba(200,255,46,0.15);
 }
 .fleet-pill-lbl {
     font-family: 'Rajdhani', sans-serif;
@@ -157,7 +157,7 @@
     <div class="car-hero-glow"></div>
     <div class="scan-line" style="opacity:0.25"></div>
     <div class="absolute left-0 top-0 bottom-0 w-[3px] hidden lg:block"
-         style="background:linear-gradient(180deg,transparent,#C4E538 30%,#C4E538 70%,transparent)"></div>
+         style="background:linear-gradient(180deg,transparent,#C8FF2E 30%,#C8FF2E 70%,transparent)"></div>
 
     <div class="max-w-7xl mx-auto px-6 w-full pt-24">
         <div class="max-w-3xl">
@@ -207,7 +207,7 @@
 {{-- ── FLEET TABS ─────────────────────────────────────────────────── --}}
 <section class="py-24 grid-bg relative" id="fleet" aria-label="Fleet Specifications">
     <div class="absolute inset-0 pointer-events-none"
-         style="background:radial-gradient(ellipse at 50% 50%,rgba(196,229,56,0.02) 0%,transparent 60%)"></div>
+         style="background:radial-gradient(ellipse at 50% 50%,rgba(200,255,46,0.02) 0%,transparent 60%)"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative">
 

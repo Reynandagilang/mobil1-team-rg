@@ -7,7 +7,7 @@
 <style>
 .gta-hero {
     position: relative; padding-top: 130px; padding-bottom: 60px;
-    background: #0F181A; overflow: hidden;
+    background: #0B0D10; overflow: hidden;
 }
 .gta-hero-grid {
     position: absolute; inset: 0;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
@@ -21,15 +21,15 @@
                 extend: {
                     colors: {
                         // Platinum Light theme replacements
-                        'pitch':    '#0F181A',
-                        'carbon':   '#162426',
+                        'pitch':    '#0B0D10',
+                        'carbon':   '#15181D',
                         'carbon-2': '#213033',
                         'carbon-3': '#2C3E42',
                         'steel':    '#3C4547',
                         'steel-2':  '#546063',
                         // Championship Laser Palette
-                        'rgr':      '#C4E538',
-                        'rgr-2':    '#CFEA5F',
+                        'rgr':      '#C8FF2E',
+                        'rgr-2':    '#F5A623',
                         'rgr-dark': '#96B81C',
                         // Text - High contrast premium deep slate
                         'pure':     '#FFFEFE',
@@ -42,10 +42,10 @@
                         'ui':      ['Rajdhani', 'sans-serif'],
                     },
                     boxShadow: {
-                        'rgr-glow':    '0 0 20px rgba(196,229,56,0.18), 0 0 60px rgba(196,229,56,0.06)',
-                        'rgr-glow-lg': '0 0 40px rgba(196,229,56,0.25), 0 0 100px rgba(196,229,56,0.1)',
+                        'rgr-glow':    '0 0 20px rgba(200,255,46,0.18), 0 0 60px rgba(200,255,46,0.06)',
+                        'rgr-glow-lg': '0 0 40px rgba(200,255,46,0.25), 0 0 100px rgba(200,255,46,0.1)',
                         'card':        '0 20px 60px rgba(0,0,0,0.05)',
-                        'card-hover':  '0 30px 80px rgba(0,0,0,0.08), 0 0 40px rgba(196,229,56,0.05)',
+                        'card-hover':  '0 30px 80px rgba(0,0,0,0.08), 0 0 40px rgba(200,255,46,0.05)',
                     },
                 },
             },
@@ -69,7 +69,7 @@
         *, *::before, *::after { box-sizing: border-box; }
         html { font-size: 16px; }
         body {
-            background: #0F181A;
+            background: #0B0D10;
             color: #FFFEFE;
             font-family: 'Sora', sans-serif;
             overflow-x: hidden;
@@ -78,8 +78,8 @@
 
         /* ── Scrollbar ───────────────────────────────────────────── */
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #0F181A; }
-        ::-webkit-scrollbar-thumb { background: #C4E538; border-radius: 2px; }
+        ::-webkit-scrollbar-track { background: #0B0D10; }
+        ::-webkit-scrollbar-thumb { background: #C8FF2E; border-radius: 2px; }
 
         /* ══════════════════════════════════════════════════════════
            NAVBAR — Mega-Dropdown Premium System
@@ -92,7 +92,7 @@
             z-index: 1001;
             height: 32px;
             background: #111827;
-            border-bottom: 1px solid rgba(196,229,56,0.15);
+            border-bottom: 1px solid rgba(200,255,46,0.15);
             transition: transform 0.4s ease, opacity 0.4s ease;
         }
         .rgr-topbar.hidden-topbar {
@@ -126,11 +126,11 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #C4E538;
+            color: #C8FF2E;
         }
         .topbar-live-dot {
             width: 6px; height: 6px;
-            background: #C4E538;
+            background: #C8FF2E;
             border-radius: 50%;
             animation: pulse-dot 1.5s ease-in-out infinite;
         }
@@ -152,7 +152,7 @@
             text-transform: uppercase;
             transition: color 0.2s;
         }
-        .topbar-social a:hover { color: #C4E538; }
+        .topbar-social a:hover { color: #C8FF2E; }
         .topbar-divider {
             width: 1px; height: 12px;
             background: rgba(255,255,255,0.1);
@@ -175,15 +175,15 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #009B3A 0% 33.3%, #FEDF00 33.3% 66.6%, #C4E538 66.6% 100%);
+            background: linear-gradient(90deg, #009B3A 0% 33.3%, #FEDF00 33.3% 66.6%, #C8FF2E 66.6% 100%);
             opacity: 0.7;
             z-index: 1;
         }
         .rgr-nav.scrolled {
-            background: rgba(15,24,26,0.95);
+            background: rgba(11,13,16,0.95);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-bottom-color: rgba(196,229,56,0.15);
+            border-bottom-color: rgba(200,255,46,0.15);
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
@@ -208,12 +208,12 @@
             position: absolute;
             bottom: -2px; left: 0;
             width: 0; height: 2px;
-            background: #C4E538;
+            background: #C8FF2E;
             transition: width 0.3s cubic-bezier(0.23,1,0.32,1);
         }
         .nav-link:hover,
         .nav-link.active {
-            color: #C4E538 !important;
+            color: #C8FF2E !important;
         }
         .nav-link:hover::after,
         .nav-link.active::after {
@@ -234,9 +234,9 @@
         .mega-panel {
             position: fixed;
             left: 0; right: 0;
-            background: #162426;
-            border-top: 2px solid rgba(196,229,56,0.25);
-            border-bottom: 1px solid rgba(196,229,56,0.08);
+            background: #15181D;
+            border-top: 2px solid rgba(200,255,46,0.25);
+            border-bottom: 1px solid rgba(200,255,46,0.08);
             box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.2);
             opacity: 0;
             visibility: hidden;
@@ -262,10 +262,10 @@
             font-weight: 800;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #C4E538;
+            color: #C8FF2E;
             margin-bottom: 0.75rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(196,229,56,0.1);
+            border-bottom: 1px solid rgba(200,255,46,0.1);
             display: flex; align-items: center; gap: 0.4rem;
         }
         .mega-item {
@@ -279,19 +279,19 @@
             border-left: 2px solid transparent;
         }
         .mega-item:hover {
-            color: #FFFEFE; background: rgba(196,229,56,0.035);
-            border-left-color: #C4E538; padding-left: 0.9rem;
+            color: #FFFEFE; background: rgba(200,255,46,0.035);
+            border-left-color: #C8FF2E; padding-left: 0.9rem;
         }
         .mega-item-icon {
             width: 26px; height: 26px;
-            background: rgba(196,229,56,0.05); border: 1px solid rgba(196,229,56,0.1);
+            background: rgba(200,255,46,0.05); border: 1px solid rgba(200,255,46,0.1);
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
             font-size: 0.6rem; font-family: 'Albert Sans', sans-serif; font-weight: 800;
-            color: #C4E538;
+            color: #C8FF2E;
             transition: background 0.18s;
         }
-        .mega-item:hover .mega-item-icon { background: rgba(196,229,56,0.09); }
+        .mega-item:hover .mega-item-icon { background: rgba(200,255,46,0.09); }
         .mega-item-label { flex: 1; }
         .mega-item-sub {
             font-size: 0.64rem; color: #9CA3AF; font-weight: 500;
@@ -304,18 +304,18 @@
         }
         .mega-featured-card {
             background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            border: 1px solid rgba(196,229,56,0.18);
+            border: 1px solid rgba(200,255,46,0.18);
             padding: 1.25rem; position: relative; overflow: hidden;
         }
         .mega-featured-card::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, #C4E538, #FF6B8A);
+            background: linear-gradient(90deg, #C8FF2E, #FF6B8A);
         }
         .mega-featured-badge {
             display: inline-flex; align-items: center; gap: 0.3rem;
             font-family: 'Albert Sans', sans-serif; font-size: 0.58rem; font-weight: 700;
-            letter-spacing: 0.2em; text-transform: uppercase; color: #C4E538;
-            background: rgba(196,229,56,0.08); border: 1px solid rgba(196,229,56,0.2);
+            letter-spacing: 0.2em; text-transform: uppercase; color: #C8FF2E;
+            background: rgba(200,255,46,0.08); border: 1px solid rgba(200,255,46,0.2);
             padding: 0.18rem 0.5rem; margin-bottom: 0.65rem; display: block;
         }
         .mega-featured-title {
@@ -329,7 +329,7 @@
         .mega-featured-link {
             display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.9rem;
             font-family: 'Albert Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.15em; text-transform: uppercase; color: #C4E538;
+            letter-spacing: 0.15em; text-transform: uppercase; color: #C8FF2E;
             transition: gap 0.2s;
         }
         .mega-featured-link:hover { gap: 0.65rem; }
@@ -338,7 +338,7 @@
         .dropdown-parent { position: relative; }
         .dropdown-menu-list {
             position: absolute; top: calc(100% + 10px); right: 0; left: auto;
-            width: 200px; background: #162426;
+            width: 200px; background: #15181D;
             border: 1px solid rgba(0,0,0,0.08);
             box-shadow: 0 16px 48px rgba(0,0,0,0.1);
             padding: 0.4rem 0; opacity: 0; visibility: hidden;
@@ -355,13 +355,13 @@
             transition: all 0.18s ease; border-left: 2px solid transparent;
         }
         .dropdown-item:hover {
-            color: #FFFEFE; background: rgba(196,229,56,0.04);
-            border-left-color: #C4E538; padding-left: 1.35rem;
+            color: #FFFEFE; background: rgba(200,255,46,0.04);
+            border-left-color: #C8FF2E; padding-left: 1.35rem;
         }
         .dropdown-section-title {
             padding: 0.18rem 1.1rem; font-family: 'Albert Sans', sans-serif;
             font-size: 0.56rem; font-weight: 700; letter-spacing: 0.15em;
-            color: #C4E538; text-transform: uppercase; margin-bottom: 0.2rem;
+            color: #C8FF2E; text-transform: uppercase; margin-bottom: 0.2rem;
         }
 
         /* ── Logo ────────────────────────────────────────────────── */
@@ -371,18 +371,18 @@
             letter-spacing: 0.08em;
             background: linear-gradient(
                 120deg,
-                #C4E538 20%,
+                #C8FF2E 20%,
                 #FF9EAF 40%,
                 #111827 50%,
                 #FF9EAF 60%,
-                #C4E538 80%
+                #C8FF2E 80%
             );
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: textShiny 5s linear infinite;
-            filter: drop-shadow(0 0 6px rgba(196,229,56,0.3));
+            filter: drop-shadow(0 0 6px rgba(200,255,46,0.3));
         }
 
         /* ── reactbits.dev Shiny Text Keyframes ───────────────────── */
@@ -419,8 +419,8 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: #FFFFFF;
-            background: #C4E538;
-            border: 1px solid #C4E538;
+            background: #C8FF2E;
+            border: 1px solid #C8FF2E;
             clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
             overflow: hidden;
             cursor: pointer;
@@ -435,7 +435,7 @@
             transform: translateX(-100%);
             transition: transform 0.45s ease;
         }
-        .btn-rgr:hover { box-shadow: 0 0 30px rgba(196,229,56,0.4), 0 0 70px rgba(196,229,56,0.15); }
+        .btn-rgr:hover { box-shadow: 0 0 30px rgba(200,255,46,0.4), 0 0 70px rgba(200,255,46,0.15); }
         .btn-rgr:hover::before { transform: translateX(100%); }
 
         .btn-rgr-ghost {
@@ -448,19 +448,19 @@
             font-size: 0.8rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #C4E538;
+            color: #C8FF2E;
             background: transparent;
-            border: 1px solid rgba(196,229,56,0.35);
+            border: 1px solid rgba(200,255,46,0.35);
             clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
         }
         .btn-rgr-ghost:hover {
-            border-color: #C4E538;
-            background: rgba(196,229,56,0.06);
-            box-shadow: 0 0 20px rgba(196,229,56,0.15);
-            color: #C4E538;
+            border-color: #C8FF2E;
+            background: rgba(200,255,46,0.06);
+            box-shadow: 0 0 20px rgba(200,255,46,0.15);
+            color: #C8FF2E;
         }
 
         /* ── Section Helpers ─────────────────────────────────────── */
@@ -470,7 +470,7 @@
             font-weight: 700;
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: #C4E538;
+            color: #C8FF2E;
         }
         .section-title {
             font-family: 'Albert Sans', sans-serif;
@@ -481,14 +481,14 @@
         }
         .cyan-line {
             height: 1px;
-            background: linear-gradient(90deg, transparent, #C4E538, transparent);
+            background: linear-gradient(90deg, transparent, #C8FF2E, transparent);
             opacity: 0.25;
         }
 
         /* ── Card ────────────────────────────────────────────────── */
         .rgr-card {
             background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-            border: 1px solid rgba(196,229,56,0.08);
+            border: 1px solid rgba(200,255,46,0.08);
             position: relative;
             overflow: hidden;
             transition: all 0.45s cubic-bezier(0.23,1,0.32,1);
@@ -497,18 +497,18 @@
             content: '';
             position: absolute; top: 0; left: 0; right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #C4E538, transparent);
+            background: linear-gradient(90deg, transparent, #C8FF2E, transparent);
             opacity: 0;
             transition: opacity 0.4s;
         }
-        .rgr-card:hover { border-color: rgba(196,229,56,0.22); box-shadow: 0 25px 70px rgba(0,0,0,0.06), 0 0 40px rgba(196,229,56,0.05); transform: translateY(-4px); }
+        .rgr-card:hover { border-color: rgba(200,255,46,0.22); box-shadow: 0 25px 70px rgba(0,0,0,0.06), 0 0 40px rgba(200,255,46,0.05); transform: translateY(-4px); }
         .rgr-card:hover::before { opacity: 1; }
 
         /* ── Grid Background ─────────────────────────────────────── */
         .grid-bg {
             background-image:
-                linear-gradient(rgba(196,229,56,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(196,229,56,0.02) 1px, transparent 1px);
+                linear-gradient(rgba(200,255,46,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,255,46,0.02) 1px, transparent 1px);
             background-size: 65px 65px;
         }
 
@@ -528,24 +528,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(196,229,56,0.08);
+            border: 1px solid rgba(200,255,46,0.08);
             background: rgba(255,255,255,0.7);
             transition: all 0.3s ease;
             cursor: default;
         }
         .sponsor-logo-box:hover {
-            border-color: rgba(196,229,56,0.22);
-            background: rgba(196,229,56,0.04);
+            border-color: rgba(200,255,46,0.22);
+            background: rgba(200,255,46,0.04);
         }
         .sponsor-logo-title { padding: 1.5rem 2.5rem; }
         .sponsor-logo-technical { padding: 1rem 1.8rem; }
         .sponsor-logo-supplier { padding: 0.75rem 1.25rem; }
 
         /* ── Hamburger ───────────────────────────────────────────── */
-        .hline { display: block; width: 22px; height: 1.5px; background: #C4E538; transition: all 0.3s ease; }
+        .hline { display: block; width: 22px; height: 1.5px; background: #C8FF2E; transition: all 0.3s ease; }
 
         /* ── Footer ──────────────────────────────────────────────── */
-        .rgr-footer { background: #E9ECEF; border-top: 1px solid rgba(196,229,56,0.08); }
+        .rgr-footer { background: #E9ECEF; border-top: 1px solid rgba(200,255,46,0.08); }
 
         #mob-menu {
             position: fixed !important;
@@ -612,9 +612,9 @@
             <a href="#" aria-label="YouTube">YT</a>
             <span class="topbar-divider"></span>
             @auth
-                <a href="{{ route('fan.dashboard') }}" style="color:rgba(196,229,56,0.9);">Fan Zone</a>
+                <a href="{{ route('fan.dashboard') }}" style="color:rgba(200,255,46,0.9);">Fan Zone</a>
             @else
-                <a href="{{ route('fan.login') }}" style="color:rgba(196,229,56,0.9);">Fan Login</a>
+                <a href="{{ route('fan.login') }}" style="color:rgba(200,255,46,0.9);">Fan Login</a>
             @endauth
         </div>
     </div>
@@ -645,7 +645,7 @@
         {{-- Logo --}}
         <a href="{{ route('home') }}" id="nav-logo" class="flex items-center gap-3 group flex-shrink-0">
             <div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
-                 style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(196,229,56,0.1); border:1.5px solid rgba(196,229,56,0.35);">
+                 style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(200,255,46,0.1); border:1.5px solid rgba(200,255,46,0.35);">
                 <span class="font-display font-black text-rgr" style="font-size:0.5rem;letter-spacing:0.04em;">M1TRG</span>
             </div>
             <div class="flex flex-col leading-none">
@@ -718,7 +718,7 @@
                         <div class="h-px bg-gray-100 my-1"></div>
                         <form action="{{ route('fan.logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="dropdown-item w-full text-left" style="color:#C4E538;">Keluar</button>
+                            <button type="submit" class="dropdown-item w-full text-left" style="color:#C8FF2E;">Keluar</button>
                         </form>
                     </div>
                 </div>
@@ -755,7 +755,7 @@
                 {{-- Col 1: Formula --}}
                 <div class="flex-1 min-w-0">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                         Formula &amp; Open-Wheel
                     </p>
                     <a href="{{ route('f1.division') }}" class="mega-item">
@@ -777,7 +777,7 @@
                 {{-- Col 2: Endurance & GT --}}
                 <div class="flex-1 min-w-0">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         Endurance &amp; GT
                     </p>
                     <a href="{{ route('endurance.show', '24h-le-mans') }}" class="mega-item">
@@ -811,7 +811,7 @@
                 {{-- Col 3: Stock/Off-Road + Feature Card --}}
                 <div style="min-width:220px;max-width:245px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         Stock &amp; Off-Road
                     </p>
                     <a href="{{ route('nascar') }}" class="mega-item">
@@ -844,7 +844,7 @@
             <div class="flex gap-8">
                 <div style="min-width:280px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
                         Tim &amp; Personel
                     </p>
                     <a href="{{ route('drivers') }}" class="mega-item">
@@ -886,7 +886,7 @@
             <div class="flex gap-8">
                 <div style="min-width:260px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         Pusat Data Balapan
                     </p>
                     <a href="{{ route('race.schedule') }}" class="mega-item">
@@ -897,9 +897,9 @@
                         <span class="mega-item-icon">ST</span>
                         <span class="mega-item-label">Results &amp; Standings<span class="mega-item-sub">Klasemen &amp; Hasil Balapan</span></span>
                     </a>
-                    <a href="{{ route('paddock.club') }}" class="mega-item" style="border-left-color:rgba(196,229,56,0.4);">
-                        <span class="mega-item-icon" style="background:rgba(196,229,56,0.1);border-color:rgba(196,229,56,0.25);">VIP</span>
-                        <span class="mega-item-label" style="color:#111827;font-weight:700;">VIP Paddock Club<span class="mega-item-sub" style="color:#C4E538;">Akses Eksklusif Area Paddock</span></span>
+                    <a href="{{ route('paddock.club') }}" class="mega-item" style="border-left-color:rgba(200,255,46,0.4);">
+                        <span class="mega-item-icon" style="background:rgba(200,255,46,0.1);border-color:rgba(200,255,46,0.25);">VIP</span>
+                        <span class="mega-item-label" style="color:#111827;font-weight:700;">VIP Paddock Club<span class="mega-item-sub" style="color:#C8FF2E;">Akses Eksklusif Area Paddock</span></span>
                     </a>
                 </div>
                 <div class="mega-divider"></div>
@@ -926,7 +926,7 @@
             <div class="flex gap-8">
                 <div style="min-width:260px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C4E538" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9"/></svg>
+                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9"/></svg>
                         Konten &amp; Media
                     </p>
                     <a href="{{ route('about.news') }}" class="mega-item">
@@ -972,18 +972,18 @@
 
         {{-- Header --}}
         <div class="px-5 py-4 flex items-center justify-between flex-shrink-0"
-             style="background:#0f172a; border-bottom:2px solid rgba(196,229,56,0.3);">
+             style="background:#0f172a; border-bottom:2px solid rgba(200,255,46,0.3);">
             <div class="flex items-center gap-2.5">
                 <div class="w-8 h-8 flex items-center justify-center"
-                     style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(196,229,56,0.15); border:1px solid rgba(196,229,56,0.4);">
+                     style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(200,255,46,0.15); border:1px solid rgba(200,255,46,0.4);">
                     <span class="font-display font-black" style="font-size:0.46rem; color:rgba(255,80,80,1);">M1TRG</span>
                 </div>
                 <div>
                     <span class="font-display font-black text-white text-sm tracking-wider uppercase block">Mobil 1 Team RG</span>
-                    <span class="font-ui text-[0.54rem] tracking-widest uppercase" style="color:rgba(196,229,56,0.7);">Official Motorsport · 2026</span>
+                    <span class="font-ui text-[0.54rem] tracking-widest uppercase" style="color:rgba(200,255,46,0.7);">Official Motorsport · 2026</span>
                 </div>
             </div>
-            <button @click="mobileMenuOpen = false" class="p-1.5" style="color:rgba(196,229,56,0.8);" aria-label="Tutup menu">
+            <button @click="mobileMenuOpen = false" class="p-1.5" style="color:rgba(200,255,46,0.8);" aria-label="Tutup menu">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                 </svg>

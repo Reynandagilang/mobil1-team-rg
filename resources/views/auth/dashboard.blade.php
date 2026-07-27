@@ -38,7 +38,7 @@
 }
 .dial-value {
     fill: none;
-    stroke: #C4E538;
+    stroke: #C8FF2E;
     stroke-width: 8;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.3s ease;

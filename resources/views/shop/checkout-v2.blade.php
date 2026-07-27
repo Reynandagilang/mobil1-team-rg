@@ -16,7 +16,7 @@
             
             {{-- Left: Billing & Payment Form (7 Cols) --}}
             <div class="lg:col-span-7 bg-white border border-steel/15 p-8 relative" style="border-radius:0 !important;">
-                <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #00A3E0 33.3%, #00263E 33.3%, #00263E 66.6%, #C4E538 66.6%);"></div>
+                <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #00A3E0 33.3%, #00263E 33.3%, #00263E 66.6%, #C8FF2E 66.6%);"></div>
 
                 <form @submit.prevent="submitOrder()" class="space-y-6">
                     <div>

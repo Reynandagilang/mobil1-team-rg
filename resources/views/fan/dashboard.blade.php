@@ -20,7 +20,7 @@
 
         {{-- Header Profile Hub --}}
         <div class="bg-white border border-steel/15 p-8 mb-8 relative flex flex-col md:flex-row justify-between items-center gap-6" style="border-radius:0 !important;">
-            <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #00A3E0 33.3%, #00263E 33.3%, #00263E 66.6%, #C4E538 66.6%);"></div>
+            <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #00A3E0 33.3%, #00263E 33.3%, #00263E 66.6%, #C8FF2E 66.6%);"></div>
             
             <div class="flex items-center gap-4">
                 <div class="w-16 h-16 flex items-center justify-center font-display font-black text-2xl text-white relative uppercase" 
@@ -78,7 +78,7 @@
                             <select name="avatar_color" id="avatar_color" required
                                     class="w-full bg-pitch border border-steel/15 px-3 py-2 text-xs text-pure focus:outline-none focus:border-rgr"
                                     style="border-radius:0 !important;">
-                                <option value="#C4E538" @selected($user->avatar_color == '#C4E538')>Merah Ferrari (#C4E538)</option>
+                                <option value="#C8FF2E" @selected($user->avatar_color == '#C8FF2E')>Merah Ferrari (#C8FF2E)</option>
                                 <option value="#00A3E0" @selected($user->avatar_color == '#00A3E0')>Biru Muda BMW (#00A3E0)</option>
                                 <option value="#00263E" @selected($user->avatar_color == '#00263E')>Biru Tua BMW (#00263E)</option>
                                 <option value="#111827" @selected($user->avatar_color == '#111827')>Hitam Carbon (#111827)</option>

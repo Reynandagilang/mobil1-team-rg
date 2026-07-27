@@ -7,7 +7,7 @@
 <style>
 .shop-hero {
     position: relative; padding-top: 130px; padding-bottom: 50px;
-    background: #0F181A; overflow: hidden;
+    background: #0B0D10; overflow: hidden;
 }
 .shop-hero-grid {
     position: absolute; inset: 0;

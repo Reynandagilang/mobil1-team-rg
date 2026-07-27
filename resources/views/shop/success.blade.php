@@ -6,7 +6,7 @@
 @push('styles')
 <style>
 .success-bg {
-    background: #0F181A;
+    background: #0B0D10;
 }
 .invoice-card {
     background: #FFFFFF;

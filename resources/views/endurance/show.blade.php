@@ -72,7 +72,7 @@ $emojiFlag  = $cfg['emoji_flag'];
 .event-hero {
     position: relative; min-height: 100vh;
     display: flex; align-items: center;
-    overflow: hidden; background: #0F181A;
+    overflow: hidden; background: #0B0D10;
 }
 .event-hero-grid {
     position: absolute; inset: 0;

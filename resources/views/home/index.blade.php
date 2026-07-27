@@ -1,4 +1,4 @@
-@extends('layouts.rgr-premium')
+﻿@extends('layouts.rgr-premium')
 
 @section('title', 'Mobil 1 Team RG — Kekuatan Motorsport Global')
 @section('meta_description', 'Mobil 1 Team RG — Konstruktor balap Formula 1 dan Endurance asal Indonesia. Berkompetisi di FIA F1, WEC, IMSA, dan Nürburgring 24 Jam.')
@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: #0F181A; /* Terang premium */
+    background: #0B0D10; /* Terang premium */
 }
 .hero-video-container {
     position: absolute; inset: 0; z-index: 0; overflow: hidden;
@@ -21,14 +21,14 @@
 }
 .hero-video-overlay {
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 60% 40%, rgba(244, 246, 249, 0.2) 20%, #0F181A 85%);
+    background: radial-gradient(circle at 60% 40%, rgba(244, 246, 249, 0.2) 20%, #0B0D10 85%);
     z-index: 1;
 }
 .hero-grid {
     position: absolute; inset: 0; z-index: 2;
     background-image:
-        linear-gradient(rgba(196,229,56,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196,229,56,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(200,255,46,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,255,46,0.03) 1px, transparent 1px);
     background-size: 72px 72px;
     animation: gridShift 25s linear infinite;
 }
@@ -36,12 +36,12 @@
 
 .hero-radial {
     position: absolute; inset: 0; z-index: 2;
-    background: radial-gradient(ellipse 70% 55% at 60% 45%, rgba(196,229,56,0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 55% at 60% 45%, rgba(200,255,46,0.06) 0%, transparent 70%);
 }
 .hero-vline {
     position: absolute; left: 0; top: 0; bottom: 0; z-index: 3;
     width: 3px;
-    background: linear-gradient(180deg, transparent, #C4E538 30%, #C4E538 70%, transparent);
+    background: linear-gradient(180deg, transparent, #C8FF2E 30%, #C8FF2E 70%, transparent);
 }
 .hero-speed-lines {
     position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 2;
@@ -49,7 +49,7 @@
 }
 .hero-speed-line {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #C4E538);
+    background: linear-gradient(90deg, transparent, #C8FF2E);
     animation: speedLine 3s ease-out infinite;
 }
 .hero-speed-line:nth-child(1){width:240px;animation-delay:0s}
@@ -69,18 +69,18 @@
 }
 .hero-wordmark .accent {
     display: block;
-    background: linear-gradient(135deg, #C4E538 0%, #D97706 50%, #CFEA5F 100%);
+    background: linear-gradient(135deg, #C8FF2E 0%, #D97706 50%, #F5A623 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 35px rgba(196,229,56,0.35));
+    filter: drop-shadow(0 0 35px rgba(200,255,46,0.35));
 }
 
 /* ── STAT PILL ─────────────────────────────────────────────────── */
 .stat-pill {
     display: flex; flex-direction: column; align-items: center;
     padding: 0.9rem 1.4rem;
-    border: 1px solid rgba(196,229,56,0.1);
+    border: 1px solid rgba(200,255,46,0.1);
     background: rgba(255,255,255,0.9);
     backdrop-filter: blur(8px);
     position: relative; overflow: hidden;
@@ -88,15 +88,15 @@
 }
 .stat-pill::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    background: linear-gradient(90deg,transparent,#C4E538,transparent);
+    background: linear-gradient(90deg,transparent,#C8FF2E,transparent);
     opacity:0; transition:opacity 0.3s;
 }
-.stat-pill:hover { border-color:rgba(196,229,56,0.3); transform:translateY(-3px); }
+.stat-pill:hover { border-color:rgba(200,255,46,0.3); transform:translateY(-3px); }
 .stat-pill:hover::before { opacity:1; }
 .stat-pill-val {
     font-family:'Orbitron',sans-serif; font-weight:900; font-size:2rem;
-    line-height:1; color:#C4E538;
-    text-shadow: 0 1px 3px rgba(196,229,56,0.15);
+    line-height:1; color:#C8FF2E;
+    text-shadow: 0 1px 3px rgba(200,255,46,0.15);
 }
 .stat-pill-lbl {
     font-family:'Rajdhani',sans-serif; font-size:0.65rem; font-weight:700;
@@ -107,34 +107,34 @@
 .telemetry-panel {
     position: relative;
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(244,246,249,0.95));
-    border: 1px solid rgba(196,229,56,0.12);
+    border: 1px solid rgba(200,255,46,0.12);
     overflow: hidden;
 }
 .telemetry-panel::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    background: linear-gradient(90deg, transparent, #C4E538 30%, #C4E538 70%, transparent);
+    background: linear-gradient(90deg, transparent, #C8FF2E 30%, #C8FF2E 70%, transparent);
 }
 .telemetry-scan {
     position: absolute; left:0; right:0; height:1px;
-    background: linear-gradient(90deg,transparent,rgba(196,229,56,0.25),transparent);
+    background: linear-gradient(90deg,transparent,rgba(200,255,46,0.25),transparent);
     animation: tScan 3.5s linear infinite; pointer-events:none;
 }
 @keyframes tScan{0%{top:-1px}100%{top:100%}}
 
 .rpm-track {
     width: 100%; height: 6px;
-    background: rgba(196,229,56,0.1);
+    background: rgba(200,255,46,0.1);
     border-radius: 3px; overflow: hidden;
 }
 .rpm-fill {
     height: 100%; border-radius: 3px;
-    background: linear-gradient(90deg, #C4E538, #CFEA5F);
-    box-shadow: 0 0 12px rgba(196,229,56,0.4);
+    background: linear-gradient(90deg, #C8FF2E, #F5A623);
+    box-shadow: 0 0 12px rgba(200,255,46,0.4);
     transition: width 0.5s ease;
 }
 .gear-display {
     font-family:'Orbitron',sans-serif; font-weight:900; font-size:5rem; line-height:1;
-    color:#C4E538; text-shadow:0 0 20px rgba(196,229,56,0.3);
+    color:#C8FF2E; text-shadow:0 0 20px rgba(200,255,46,0.3);
     text-align:center; width:100%;
 }
 .speed-display {
@@ -151,17 +151,17 @@
 /* ── COUNTDOWN ─────────────────────────────────────────────────── */
 .countdown-box {
     display:flex; flex-direction:column; align-items:center;
-    background:rgba(196,229,56,0.03); border:1px solid rgba(196,229,56,0.08);
+    background:rgba(200,255,46,0.03); border:1px solid rgba(200,255,46,0.08);
     padding:1rem 1.2rem; min-width:76px; position:relative;
 }
 .countdown-box::after {
     content:''; position:absolute; left:50%; top:50%;
     transform:translate(-50%,-50%); width:100%; height:1px;
-    background:rgba(196,229,56,0.08);
+    background:rgba(200,255,46,0.08);
 }
 .countdown-num {
     font-family:'Orbitron',sans-serif; font-weight:900; font-size:2.5rem;
-    line-height:1; color:#C4E538; text-shadow:0 1px 3px rgba(196,229,56,0.15);
+    line-height:1; color:#C8FF2E; text-shadow:0 1px 3px rgba(200,255,46,0.15);
 }
 .countdown-unit {
     font-family:'Rajdhani',sans-serif; font-size:0.58rem; font-weight:700;
@@ -172,29 +172,29 @@
 .driver-card {
     position:relative; overflow:hidden;
     background: linear-gradient(160deg,rgba(255,255,255,0.98),rgba(248,249,250,0.95));
-    border:1px solid rgba(196,229,56,0.08);
+    border:1px solid rgba(200,255,46,0.08);
     cursor:pointer;
     transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
 }
 .driver-card::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    background:linear-gradient(90deg,transparent,#C4E538,transparent);
+    background:linear-gradient(90deg,transparent,#C8FF2E,transparent);
     transform:translateX(-100%); transition:transform 0.6s ease;
 }
 .driver-card:hover::before { transform:translateX(100%); }
 .driver-card:hover {
-    border-color:rgba(196,229,56,0.22);
-    box-shadow:0 30px 80px rgba(0,0,0,0.06), 0 0 50px rgba(196,229,56,0.05);
+    border-color:rgba(200,255,46,0.22);
+    box-shadow:0 30px 80px rgba(0,0,0,0.06), 0 0 50px rgba(200,255,46,0.05);
     transform:translateY(-6px);
 }
 .driver-bg-number {
     position:absolute; right:-1rem; top:50%; transform:translateY(-50%);
     font-family:'Orbitron',sans-serif; font-weight:900; font-size:12rem; line-height:1;
-    color:rgba(196,229,56,0.02); pointer-events:none; user-select:none;
+    color:rgba(200,255,46,0.02); pointer-events:none; user-select:none;
     transition: color 0.5s ease, font-size 0.5s ease;
 }
 .driver-card:hover .driver-bg-number {
-    color:rgba(196,229,56,0.04); font-size:14rem;
+    color:rgba(200,255,46,0.04); font-size:14rem;
 }
 .driver-portrait {
     width:100%; height:320px; object-fit:cover; object-position:top;
@@ -204,49 +204,49 @@
 .driver-card:hover .driver-portrait { filter:grayscale(0%) contrast(1.1); transform:scale(1.03); }
 .driver-portrait-placeholder {
     width:100%; height:320px;
-    background:linear-gradient(180deg, rgba(196,229,56,0.02) 0%, rgba(244,246,249,0.8) 100%);
+    background:linear-gradient(180deg, rgba(200,255,46,0.02) 0%, rgba(244,246,249,0.8) 100%);
     display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
 }
 
 /* ── NEWS CARD ─────────────────────────────────────────────────── */
 .news-card {
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(196,229,56,0.08);
+    border: 1px solid rgba(200,255,46,0.08);
     overflow:hidden; transition: all 0.4s ease;
 }
 .news-card:hover {
-    border-color: rgba(196,229,56,0.22);
+    border-color: rgba(200,255,46,0.22);
     box-shadow: 0 25px 70px rgba(0,0,0,0.06);
     transform:translateY(-3px);
 }
 .news-cat-badge {
     font-family:'Rajdhani',sans-serif; font-size:0.62rem; font-weight:700;
     letter-spacing:0.2em; text-transform:uppercase; padding:0.2rem 0.6rem;
-    background: rgba(196,229,56,0.08); color:#C4E538;
-    border: 1px solid rgba(196,229,56,0.2);
+    background: rgba(200,255,46,0.08); color:#C8FF2E;
+    border: 1px solid rgba(200,255,46,0.2);
 }
 .news-image-placeholder {
     width:100%; height:200px;
-    background:linear-gradient(135deg, rgba(196,229,56,0.02) 0%, rgba(244,246,249,0.8) 100%);
+    background:linear-gradient(135deg, rgba(200,255,46,0.02) 0%, rgba(244,246,249,0.8) 100%);
     display:flex; align-items:center; justify-content:center;
 }
 
 /* ── RACE GALLERY CARD ────────────────────────────────────────── */
 .race-gallery-card {
     position:relative; overflow:hidden;
-    border:1px solid rgba(196,229,56,0.08);
+    border:1px solid rgba(200,255,46,0.08);
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
     transition: all 0.4s ease;
     text-decoration: none; display:block;
 }
 .race-gallery-card:hover {
-    border-color: rgba(196,229,56,0.22);
+    border-color: rgba(200,255,46,0.22);
     transform: translateX(6px);
     box-shadow: 0 25px 70px rgba(0,0,0,0.06);
 }
 .race-gallery-card::before {
     content:''; position:absolute; top:0; left:0; width:3px; height:0;
-    background:#C4E538; box-shadow:0 0 10px rgba(196,229,56,0.5);
+    background:#C8FF2E; box-shadow:0 0 10px rgba(200,255,46,0.5);
     transition:height 0.4s ease;
 }
 .race-gallery-card:hover::before { height:100%; }
@@ -254,19 +254,19 @@
 /* ── ENDURANCE HUB CARD ────────────────────────────────────────── */
 .endo-card {
     position:relative; overflow:hidden;
-    border:1px solid rgba(196,229,56,0.08);
+    border:1px solid rgba(200,255,46,0.08);
     background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
     transition: all 0.4s ease;
     text-decoration: none; display:block;
 }
 .endo-card:hover {
-    border-color: rgba(196,229,56,0.22);
+    border-color: rgba(200,255,46,0.22);
     transform: translateX(6px);
     box-shadow: 0 25px 70px rgba(0,0,0,0.06);
 }
 .endo-card::before {
     content:''; position:absolute; top:0; left:0; width:3px; height:0;
-    background:#C4E538; box-shadow:0 0 10px rgba(196,229,56,0.5);
+    background:#C8FF2E; box-shadow:0 0 10px rgba(200,255,46,0.5);
     transition:height 0.4s ease;
 }
 .endo-card:hover::before { height:100%; }
@@ -447,7 +447,7 @@ html.view-mode-mobile .hero-buttons-container a {
             {{-- Right: Telemetry & Next Race (Data Performance) --}}
             <div class="hidden lg:block" data-reveal>
                 <div class="telemetry-panel p-8 relative flex flex-col justify-between h-full min-h-[460px]" 
-                     style="background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94)); border: 1px solid rgba(196,229,56,0.15); border-radius: 0;">
+                     style="background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94)); border: 1px solid rgba(200,255,46,0.15); border-radius: 0;">
                     
                     <div>
                         {{-- Widget Header --}}
@@ -523,7 +523,7 @@ html.view-mode-mobile .hero-buttons-container a {
 
     {{-- Bottom fade --}}
     <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-         style="background:linear-gradient(0deg,#0F181A 0%,transparent 100%)"></div>
+         style="background:linear-gradient(0deg,#0B0D10 0%,transparent 100%)"></div>
     {{-- Scroll cue --}}
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
         <span class="text-muted text-xs font-ui tracking-widest uppercase">Gulir</span>
@@ -543,7 +543,7 @@ html.view-mode-mobile .hero-buttons-container a {
             @endif
         </span>
     </div>
-    <div class="flex items-center gap-1 text-[#C4E538] font-display font-black text-sm tracking-widest">
+    <div class="flex items-center gap-1 text-[#C8FF2E] font-display font-black text-sm tracking-widest">
         <span class="text-white/40 text-[0.68rem] font-ui mr-1">➔</span>
         <span id="mob-days">00</span>D :
         <span id="mob-hours">00</span>H :

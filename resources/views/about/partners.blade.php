@@ -7,7 +7,7 @@
 <style>
 .partner-hero {
     position: relative; padding-top: 130px; padding-bottom: 50px;
-    background: #0F181A; overflow: hidden;
+    background: #0B0D10; overflow: hidden;
 }
 .partner-hero-grid {
     position: absolute; inset: 0;
