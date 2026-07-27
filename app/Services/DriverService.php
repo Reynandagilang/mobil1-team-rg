@@ -19,7 +19,7 @@ class DriverService
      */
     public function getSpotlightDrivers(int $limit = 2): Collection
     {
-        return Driver::spotlight($limit)->get();
+        return Driver::spotlight($limit)->with('team')->get();
     }
 
     /**
@@ -29,6 +29,7 @@ class DriverService
     {
         return Driver::active()
             ->raceDrivers()
+            ->with('team')
             ->orderBy('permanent_number')
             ->get();
     }

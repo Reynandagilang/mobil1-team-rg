@@ -74,27 +74,27 @@ class HomeController extends Controller
       */
      public function drivers(): View
      {
-         $team = Team::first();
-         $drivers = \App\Models\Driver::active()->get();
-         $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
+          $team = Team::first();
+          $drivers = \App\Models\Driver::active()->with('team')->get();
+          $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
 
-         return view('drivers.index', compact('team', 'drivers', 'sponsorsByTier'));
-     }
+          return view('drivers.index', compact('team', 'drivers', 'sponsorsByTier'));
+      }
 
-     /**
-      * GET /f1-division
-      * Renders public F1 division page.
-      */
-     public function f1Division(): View
-     {
-         $team = Team::first();
-         $f1Drivers = \App\Models\Driver::active()->where('category', 'F1')->get();
-         $f1Car = \App\Models\Car::where('category', 'F1')->first();
-         $f1Schedule = \App\Models\RaceSchedule::orderBy('race_date')->get();
-         $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
+      /**
+       * GET /f1-division
+       * Renders public F1 division page.
+       */
+      public function f1Division(): View
+      {
+          $team = Team::first();
+          $f1Drivers = \App\Models\Driver::active()->where('category', 'F1')->with('team')->get();
+          $f1Car = \App\Models\Car::where('category', 'F1')->first();
+          $f1Schedule = \App\Models\RaceSchedule::orderBy('race_date')->get();
+          $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
 
-         return view('f1.division', compact('team', 'f1Drivers', 'f1Car', 'f1Schedule', 'sponsorsByTier'));
-     }
+          return view('f1.division', compact('team', 'f1Drivers', 'f1Car', 'f1Schedule', 'sponsorsByTier'));
+      }
 
      /**
       * GET /paddock-club
