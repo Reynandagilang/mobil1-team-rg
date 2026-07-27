@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
@@ -180,11 +180,11 @@
             z-index: 1;
         }
         .rgr-nav.scrolled {
-            background: rgba(248,249,250,0.97);
+            background: rgba(15,24,26,0.95);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-bottom-color: rgba(196,229,56,0.08);
-            box-shadow: 0 1px 0 rgba(196,229,56,0.06), 0 8px 32px rgba(0,0,0,0.04);
+            border-bottom-color: rgba(196,229,56,0.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
         /* ── Nav Link ─────────────────────────────────────────────── */
@@ -213,7 +213,7 @@
         }
         .nav-link:hover,
         .nav-link.active {
-            color: #111827 !important;
+            color: #C4E538 !important;
         }
         .nav-link:hover::after,
         .nav-link.active::after {
