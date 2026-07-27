@@ -48,26 +48,23 @@
             theme: {
                 extend: {
                     colors: {
-                        // Platinum Light theme replacements
                         'pitch':    '#0B0D10',
                         'carbon':   '#15181D',
-                        'carbon-2': '#213033',
-                        'carbon-3': '#2C3E42',
-                        'steel':    '#3C4547',
-                        'steel-2':  '#546063',
-                        // Championship Laser Palette
+                        'carbon-2': '#1D2127',
+                        'carbon-3': '#262B34',
+                        'steel':    'rgba(255,255,255,0.08)',
+                        'steel-2':  'rgba(255,255,255,0.16)',
                         'rgr':      '#C8FF2E',
                         'rgr-2':    '#F5A623',
-                        'rgr-dark': '#96B81C',
-                        // Text - High contrast premium deep slate
-                        'pure':     '#FFFEFE',
-                        'muted':    '#939FA5',
-                        'faint':    '#545C60',
+                        'rgr-dark': '#A4D21E',
+                        'pure':     '#FFFFFF',
+                        'muted':    '#9CA3AF',
+                        'faint':    '#546063',
                     },
                     fontFamily: {
-                        'display': ['Orbitron', 'sans-serif'],
-                        'body':    ['Inter', 'sans-serif'],
-                        'ui':      ['Rajdhani', 'sans-serif'],
+                        'display': ['Albert Sans', 'sans-serif'],
+                        'body':    ['Sora', 'sans-serif'],
+                        'ui':      ['Albert Sans', 'sans-serif'],
                     },
                     boxShadow: {
                         'rgr-glow':    '0 0 20px rgba(200,255,46,0.18), 0 0 60px rgba(200,255,46,0.06)',
@@ -502,20 +499,6 @@
         }
         .section-title {
             font-family: 'Albert Sans', sans-serif;
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.01em;
-            color: #FFFEFE;
-        }
-        .cyan-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #C8FF2E, transparent);
-            opacity: 0.25;
-        }
-
-        /* ── Card ────────────────────────────────────────────────── */
-        .rgr-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
             border: 1px solid rgba(200,255,46,0.08);
             position: relative;
             overflow: hidden;

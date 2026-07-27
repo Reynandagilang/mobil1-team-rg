@@ -19,65 +19,75 @@
 
     {{-- Interactive Tab Filter (Alpine.js) --}}
     <div class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="flex flex-wrap gap-2 border-b border-steel/20 pb-3">
+        <div class="flex flex-wrap gap-2 border-b border-steel/20 pb-3" role="tablist" aria-label="Filter Kategori Pembalap">
             <button 
                 @click="activeTab = 'ALL'"
                 :class="activeTab === 'ALL' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'ALL'" aria-controls="driver-grid">
                 Semua Kategori
             </button>
             <button 
                 @click="activeTab = 'F1'"
                 :class="activeTab === 'F1' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'F1'" aria-controls="driver-grid">
                 Formula 1
             </button>
             <button 
                 @click="activeTab = 'Endurance'"
                 :class="activeTab === 'Endurance' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'Endurance'" aria-controls="driver-grid">
                 WEC / Endurance
             </button>
             <button 
                 @click="activeTab = 'IMSA'"
                 :class="activeTab === 'IMSA' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'IMSA'" aria-controls="driver-grid">
                 IMSA
             </button>
             <button 
                 @click="activeTab = 'IndyCar'"
                 :class="activeTab === 'IndyCar' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'IndyCar'" aria-controls="driver-grid">
                 IndyCar
             </button>
             <button 
                 @click="activeTab = 'WRC'"
                 :class="activeTab === 'WRC' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'WRC'" aria-controls="driver-grid">
                 WRC Rally
             </button>
             <button 
                 @click="activeTab = 'NASCAR'"
                 :class="activeTab === 'NASCAR' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'NASCAR'" aria-controls="driver-grid">
                 NASCAR
             </button>
             <button 
                 @click="activeTab = 'GTWCE'"
                 :class="activeTab === 'GTWCE' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'GTWCE'" aria-controls="driver-grid">
                 GTWCE Europe
             </button>
             <button 
                 @click="activeTab = 'GTWCA'"
                 :class="activeTab === 'GTWCA' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'GTWCA'" aria-controls="driver-grid">
                 GTWCA Asia
             </button>
             <button 
                 @click="activeTab = 'EWC'"
                 :class="activeTab === 'EWC' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === 'EWC'" aria-controls="driver-grid">
                 FIM EWC (Motor)
             </button>
             <button 

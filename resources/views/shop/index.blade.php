@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Toko Merchandise Resmi — Mobil 1 Team RG')
 @section('meta_description', 'Beli merchandise resmi Mobil 1 Team RG: Topi F1, Jaket Tim, Miniatur Diecast, dan kustomisasi jersey balap Anda sendiri.')
@@ -63,12 +63,12 @@
                 <div class="lg:col-span-5 space-y-4">
                     <div>
                         <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-1">NAMA PADA JERSEY (Maks 12 Huruf)</label>
-                        <input type="text" x-model="jerseyName" maxlength="12" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-mono text-pure uppercase rounded focus:outline-none focus:border-rgr transition-colors">
+                        <input type="text" x-model="jerseyName" maxlength="12" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-mono text-pure uppercase rounded focus:outline-none focus:border-rgr transition-colors" aria-label="Nama Kustom Jersey">
                     </div>
 
                     <div>
                         <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-1">NOMOR BALAP (0 - 99)</label>
-                        <input type="number" x-model="jerseyNumber" min="0" max="99" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-mono text-pure rounded focus:outline-none focus:border-rgr transition-colors">
+                        <input type="number" x-model="jerseyNumber" min="0" max="99" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-mono text-pure rounded focus:outline-none focus:border-rgr transition-colors" aria-label="Nomor Kustom Jersey">
                     </div>
 
                     <div>

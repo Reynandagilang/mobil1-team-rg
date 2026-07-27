@@ -18,17 +18,19 @@
 
     {{-- Tabs --}}
     <div class="max-w-7xl mx-auto px-6 mb-10">
-        <div class="flex gap-4 border-b border-steel/20 pb-3">
+        <div class="flex gap-4 border-b border-steel/20 pb-3" role="tablist" aria-label="Pilih Tipe Klasemen">
             <button 
                 @click="tab = 'drivers'"
                 :class="tab === 'drivers' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-5 py-2.5 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-5 py-2.5 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="tab === 'drivers'" aria-controls="tab-drivers">
                 Klasemen Pembalap
             </button>
             <button 
                 @click="tab = 'constructors'"
                 :class="tab === 'constructors' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-5 py-2.5 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
+                class="px-5 py-2.5 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="tab === 'constructors'" aria-controls="tab-constructors">
                 Klasemen Konstruktor
             </button>
         </div>
@@ -38,7 +40,7 @@
     <div class="max-w-7xl mx-auto px-6">
         
         {{-- Drivers Standings Table --}}
-        <div x-show="tab === 'drivers'" class="rgr-card overflow-hidden">
+        <div x-show="tab === 'drivers'" id="tab-drivers" role="tabpanel" aria-label="Klasemen Pembalap" class="rgr-card overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>

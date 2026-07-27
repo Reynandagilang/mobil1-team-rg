@@ -1,6 +1,7 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Proses Checkout Keanggotaan — Mobil 1 Team RG')
+@section('meta_description', 'Proses checkout keanggotaan premium Mobil 1 Team RG Fan Zone. Dapatkan akses eksklusif paddock dan merchandise premium.')
 
 @section('content')
 <div class="min-h-screen bg-pitch py-24" x-data="checkoutV2System()" x-init="initCheckout()">

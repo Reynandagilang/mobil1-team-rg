@@ -358,8 +358,8 @@ html.view-mode-mobile .hero-buttons-container a {
         @for($i=0;$i<5;$i++)<div class="hero-speed-line"></div>@endfor
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 w-full pt-28 xl:pt-20">
-        <div class="grid xl:grid-cols-2 gap-16 items-center min-h-screen py-20">
+    <div class="max-w-7xl mx-auto px-8 w-full pt-28 xl:pt-20">
+        <div class="grid xl:grid-cols-2 gap-16 items-center min-h-[90vh] py-20">
 
             {{-- Left: Copy --}}
             <div>
@@ -552,25 +552,26 @@ html.view-mode-mobile .hero-buttons-container a {
 </div>
 
 {{-- ═══════════════════════ DYNAMIC HERO STATS BAR ═══════════════════════ --}}
-<section class="border-y border-steel/20 bg-pitch relative z-20 py-8">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-        <div class="p-4 border-r border-steel/20 last:border-0" data-reveal>
-            <p class="font-display font-black text-3xl lg:text-4xl text-rgr">15</p>
+<section class="border-y border-steel/20 bg-pitch relative z-20 py-8" id="team-stats" aria-labelledby="team-stats-heading">
+    <h2 id="team-stats-heading" class="sr-only">Statistik Tim</h2>
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center" role="list">
+        <div class="card-rgr p-4 border-r border-steel/20 last:border-0" role="listitem" data-reveal>
+            <p class="font-display font-black text-3xl lg:text-4xl text-rgr" aria-label="15 Kejuaraan Dunia">15</p>
             <p class="text-xs text-pure font-ui font-bold tracking-wider uppercase mt-1">Kejuaraan Dunia</p>
             <p class="text-[0.68rem] text-muted font-body mt-1">2x F1 · 2x WEC · 1x Indy 500 · 10x WRC</p>
         </div>
-        <div class="p-4 border-r border-steel/20 last:border-0" data-reveal>
-            <p class="font-display font-black text-3xl lg:text-4xl text-pure">250+</p>
+        <div class="card-rgr p-4 border-r border-steel/20 last:border-0" role="listitem" data-reveal>
+            <p class="font-display font-black text-3xl lg:text-4xl text-pure" aria-label="250 lebih Podium Kejuaraan">250+</p>
             <p class="text-xs text-pure font-ui font-bold tracking-wider uppercase mt-1">Podium Kejuaraan</p>
             <p class="text-[0.68rem] text-muted font-body mt-1">F1 · WEC · NASCAR · GTWC · Indy · WRC</p>
         </div>
-        <div class="p-4 border-r border-steel/20 last:border-0" data-reveal>
-            <p class="font-display font-black text-3xl lg:text-4xl text-pure">5.800+</p>
+        <div class="card-rgr p-4 border-r border-steel/20 last:border-0" role="listitem" data-reveal>
+            <p class="font-display font-black text-3xl lg:text-4xl text-pure" aria-label="5800 lebih Poin Karir Total">5.800+</p>
             <p class="text-xs text-pure font-ui font-bold tracking-wider uppercase mt-1">Poin Karir Total</p>
             <p class="text-[0.68rem] text-muted font-body mt-1">Akumulasi Seluruh Divisi Tim Global</p>
         </div>
-        <div class="p-4 last:border-0" data-reveal>
-            <p class="font-display font-black text-3xl lg:text-4xl text-rgr">9</p>
+        <div class="card-rgr p-4 last:border-0" role="listitem" data-reveal>
+            <p class="font-display font-black text-3xl lg:text-4xl text-rgr" aria-label="9 Divisi Balap Aktif">9</p>
             <p class="text-xs text-pure font-ui font-bold tracking-wider uppercase mt-1">Divisi Balap Aktif</p>
             <p class="text-[0.68rem] text-muted font-body mt-1">F1 · WEC · FE · EWC · IMSA · NASCAR · GTWC · Indy · WRC</p>
         </div>
@@ -578,8 +579,8 @@ html.view-mode-mobile .hero-buttons-container a {
 </section>
 
 {{-- ═══════════════════════ LIVE RACE HUB & COMMENTARY FEED ═══════════════════════ --}}
-<section class="py-20 border-b border-steel/20 bg-pitch text-pure relative z-20">
-    <div class="max-w-7xl mx-auto px-6">
+<section class="py-20 border-b border-steel/20 bg-pitch text-pure relative z-20" id="live-race-hub" aria-labelledby="live-race-hub-heading">
+    <div class="max-w-7xl mx-auto px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             
             {{-- Left: Live Hub Status --}}
@@ -716,7 +717,7 @@ html.view-mode-mobile .hero-buttons-container a {
 
 {{-- ═══════════════════════ RACE COUNTDOWN ═══════════════════════ --}}
 <section class="py-20 grid-bg relative" id="countdown" aria-label="Hitung Mundur Balapan">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-8">
         <div class="grid lg:grid-cols-2 gap-10 items-start">
 
             {{-- Next Race Info --}}
@@ -906,8 +907,8 @@ html.view-mode-mobile .hero-buttons-container a {
 </section>
 
 {{-- ═══════════════════════ INTEGRATED MINI STANDINGS ═══════════════════════ --}}
-<section class="py-16 border-t border-white/05 bg-pitch relative z-20">
-    <div class="max-w-7xl mx-auto px-6">
+<section class="py-16 border-t border-white/05 bg-pitch relative z-20" id="leaderboard" aria-labelledby="leaderboard-heading">
+    <div class="max-w-7xl mx-auto px-8">
         <div class="grid lg:grid-cols-12 gap-8 items-center">
             
             <div class="lg:col-span-5" data-reveal>

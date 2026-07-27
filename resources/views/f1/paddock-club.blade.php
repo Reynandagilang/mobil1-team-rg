@@ -125,9 +125,9 @@
                     <div>
                         <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-1.5">JUMLAH TAMPILAN TIKET</label>
                         <div class="flex items-center gap-3">
-                            <button type="button" @click="ticketCount = Math.max(1, ticketCount - 1)" class="w-10 h-10 flex items-center justify-center border border-steel/60 text-pure rounded hover:border-rgr transition-colors">-</button>
+                            <button type="button" @click="ticketCount = Math.max(1, ticketCount - 1)" class="w-10 h-10 flex items-center justify-center border border-steel/60 text-pure rounded hover:border-rgr transition-colors" aria-label="Kurangi jumlah tiket">-</button>
                             <span class="font-display font-bold text-pure text-sm w-10 text-center" x-text="ticketCount">1</span>
-                            <button type="button" @click="ticketCount = Math.min(10, ticketCount + 1)" class="w-10 h-10 flex items-center justify-center border border-steel/60 text-pure rounded hover:border-rgr transition-colors">+</button>
+                            <button type="button" @click="ticketCount = Math.min(10, ticketCount + 1)" class="w-10 h-10 flex items-center justify-center border border-steel/60 text-pure rounded hover:border-rgr transition-colors" aria-label="Tambah jumlah tiket">+</button>
                             <input type="hidden" name="quantity" :value="ticketCount">
                         </div>
                     </div>

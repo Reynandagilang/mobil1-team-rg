@@ -83,4 +83,9 @@ class Driver extends Model
         $parts = explode(' ', $this->name);
         return count($parts) > 1 ? implode(' ', array_slice($parts, 1)) : '';
     }
+
+    public function predictions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Prediction::class);
+    }
 }

@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Armada Balap — Spesifikasi Teknis Fleet RGR')
 @section('meta_description', 'Spesifikasi teknis lengkap untuk armada multi-disiplin Mobil 1 Team RG: Mesin F1, Hypercar, Prototipe Hibrida, GT3, dan GTP.')
@@ -220,7 +220,7 @@
         </div>
 
         {{-- Tab Buttons --}}
-        <div class="flex flex-wrap gap-2 justify-center mb-12" id="fleet-tabs" role="tablist">
+        <div class="flex flex-wrap gap-2 justify-center mb-12" id="fleet-tabs" role="tablist" aria-label="Kategori Mobil Balap">
             @foreach($categories as $i => $cat)
             <button class="cat-tab {{ $i === 0 ? 'active' : '' }}"
                     id="tab-{{ strtolower($cat) }}"
@@ -228,7 +228,7 @@
                     aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
                     aria-controls="panel-{{ strtolower($cat) }}"
                     data-cat="{{ $cat }}"
-                    style="border-color:{{ $i === 0 ? '#00A19B' : '' }}">
+                    aria-label="Tampilkan mobil kategori {{ $cat }}">
                 {{ $cat }}
             </button>
             @endforeach

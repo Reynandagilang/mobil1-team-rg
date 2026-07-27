@@ -46,4 +46,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ticket::class);
     }
+
+    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function predictions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Prediction::class);
+    }
+
+    public function favoriteDriver(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Driver::class, 'favorite_driver_id');
+    }
 }

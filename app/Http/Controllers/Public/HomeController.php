@@ -8,6 +8,7 @@ use App\Services\CarService;
 use App\Services\DriverService;
 use App\Services\RaceService;
 use App\Services\SponsorService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 /**
@@ -331,6 +332,7 @@ class HomeController extends Controller
            $team = Team::first();
            $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
            $tickets = \App\Models\Ticket::where('user_id', \Illuminate\Support\Facades\Auth::id())
+               ->with('raceSchedule')
                ->orderBy('created_at', 'desc')
                ->get();
 
@@ -384,27 +386,37 @@ class HomeController extends Controller
                 'cart_items' => 'required|string' // JSON string
             ]);
 
-            $invoice = 'INV-RGR-' . date('Ymd') . '-' . rand(1000, 9999);
-
-            $order = \App\Models\Order::create([
-                'user_id' => \Illuminate\Support\Facades\Auth::id(),
-                'customer_name' => $data['customer_name'],
-                'customer_email' => $data['customer_email'],
-                'customer_phone' => $data['customer_phone'],
-                'shipping_address' => $data['shipping_address'],
-                'shipping_courier' => $data['shipping_courier'],
-                'shipping_cost' => $data['shipping_cost'],
-                'payment_method' => $data['payment_method'],
-                'promo_code' => $data['promo_code'],
-                'subtotal' => $data['subtotal'],
-                'discount' => $data['discount'],
-                'total' => $data['total'],
-                'status' => 'Pending',
-                'invoice_number' => $invoice
-            ]);
-
             $items = json_decode($data['cart_items'], true);
-            if (is_array($items)) {
+
+            // Validate that cart items are a non-empty array before any DB writes
+            if (!is_array($items) || empty($items)) {
+                return back()->withErrors(['cart' => 'Keranjang belanja tidak valid.']);
+            }
+
+            // TODO (production): Recalculate subtotal, discount, and total server-side
+            // by fetching current prices from the products table for each item in $items.
+            // Never trust price values sent from the client to prevent price tampering.
+
+            return DB::transaction(function () use ($data, $items) {
+                $invoice = 'INV-RGR-' . date('Ymd') . '-' . rand(1000, 9999);
+
+                $order = \App\Models\Order::create([
+                    'user_id' => \Illuminate\Support\Facades\Auth::id(),
+                    'customer_name' => $data['customer_name'],
+                    'customer_email' => $data['customer_email'],
+                    'customer_phone' => $data['customer_phone'],
+                    'shipping_address' => $data['shipping_address'],
+                    'shipping_courier' => $data['shipping_courier'],
+                    'shipping_cost' => $data['shipping_cost'],
+                    'payment_method' => $data['payment_method'],
+                    'promo_code' => $data['promo_code'],
+                    'subtotal' => $data['subtotal'],
+                    'discount' => $data['discount'],
+                    'total' => $data['total'],
+                    'status' => 'Pending',
+                    'invoice_number' => $invoice
+                ]);
+
                 foreach ($items as $item) {
                     \App\Models\OrderItem::create([
                         'order_id' => $order->id,
@@ -415,20 +427,27 @@ class HomeController extends Controller
                         'custom_info' => $item['customInfo'] ?? null
                     ]);
                 }
-            }
 
-            return response()->json([
-                'success' => true,
-                'order_id' => $order->id,
-                'redirect_url' => route('checkout.success', $order->id)
-            ]);
+                return response()->json([
+                    'success' => true,
+                    'order_id' => $order->id,
+                    'redirect_url' => route('checkout.success', $order->id)
+                ]);
+            });
         }
 
         public function checkoutSuccess($id): View
         {
             $team = Team::first();
             $sponsorsByTier = $this->sponsorService->getSponsorsByTier($team?->id ?? 0);
-            $order = \App\Models\Order::with('items')->findOrFail($id);
+
+            // IDOR fix: ensure the order belongs to the currently authenticated user
+            // so that one user cannot view another user's order by guessing the order ID.
+            $order = \App\Models\Order::with('items')
+                ->where('id', $id)
+                ->where('user_id', auth()->id())
+                ->firstOrFail();
+
             return view('shop.success', compact('team', 'sponsorsByTier', 'order'));
         }
 
