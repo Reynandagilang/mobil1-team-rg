@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'FIM Endurance World Championship (EWC) — Mobil 1 Team RG')
 @section('meta_description', 'Mobil 1 Team RG Divisi FIM EWC. Kejuaraan dunia balap ketahanan motor legendaris menggunakan Yamaha YZF-R1.')
@@ -132,12 +132,12 @@
                 {{-- Rider Cards --}}
                 <div class="lg:col-span-2">
                     <div class="grid md:grid-cols-3 gap-4">
-                        @foreach($riders as $rider)
+                        @forelse(($riders ?? collect()) as $rider)
                         <div class="m1-card-elevated p-4 d-flex flex-column">
                             <span class="m1-badge mb-2 d-inline-block">RACE RIDER</span>
                             <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">{{ $rider->name }}</h3>
-                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">{{ $rider->country }} (#{{ $rider->permanent_number }})</p>
-                            <p style="font-family:'Sora',sans-serif;font-size:0.75rem;color:#D2D6DC;line-height:1.6;" class="mt-2 mb-3 flex-fill">{{ $rider->bio }}</p>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">{{ $rider->country ?? 'Indonesia' }} (#{{ $rider->permanent_number ?? '7' }})</p>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.75rem;color:#D2D6DC;line-height:1.6;" class="mt-2 mb-3 flex-fill">{{ $rider->bio ?? 'Pembalap ketahanan motor resmi Mobil 1 Team RG.' }}</p>
                             <div class="pt-2" style="border-top:1px solid rgba(255,255,255,0.06);">
                                 <div class="d-flex justify-content-between" style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#8C96A3;">
                                     <span>Best Lap: <span class="fw-bold" style="color:#F8FAFC;">1:34.850</span></span>
@@ -145,7 +145,11 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <div class="col-span-3 text-center py-8">
+                            <p class="text-xs text-muted">Data pembalap divisi motor EWC sedang diperbarui.</p>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
