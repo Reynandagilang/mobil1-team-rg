@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Partnership & B2B Portal — Mobil 1 Team RG')
 @section('meta_description', 'Portal bisnis (B2B) dan Sponsor Hub resmi tim Mobil 1 Team RG. Jelajahi kemitraan korporasi strategis.')
@@ -7,32 +7,28 @@
 <style>
 .partner-hero {
     position: relative; padding-top: 130px; padding-bottom: 60px;
-    background: #F8F9FA; overflow: hidden;
+    background: #0B0D10; overflow: hidden;
 }
 .proposal-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(196, 229, 56, 0.08);
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02);
+    background: #15181D;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 .proposal-card:hover {
-    border-color: rgba(196, 229, 56, 0.2);
+    border-color: rgba(200, 255, 46, 0.22);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(196, 229, 56, 0.05);
+    box-shadow: 0 15px 35px rgba(200, 255, 46, 0.05);
 }
 .stat-card {
-    filter: grayscale(100%);
-    opacity: 0.65;
-    background: #FFFFFF !important;
-    border: 1px solid rgba(0,0,0,0.08) !important;
-    border-radius: 0 !important;
+    background: #15181D !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .stat-card:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    border-color: rgba(196, 229, 56, 0.35) !important;
-    box-shadow: 0 15px 35px rgba(196, 229, 56, 0.06);
+    border-color: rgba(200, 255, 46, 0.22) !important;
+    box-shadow: 0 15px 35px rgba(200, 255, 46, 0.06);
 }
 </style>
 @endpush
@@ -92,7 +88,7 @@
     </section>
 
     {{-- Sponsors Grid Section --}}
-    <section class="py-16 border-t border-steel/20 bg-white/20">
+    <section class="py-16 border-t border-steel/20 bg-carbon-2">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-12">
                 <h2 class="font-display font-bold text-xl text-pure uppercase tracking-widest flex items-center gap-3">

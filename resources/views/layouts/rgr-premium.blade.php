@@ -1598,7 +1598,7 @@
          x-transition:leave="transition ease-in duration-200 transform" 
          x-transition:leave-start="translate-x-0" 
          x-transition:leave-end="translate-x-full" 
-         class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white border-l border-steel/10 shadow-2xl z-50 flex flex-col justify-between"
+         class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-carbon border-l border-steel/10 shadow-2xl z-50 flex flex-col justify-between"
          style="border-radius: 0 !important; display:none;">
          
          <!-- Header -->
@@ -1611,7 +1611,7 @@
          </div>
 
          <!-- Items List -->
-         <div class="flex-1 overflow-y-auto p-6 space-y-4">
+         <div class="flex-1 overflow-y-auto p-6 space-y-4 bg-carbon-2">
              <template x-if="items.length === 0">
                  <div class="text-center py-12 text-muted text-xs font-body">
                      Keranjang belanja Anda kosong.

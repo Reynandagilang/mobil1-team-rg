@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Tentang Kami — Mobil 1 Team RG')
 @section('meta_description', 'Profil resmi, sejarah, visi-misi, serta filosofi kampanye warna hitam-emas-merah tim balap independen Mobil 1 Team RG.')
@@ -16,18 +16,19 @@
     background-size: 60px 60px;
 }
 .philosophy-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(196, 229, 56, 0.08);
+    background: #15181D;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 .color-badge-black {
-    background: #111827; color: #FFFFFF;
+    background: #0B0D10; color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.15);
 }
 .color-badge-gold {
-    background: #D97706; color: #FFFFFF;
+    background: #F5A623; color: #0B0D10;
 }
 .color-badge-red {
-    background: #C8FF2E; color: #FFFFFF;
+    background: #C8FF2E; color: #0B0D10;
 }
 </style>
 @endpush
@@ -69,7 +70,7 @@
                     </div>
 
                     {{-- Campaign Box Quote --}}
-                    <div class="border-l-4 border-rgr bg-white p-6 rounded-r shadow-sm mt-8">
+                    <div class="border-l-4 border-rgr bg-carbon p-6 rounded-r shadow-sm mt-8">
                         <p class="text-pure font-body text-xs italic leading-relaxed">
                             "Mobil 1 Team RG lahir dari semangat kemandirian tim privat (privateer) yang menolak untuk menjadi pelengkap di garis start. Kami hadir dengan identitas Hitam yang melambangkan ketangguhan manajemen dan kekuatan mekanik murni di dalam garasi. Setiap inci lintasan kami lalui dengan target tunggal: podium tertinggi, yang kami visualisasikan lewat guratan warna Emas premium pada bodi kendaraan. Didukung oleh performa pelumas dunia, warna Merah ikonik pada angka '1' bukan sekadar logo, melainkan simbol dari api ambisi kami yang haus akan kejuaraan. Kami tidak hanya ikut membalap; kami hadir untuk menetapkan standar baru di lintasan."
                         </p>
@@ -116,7 +117,7 @@
     </section>
 
     {{-- Milestones Timeline Section --}}
-    <section class="py-16 border-t border-steel/20 bg-white/20">
+    <section class="py-16 border-t border-steel/20 bg-carbon-2">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-10">
                 <h3 class="font-display font-bold text-2xl text-pure">Linimasa Sejarah Tim</h3>

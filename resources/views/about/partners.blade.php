@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Mitra Pabrikan Premium — Mobil 1 Team RG')
 @section('meta_description', 'Portal resmi mitra pabrikan otomotif global penyedia teknologi dan sasis mobil balap Mobil 1 Team RG.')
@@ -16,14 +16,14 @@
     background-size: 60px 60px;
 }
 .partner-card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(196, 229, 56, 0.08);
+    background: #15181D;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.4s ease;
 }
 .partner-card:hover {
-    border-color: rgba(196, 229, 56, 0.2);
+    border-color: rgba(200, 255, 46, 0.22);
     transform: translateY(-4px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.4), 0 0 40px rgba(200, 255, 46, 0.05);
 }
 </style>
 @endpush
