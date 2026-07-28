@@ -1,12 +1,12 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Register Fan Zone — Mobil 1 Team RG')
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-pitch py-24 px-6">
-    <div class="max-w-md w-full bg-white border border-steel/15 p-8 relative" style="border-radius: 0 !important;">
+    <div class="max-w-md w-full bg-carbon border border-steel/15 p-8 relative" style="border-radius: 0 !important;">
         {{-- M-Sport Accent Top Line --}}
-        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #00A3E0 33.3%, #00263E 33.3%, #00263E 66.6%, #C8FF2E 66.6%);"></div>
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #F5A623 33.3%, #0B0D10 33.3%, #C8FF2E 66.6%);"></div>
 
         <div class="text-center mb-8">
             <span class="text-[0.62rem] font-ui tracking-widest text-rgr font-bold uppercase block mb-1">M1TRG PADDOCK REGISTRATION</span>
