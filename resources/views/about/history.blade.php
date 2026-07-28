@@ -21,25 +21,25 @@
     {{-- Storytelling --}}
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                <div class="lg:col-span-2 space-y-6">
-                    <h2 class="font-display font-black text-3xl text-[#F8FAFC] tracking-tight">Menolak Menjadi Pelengkap Grid</h2>
-                    <div class="w-8 h-0.5 bg-[#B8E637]"></div>
-                    <div class="text-sm text-[#D2D6DC] leading-relaxed font-body space-y-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+                <div class="lg:col-span-2 space-y-8">
+                    <h2 class="font-display font-black text-4xl lg:text-5xl text-[#F8FAFC] tracking-tight leading-tight">Menolak Menjadi Pelengkap Grid</h2>
+                    <div class="text-base text-[#D2D6DC] leading-relaxed font-body space-y-6 max-w-[65ch]">
                         <p>
-                            <strong class="text-[#F8FAFC]">Mobil 1 Team RG</strong> didirikan atas sebuah visi yang sederhana namun menantang: membuktikan bahwa tim independen (privateer) asal Indonesia mampu berdiri sejajar dan mengalahkan raksasa motorsport pabrikan di panggung dunia. Didirikan pada tahun 2018 oleh insinyur balap Rey Gilang, perjalanan kami dimulai dari garasi riset kecil di kawasan Senayan, Jakarta.
+                            <strong class="text-[#F8FAFC] font-semibold">Mobil 1 Team RG</strong> berdiri sebagai antitesis dari tim pabrikan beranggaran tak terbatas. Kami memulai segalanya dari garasi riset independen kecil di Senayan pada 2018. Diprakarsai oleh Rey Gilang, target kami sejak hari pertama adalah membuktikan bahwa presisi rekayasa dan rasa lapar akan podium dapat menaklukkan dominasi korporasi di lintasan balap dunia.
                         </p>
                         <p>
-                            Di dunia di mana balapan sering didominasi oleh modal korporasi tanpa wajah, kami memilih jalan kemandirian profesional. Kami percaya bahwa kombinasi antara presisi rekayasa aerodinamika, analisis data komparatif superkomputer, dan rasa lapar akan podium adalah satu-satunya bahan bakar yang kami butuhkan untuk menang.
+                            Jalan kami bukanlah jalan pintas. Kami memilih membangun kemandirian profesional, menguji batas ketahanan mekanis, dan memformulasikan strategi balap berbasis analisis telemetri real-time. Bagi kami, balapan adalah sains yang dijalankan dengan nyali.
                         </p>
                         <p>
-                            Melalui kemitraan teknis eksklusif bersama Mercedes-AMG, Toyota Gazoo, McLaren, Porsche, dan Chevrolet, kami menyatukan sasis berkinerja tinggi dunia dengan dedikasi taktis kru garasi kami. Dari lintasan aspal Formula 1, sirkuit ketahanan legendaris Le Mans dan Spa, hingga medan reli lumpur kasar WRC, kami tidak hanya ikut membalap; kami hadir untuk menetapkan standar baru.
+                            Melalui kolaborasi teknis strategis dengan mitra global di ajang Formula 1, WEC Hypercar, hingga WRC, kami memadukan mesin hibrida berkinerja tinggi dengan determinasi kru pit-wall kami. Kami tidak turun ke sirkuit sekadar untuk mengisi barisan start—kami bertarung untuk memimpin balapan.
                         </p>
                     </div>
 
-                    <div class="m1-card p-6 border-l-4 border-l-[#B8E637]" data-reveal>
-                        <p class="text-[#D2D6DC] text-sm italic leading-relaxed font-body">
-                            "Mobil 1 Team RG lahir dari semangat kemandirian tim privat (privateer) yang menolak untuk menjadi pelengkap di garis start. Kami hadir dengan identitas Hitam yang melambangkan ketangguhan manajemen dan kekuatan mekanik murni di dalam garasi. Setiap inci lintasan kami lalui dengan target tunggal: podium tertinggi, yang kami visualisasikan lewat guratan warna Emas premium pada bodi kendaraan. Didukung oleh performa pelumas dunia, warna Merah ikonik pada angka '1' bukan sekadar logo, melainkan simbol dari api ambisi kami yang haus akan kejuaraan. Kami tidak hanya ikut membalap; kami hadir untuk menetapkan standar baru di lintasan."
+                    <div class="p-8 border-l-2 border-l-[#B8E637] bg-[#171B20]/40 relative" data-reveal>
+                        <span class="absolute top-4 right-6 text-6xl text-[#B8E637]/10 font-serif leading-none">“</span>
+                        <p class="text-[#D2D6DC] text-base italic leading-relaxed font-body max-w-[60ch]">
+                            Kami lahir dari semangat privateer yang menolak berkompromi. Identitas hitam kami melambangkan ketangguhan operasional, sementara aksen emas premium merayakan target podium utama di setiap akhir pekan balapan. Warna merah pada angka satu adalah representasi visual dari api ambisi kami yang tidak pernah padam.
                         </p>
                     </div>
                 </div>
