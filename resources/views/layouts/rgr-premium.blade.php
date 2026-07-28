@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     {{-- SEO: Primary Meta Tags --}}
-    <title>@yield('title', 'Mobil 1 Team RG | Official Motorsport')</title>
-    <meta name="description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <title>@yield('title', 'Mobil 1 Team RG | Official Motorsport Enterprise')</title>
+    <meta name="description" content="@yield('meta_description', 'Official portal of Mobil 1 Team RG — World-class international racing team competing in Formula 1, WEC, IMSA, IndyCar, and Rally.')">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="@yield('canonical', url()->current())">
 
     {{-- Open Graph / Facebook --}}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mobil 1 Team RG">
-    <meta property="og:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport')">
-    <meta property="og:description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <meta property="og:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport Enterprise')">
+    <meta property="og:description" content="@yield('meta_description', 'Official portal of Mobil 1 Team RG — World-class international racing team competing in Formula 1, WEC, IMSA, IndyCar, and Rally.')">
     <meta property="og:url" content="@yield('canonical', url()->current())">
     <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
     {{-- Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more.')">
+    <meta name="twitter:title" content="@yield('title', 'Mobil 1 Team RG | Official Motorsport Enterprise')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Official portal of Mobil 1 Team RG — World-class international racing team competing in Formula 1, WEC, IMSA, IndyCar, and Rally.')">
     <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
-    {{-- JSON-LD Structured Data --}}
+    {{-- Structured Data --}}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,47 +33,64 @@
       "name": "Mobil 1 Team RG",
       "sport": "Motorsport",
       "url": "https://mobil1teamrg.com",
-      "description": "Official website of Mobil 1 Team RG, a professional motorsport team competing in F1, WEC, IMSA, and more."
+      "description": "Official portal of Mobil 1 Team RG — World-class international racing team competing in Formula 1, WEC, IMSA, IndyCar, and Rally."
     }
     </script>
-    {{-- Google Fonts: Orbitron (Racing Display) + Inter (Body) + Rajdhani (UI) --}}
+
+    {{-- Google Fonts: Albert Sans (Display & UI) + Sora (Body) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
 
     {{-- Tailwind CSS CDN --}}
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     {{-- Midtrans Snap.js Client Library --}}
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
+    
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        'pitch':    '#0B0D10',
-                        'carbon':   '#15181D',
-                        'carbon-2': '#1D2127',
-                        'carbon-3': '#262B34',
-                        'steel':    'rgba(255,255,255,0.08)',
-                        'steel-2':  'rgba(255,255,255,0.16)',
-                        'rgr':      '#C8FF2E',
-                        'rgr-2':    '#F5A623',
-                        'rgr-dark': '#A4D21E',
-                        'pure':     '#FFFFFF',
-                        'muted':    '#9CA3AF',
-                        'faint':    '#546063',
+                        bg:             '#111315',
+                        surface:        '#171B20',
+                        card:           '#20252C',
+                        hover:          '#282E37',
+                        border:         'rgba(255,255,255,0.06)',
+                        'border-bright':'rgba(255,255,255,0.12)',
+                        primary:        '#B8E637',
+                        'primary-hover':'#C7F157',
+                        secondary:      '#F4B63D',
+                        heading:        '#F8FAFC',
+                        body:           '#D2D6DC',
+                        muted:          '#8C96A3',
+                        danger:         '#E5484D',
+                        success:        '#38C172',
+                        // Legacy Aliases
+                        pitch:          '#111315',
+                        carbon:         '#171B20',
+                        'carbon-2':     '#20252C',
+                        'carbon-3':     '#282E37',
+                        rgr:            '#B8E637',
+                        'rgr-2':        '#F4B63D',
+                        'rgr-dark':     '#96B81C',
+                        pure:           '#F8FAFC',
+                        faint:          '#546063',
                     },
                     fontFamily: {
                         'display': ['Albert Sans', 'sans-serif'],
                         'body':    ['Sora', 'sans-serif'],
                         'ui':      ['Albert Sans', 'sans-serif'],
+                        'mono':    ['JetBrains Mono', 'monospace'],
                     },
                     boxShadow: {
-                        'rgr-glow':    '0 0 20px rgba(200,255,46,0.18), 0 0 60px rgba(200,255,46,0.06)',
-                        'rgr-glow-lg': '0 0 40px rgba(200,255,46,0.25), 0 0 100px rgba(200,255,46,0.1)',
-                        'card':        '0 20px 60px rgba(0,0,0,0.05)',
-                        'card-hover':  '0 30px 80px rgba(0,0,0,0.08), 0 0 40px rgba(200,255,46,0.05)',
+                        'rgr-glow':    '0 0 20px rgba(184,230,55,0.2), 0 0 60px rgba(184,230,55,0.08)',
+                        'rgr-glow-lg': '0 0 40px rgba(184,230,55,0.3), 0 0 100px rgba(184,230,55,0.12)',
+                        'card':        '0 20px 60px rgba(0,0,0,0.5)',
+                        'card-hover':  '0 30px 80px rgba(0,0,0,0.8), 0 0 40px rgba(184,230,55,0.1)',
                     },
                 },
             },
@@ -83,49 +101,362 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        /* ── Global ──────────────────────────────────────────────── */
-        /* CSS Custom Properties --- Nav Stack Height */
+        /* ══════════════════════════════════════════════════════════
+           PREMIUM MOTORSPORT DESIGN SYSTEM — MOBIL 1 TEAM RG
+           ══════════════════════════════════════════════════════════ */
         :root {
+            --bg: #111315;
+            --surface: #171B20;
+            --card: #20252C;
+            --hover: #282E37;
+            --border: rgba(255,255,255,0.06);
+            --primary: #B8E637;
+            --primary-hover: #C7F157;
+            --secondary: #F4B63D;
+            --heading: #F8FAFC;
+            --body: #D2D6DC;
+            --muted: #8C96A3;
+            --danger: #E5484D;
+            --success: #38C172;
+
             --topbar-h: 32px;
             --navbar-h: 68px;
             --nav-total: 100px;
         }
-        .nav-offset { padding-top: var(--nav-total) !important; }
-        .nav-offset-mt { margin-top: var(--nav-total) !important; }
 
         *, *::before, *::after { box-sizing: border-box; }
-        html { font-size: 16px; }
+        html { font-size: 16px; background-color: #111315; color: #D2D6DC; }
         body {
-            background: #0B0D10;
-            color: #FFFEFE;
+            background-color: #111315;
+            color: #D2D6DC;
             font-family: 'Sora', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Prevent white flash / white card defaults */
+        div, section, article, header, footer, nav, main, aside, form, input, select, textarea, button {
+            border-color: rgba(255,255,255,0.06);
         }
 
         /* ── Scrollbar ───────────────────────────────────────────── */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #0B0D10; }
-        ::-webkit-scrollbar-thumb { background: #C8FF2E; border-radius: 2px; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #111315; }
+        ::-webkit-scrollbar-thumb { background: #B8E637; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C7F157; }
 
-        /* ══════════════════════════════════════════════════════════
-           NAVBAR — Mega-Dropdown Premium System
-           ══════════════════════════════════════════════════════════ */
+        /* ── Typography & Hierarchy ──────────────────────────────── */
+        .text-heading { color: #F8FAFC; }
+        .text-body { color: #D2D6DC; }
+        .text-muted { color: #8C96A3; }
+        .text-primary { color: #B8E637; }
+        .text-secondary { color: #F4B63D; }
 
-        /* ── Topbar ───────────────────────────────────────────────── */
+        .font-display { font-family: 'Albert Sans', sans-serif; }
+        .font-body { font-family: 'Sora', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        .display-title {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: #F8FAFC;
+            text-transform: uppercase;
+        }
+
+        .section-eyebrow {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #B8E637;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #B8E637;
+            flex-shrink: 0;
+        }
+
+        .section-title-std {
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #F8FAFC;
+        }
+
+        .section-subtitle {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #8C96A3;
+        }
+
+        /* ── Cards & Panels ──────────────────────────────────────── */
+        .m1-card {
+            background-color: #171B20;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .m1-card-elevated {
+            background-color: #20252C;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .m1-card:hover, .m1-card-elevated:hover {
+            border-color: rgba(184,230,55,0.3);
+            background-color: #282E37;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(184,230,55,0.08);
+            transform: translateY(-3px);
+        }
+
+        .m1-glass {
+            background: rgba(23, 27, 32, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .card-rgr {
+            background-color: #171B20;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .card-rgr:hover {
+            background-color: #20252C;
+            border-color: rgba(184,230,55,0.25);
+            transform: translateY(-3px);
+        }
+
+        /* ── Buttons ─────────────────────────────────────────────── */
+        .btn-m1-primary, .btn-primary-rgr, .btn-rgr {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1.75rem;
+            background: #B8E637;
+            color: #111315;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid #B8E637;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(184,230,55,0.2);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .btn-m1-primary:hover, .btn-primary-rgr:hover, .btn-rgr:hover {
+            background: #C7F157;
+            border-color: #C7F157;
+            color: #111315;
+            box-shadow: 0 8px 30px rgba(184,230,55,0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-m1-secondary, .btn-secondary-rgr {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1.75rem;
+            background: #20252C;
+            color: #F8FAFC;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .btn-m1-secondary:hover, .btn-secondary-rgr:hover {
+            background: #282E37;
+            border-color: rgba(184,230,55,0.4);
+            color: #B8E637;
+            transform: translateY(-1px);
+        }
+
+        .btn-m1-ghost, .btn-rgr-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            color: #B8E637;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(184,230,55,0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .btn-m1-ghost:hover, .btn-rgr-ghost:hover {
+            background: rgba(184,230,55,0.08);
+            border-color: #B8E637;
+            color: #C7F157;
+            box-shadow: 0 0 20px rgba(184,230,55,0.15);
+        }
+
+        .btn-m1-danger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1.75rem;
+            background: #E5484D;
+            color: #F8FAFC;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .btn-m1-danger:hover {
+            background: #f05257;
+            box-shadow: 0 4px 20px rgba(229,72,77,0.3);
+            transform: translateY(-1px);
+        }
+
+        /* ── Form Controls & Inputs ──────────────────────────────── */
+        .m1-input, .m1-select, .m1-textarea {
+            width: 100%;
+            background-color: #171B20;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: #F8FAFC;
+            font-family: 'Sora', sans-serif;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+        .m1-input::placeholder, .m1-textarea::placeholder {
+            color: #8C96A3;
+        }
+        .m1-input:focus, .m1-select:focus, .m1-textarea:focus {
+            outline: none;
+            border-color: #B8E637;
+            background-color: #20252C;
+            box-shadow: 0 0 0 3px rgba(184,230,55,0.15);
+        }
+        .m1-select option {
+            background-color: #171B20;
+            color: #F8FAFC;
+        }
+
+        /* ── Badges & Chips ──────────────────────────────────────── */
+        .m1-badge, .badge-rgr {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(184,230,55,0.12);
+            color: #B8E637;
+            border: 1px solid rgba(184,230,55,0.25);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .m1-badge-gold, .badge-rgr-orange {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(244,182,61,0.12);
+            color: #F4B63D;
+            border: 1px solid rgba(244,182,61,0.25);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .m1-badge-muted, .badge-rgr-neutral {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.05);
+            color: #8C96A3;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .m1-badge-danger {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(229,72,77,0.12);
+            color: #E5484D;
+            border: 1px solid rgba(229,72,77,0.25);
+            border-radius: 6px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ── Topbar & Nav ────────────────────────────────────────── */
         .rgr-topbar {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1001;
             height: 32px;
-            background: #111827;
-            border-bottom: 1px solid rgba(200,255,46,0.15);
+            background: #171B20;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             transition: transform 0.4s ease, opacity 0.4s ease;
         }
-        .rgr-topbar.hidden-topbar {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
+        .rgr-topbar.hidden-topbar { transform: translateY(-100%); opacity: 0; }
         .topbar-inner {
             max-width: 1280px;
             margin: 0 auto;
@@ -139,11 +470,11 @@
             font-family: 'Albert Sans', sans-serif;
             font-size: 0.68rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.45);
+            color: #8C96A3;
         }
-        .topbar-text span { color: rgba(255,255,255,0.75); }
+        .topbar-text span { color: #D2D6DC; }
         .topbar-live {
             display: flex;
             align-items: center;
@@ -153,11 +484,11 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #C8FF2E;
+            color: #B8E637;
         }
         .topbar-live-dot {
             width: 6px; height: 6px;
-            background: #C8FF2E;
+            background: #B8E637;
             border-radius: 50%;
             animation: pulse-dot 1.5s ease-in-out infinite;
         }
@@ -165,56 +496,46 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.4; transform: scale(0.7); }
         }
-        .topbar-social {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .topbar-social { display: flex; align-items: center; gap: 0.75rem; }
         .topbar-social a {
             font-family: 'Albert Sans', sans-serif;
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.15em;
-            color: rgba(255,255,255,0.4);
+            color: #8C96A3;
             text-transform: uppercase;
             transition: color 0.2s;
         }
-        .topbar-social a:hover { color: #C8FF2E; }
-        .topbar-divider {
-            width: 1px; height: 12px;
-            background: rgba(255,255,255,0.1);
-        }
+        .topbar-social a:hover { color: #B8E637; }
+        .topbar-divider { width: 1px; height: 12px; background: rgba(255,255,255,0.08); }
 
-        /* ── Navbar ──────────────────────────────────────────────── */
+        /* ── Navbar Container ────────────────────────────────────── */
         .rgr-nav {
             position: fixed;
             top: 32px; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(244,246,249,0.0);
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
-            border-bottom: 1px solid transparent;
-            transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, top 0.4s ease;
+            background: rgba(17,19,21,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.4s ease, border-color 0.4s ease, top 0.4s ease;
         }
         .rgr-nav.topbar-gone { top: 0; }
         .rgr-nav::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #009B3A 0% 33.3%, #FEDF00 33.3% 66.6%, #C8FF2E 66.6% 100%);
-            opacity: 0.7;
+            height: 2px;
+            background: linear-gradient(90deg, #B8E637 0%, #F4B63D 50%, #B8E637 100%);
+            opacity: 0.8;
             z-index: 1;
         }
         .rgr-nav.scrolled {
-            background: rgba(11,13,16,0.95);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom-color: rgba(200,255,46,0.15);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            background: rgba(17,19,21,0.96);
+            border-bottom-color: rgba(184,230,55,0.15);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
         }
 
-        /* ── Nav Link ─────────────────────────────────────────────── */
         .nav-link {
             position: relative;
             font-family: 'Albert Sans', sans-serif;
@@ -222,7 +543,7 @@
             font-size: 0.76rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 254, 254, 0.68) !important;
+            color: #D2D6DC !important;
             transition: color 0.25s ease;
             padding: 0.2rem 0;
             display: inline-flex;
@@ -235,42 +556,26 @@
             position: absolute;
             bottom: -2px; left: 0;
             width: 0; height: 2px;
-            background: #C8FF2E;
-            transition: width 0.3s cubic-bezier(0.23,1,0.32,1);
+            background: #B8E637;
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .nav-link:hover,
-        .nav-link.active {
-            color: #C8FF2E !important;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        .nav-link .nav-chevron {
-            width: 10px; height: 10px;
-            transition: transform 0.25s ease;
-            opacity: 0.45;
-            flex-shrink: 0;
-        }
-        .mega-parent:hover .nav-chevron,
-        .mega-parent.mega-open .nav-chevron { transform: rotate(180deg); opacity: 1; }
+        .nav-link:hover, .nav-link.active { color: #B8E637 !important; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link .nav-chevron { width: 10px; height: 10px; transition: transform 0.25s ease; opacity: 0.5; }
+        .mega-parent:hover .nav-chevron { transform: rotate(180deg); opacity: 1; }
 
-        /* ══ MEGA DROPDOWN SYSTEM ═════════════════════════════════ */
+        /* Mega Panel */
         .mega-parent { position: static; }
-
         .mega-panel {
             position: fixed;
             left: 0; right: 0;
-            background: #15181D;
-            border-top: 2px solid rgba(200,255,46,0.25);
-            border-bottom: 1px solid rgba(200,255,46,0.08);
-            box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.2);
-            opacity: 0;
-            visibility: hidden;
+            background: #171B20;
+            border-top: 2px solid rgba(184,230,55,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+            opacity: 0; visibility: hidden;
             transform: translateY(-6px);
-            transition: opacity 0.25s cubic-bezier(0.23,1,0.32,1),
-                        transform 0.25s cubic-bezier(0.23,1,0.32,1),
-                        visibility 0.25s;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
             z-index: 998;
             pointer-events: none;
         }
@@ -278,21 +583,17 @@
             opacity: 1; visibility: visible;
             transform: translateY(0); pointer-events: auto;
         }
-        .mega-panel-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1.75rem 1.5rem 2rem;
-        }
+        .mega-panel-inner { max-width: 1280px; margin: 0 auto; padding: 1.75rem 1.5rem 2rem; }
         .mega-col-header {
             font-family: 'Albert Sans', sans-serif;
-            font-size: 0.58rem;
+            font-size: 0.6rem;
             font-weight: 800;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #C8FF2E;
+            color: #B8E637;
             margin-bottom: 0.75rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(200,255,46,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             display: flex; align-items: center; gap: 0.4rem;
         }
         .mega-item {
@@ -300,125 +601,94 @@
             padding: 0.5rem 0.65rem;
             font-family: 'Albert Sans', sans-serif;
             font-size: 0.8rem; font-weight: 600;
-            letter-spacing: 0.06em; color: #374151;
+            letter-spacing: 0.06em; color: #D2D6DC;
             text-transform: uppercase;
             transition: all 0.18s ease;
             border-left: 2px solid transparent;
+            border-radius: 0 6px 6px 0;
         }
         .mega-item:hover {
-            color: #FFFEFE; background: rgba(200,255,46,0.035);
-            border-left-color: #C8FF2E; padding-left: 0.9rem;
+            color: #F8FAFC; background: #20252C;
+            border-left-color: #B8E637; padding-left: 0.9rem;
         }
         .mega-item-icon {
             width: 26px; height: 26px;
-            background: rgba(200,255,46,0.05); border: 1px solid rgba(200,255,46,0.1);
+            background: rgba(184,230,55,0.08); border: 1px solid rgba(184,230,55,0.15);
             display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
+            flex-shrink: 0; border-radius: 4px;
             font-size: 0.6rem; font-family: 'Albert Sans', sans-serif; font-weight: 800;
-            color: #C8FF2E;
-            transition: background 0.18s;
+            color: #B8E637;
         }
-        .mega-item:hover .mega-item-icon { background: rgba(200,255,46,0.09); }
         .mega-item-label { flex: 1; }
         .mega-item-sub {
-            font-size: 0.64rem; color: #9CA3AF; font-weight: 500;
+            font-size: 0.64rem; color: #8C96A3; font-weight: 500;
             letter-spacing: 0.03em; text-transform: none;
-            display: block; line-height: 1.2;
-            font-family: 'Sora', sans-serif;
+            display: block; line-height: 1.2; font-family: 'Sora', sans-serif;
         }
-        .mega-divider {
-            width: 1px; background: rgba(0,0,0,0.06); align-self: stretch;
-        }
+        .mega-divider { width: 1px; background: rgba(255,255,255,0.06); align-self: stretch; }
         .mega-featured-card {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            border: 1px solid rgba(200,255,46,0.18);
+            background: #20252C;
+            border: 1px solid rgba(184,230,55,0.2);
+            border-radius: 10px;
             padding: 1.25rem; position: relative; overflow: hidden;
-        }
-        .mega-featured-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, #C8FF2E, #FF6B8A);
         }
         .mega-featured-badge {
             display: inline-flex; align-items: center; gap: 0.3rem;
             font-family: 'Albert Sans', sans-serif; font-size: 0.58rem; font-weight: 700;
-            letter-spacing: 0.2em; text-transform: uppercase; color: #C8FF2E;
-            background: rgba(200,255,46,0.08); border: 1px solid rgba(200,255,46,0.2);
-            padding: 0.18rem 0.5rem; margin-bottom: 0.65rem; display: block;
+            letter-spacing: 0.2em; text-transform: uppercase; color: #B8E637;
+            background: rgba(184,230,55,0.08); border: 1px solid rgba(184,230,55,0.2);
+            padding: 0.18rem 0.5rem; margin-bottom: 0.65rem; border-radius: 4px;
         }
         .mega-featured-title {
-            font-family: 'Albert Sans', sans-serif; font-size: 0.82rem; font-weight: 800;
-            color: #FFFFFF; letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 0.35rem;
+            font-family: 'Albert Sans', sans-serif; font-size: 0.85rem; font-weight: 800;
+            color: #F8FAFC; letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 0.35rem;
         }
         .mega-featured-sub {
-            font-family: 'Sora', sans-serif; font-size: 0.7rem;
-            color: rgba(255,255,255,0.45); line-height: 1.5;
+            font-family: 'Sora', sans-serif; font-size: 0.7rem; color: #8C96A3; line-height: 1.5;
         }
         .mega-featured-link {
             display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.9rem;
             font-family: 'Albert Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.15em; text-transform: uppercase; color: #C8FF2E;
+            letter-spacing: 0.15em; text-transform: uppercase; color: #B8E637;
             transition: gap 0.2s;
         }
         .mega-featured-link:hover { gap: 0.65rem; }
 
-        /* ── Auth Dropdown (small) ──────────────────────────────── */
+        /* Auth Dropdown */
         .dropdown-parent { position: relative; }
         .dropdown-menu-list {
-            position: absolute; top: calc(100% + 10px); right: 0; left: auto;
-            width: 200px; background: #15181D;
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-            padding: 0.4rem 0; opacity: 0; visibility: hidden;
-            transition: all 0.22s cubic-bezier(0.23,1,0.32,1);
-            z-index: 1200; transform: translateY(6px);
+            position: absolute; top: calc(100% + 10px); right: 0;
+            width: 220px; background: #171B20;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+            padding: 0.5rem 0; opacity: 0; visibility: hidden;
+            transition: all 0.22s ease; z-index: 1200; transform: translateY(6px);
         }
-        .dropdown-parent:hover .dropdown-menu-list {
-            opacity: 1; visibility: visible; transform: translateY(0);
-        }
+        .dropdown-parent:hover .dropdown-menu-list { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-item {
-            display: block; padding: 0.55rem 1.1rem;
+            display: block; padding: 0.6rem 1.1rem;
             font-family: 'Albert Sans', sans-serif; font-size: 0.76rem; font-weight: 600;
-            letter-spacing: 0.06em; text-transform: uppercase; color: #4B5563;
+            letter-spacing: 0.06em; text-transform: uppercase; color: #D2D6DC;
             transition: all 0.18s ease; border-left: 2px solid transparent;
         }
-        .dropdown-item:hover {
-            color: #FFFEFE; background: rgba(200,255,46,0.04);
-            border-left-color: #C8FF2E; padding-left: 1.35rem;
-        }
-        .dropdown-section-title {
-            padding: 0.18rem 1.1rem; font-family: 'Albert Sans', sans-serif;
-            font-size: 0.56rem; font-weight: 700; letter-spacing: 0.15em;
-            color: #C8FF2E; text-transform: uppercase; margin-bottom: 0.2rem;
-        }
+        .dropdown-item:hover { color: #F8FAFC; background: #20252C; border-left-color: #B8E637; }
 
-        /* ── Logo ────────────────────────────────────────────────── */
+        /* Logo */
         .rgr-logo {
             font-family: 'Albert Sans', sans-serif;
             font-weight: 900;
             letter-spacing: 0.08em;
-            background: linear-gradient(
-                120deg,
-                #C8FF2E 20%,
-                #FF9EAF 40%,
-                #111827 50%,
-                #FF9EAF 60%,
-                #C8FF2E 80%
-            );
+            background: linear-gradient(120deg, #B8E637 20%, #F8FAFC 50%, #B8E637 80%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: textShiny 5s linear infinite;
-            filter: drop-shadow(0 0 6px rgba(200,255,46,0.3));
         }
+        @keyframes textShiny { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
-        /* ── reactbits.dev Shiny Text Keyframes ───────────────────── */
-        @keyframes textShiny {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        /* ── reactbits.dev Cyber Grid Background overlay ──────────── */
+        /* Grid Background Overlay */
         .grid-bg {
             position: relative;
         }
@@ -426,413 +696,77 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(to right, rgba(196, 229, 56, 0.04) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(196, 229, 56, 0.04) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255,255,255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
             z-index: 1;
         }
 
-        /* ── CTA Button ──────────────────────────────────────────── */
-        .btn-rgr {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.6rem;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            background: #C8FF2E;
-            border: 1px solid #C8FF2E;
-            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-            overflow: hidden;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .btn-rgr::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.45s ease;
-        }
-        .btn-rgr:hover { box-shadow: 0 0 30px rgba(200,255,46,0.4), 0 0 70px rgba(200,255,46,0.15); }
-        .btn-rgr:hover::before { transform: translateX(100%); }
-
-        .btn-rgr-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.6rem;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #C8FF2E;
-            background: transparent;
-            border: 1px solid rgba(200,255,46,0.35);
-            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .btn-rgr-ghost:hover {
-            border-color: #C8FF2E;
-            background: rgba(200,255,46,0.06);
-            box-shadow: 0 0 20px rgba(200,255,46,0.15);
-            color: #C8FF2E;
-        }
-
-        /* ── Section Helpers ─────────────────────────────────────── */
-        .section-label {
-            font-family: 'Albert Sans', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: #C8FF2E;
-        }
-        .section-title {
-            font-family: 'Albert Sans', sans-serif;
-            border: 1px solid rgba(200,255,46,0.08);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.45s cubic-bezier(0.23,1,0.32,1);
-        }
-        .rgr-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #C8FF2E, transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        .rgr-card:hover { border-color: rgba(200,255,46,0.22); box-shadow: 0 25px 70px rgba(0,0,0,0.06), 0 0 40px rgba(200,255,46,0.05); transform: translateY(-4px); }
-        .rgr-card:hover::before { opacity: 1; }
-
-        /* ── Grid Background ─────────────────────────────────────── */
-        .grid-bg {
-            background-image:
-                linear-gradient(rgba(200,255,46,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(200,255,46,0.02) 1px, transparent 1px);
-            background-size: 65px 65px;
-        }
-
-        /* ── Reveal Animation ────────────────────────────────────── */
-        [data-reveal] {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        [data-reveal].visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── Sponsor Tiers ───────────────────────────────────────── */
+        /* Sponsor Logo Box */
         .sponsor-logo-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(200,255,46,0.08);
-            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.06);
+            background: #171B20;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            cursor: default;
         }
         .sponsor-logo-box:hover {
-            border-color: rgba(200,255,46,0.22);
-            background: rgba(200,255,46,0.04);
+            border-color: rgba(184,230,55,0.3);
+            background: #20252C;
         }
-        .sponsor-logo-title { padding: 1.5rem 2.5rem; }
-        .sponsor-logo-technical { padding: 1rem 1.8rem; }
-        .sponsor-logo-supplier { padding: 0.75rem 1.25rem; }
+        .sponsor-logo-title { padding: 1.25rem 2rem; }
+        .sponsor-logo-technical { padding: 0.85rem 1.5rem; }
+        .sponsor-logo-supplier { padding: 0.6rem 1.1rem; }
 
-        /* ── Hamburger ───────────────────────────────────────────── */
-        .hline { display: block; width: 22px; height: 1.5px; background: #C8FF2E; transition: all 0.3s ease; }
+        .hline { display: block; width: 22px; height: 2px; background: #B8E637; transition: all 0.3s ease; }
 
-        /* ── Footer ──────────────────────────────────────────────── */
-        .rgr-footer { background: #E9ECEF; border-top: 1px solid rgba(200,255,46,0.08); }
+        /* Footer */
+        .rgr-footer { background: #171B20; border-top: 1px solid rgba(255,255,255,0.06); }
 
-        #mob-menu {
-            position: fixed !important;
-            inset: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            z-index: 9999 !important;
+        /* Reveal Animation */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        [data-reveal].visible { opacity: 1; transform: translateY(0); }
 
-        /* Infinite Sponsor Ticker animation */
-        @keyframes ticker-anim {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        /* Ticker Animation */
+        @keyframes ticker-anim { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .sponsor-ticker-container {
-            overflow: hidden;
-            width: 100%;
-            display: flex;
+            overflow: hidden; width: 100%; display: flex;
             mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
         }
-        .sponsor-ticker-wrapper {
-            display: flex;
-            white-space: nowrap;
-            animation: ticker-anim 25s linear infinite;
-        }
+        .sponsor-ticker-wrapper { display: flex; white-space: nowrap; animation: ticker-anim 25s linear infinite; }
         .sponsor-ticker-item {
-            padding: 0 1.75rem;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.72rem;
-            letter-spacing: 0.2em;
-            color: rgba(255, 254, 254, 0.35) !important;
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-        /* ══ STANDARDIZED COMPONENT SYSTEM ══════════════════════════ */
-        /* Buttons */
-        .btn-primary-rgr {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 2rem;
-            background: #C8FF2E;
-            color: #0B0D10;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-primary-rgr:hover {
-            background: #ffffff;
-            color: #0B0D10;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(200, 255, 46, 0.3);
-        }
-        .btn-primary-rgr:focus-visible {
-            outline: 2px solid #C8FF2E;
-            outline-offset: 3px;
-        }
-        .btn-secondary-rgr {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 2rem;
-            background: transparent;
-            color: #C8FF2E;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: 1.5px solid rgba(200, 255, 46, 0.4);
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .btn-secondary-rgr:hover {
-            border-color: #C8FF2E;
-            background: rgba(200, 255, 46, 0.08);
-            transform: translateY(-1px);
-        }
-        .btn-secondary-rgr:focus-visible {
-            outline: 2px solid #C8FF2E;
-            outline-offset: 3px;
+            padding: 0 1.75rem; font-family: 'Albert Sans', sans-serif; font-weight: 700;
+            font-size: 0.72rem; letter-spacing: 0.2em; color: #8C96A3; text-transform: uppercase; flex-shrink: 0;
         }
 
-        /* Cards */
-        .card-rgr {
-            background: #15181D;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        /* Focus & Accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 2px solid #B8E637;
+            outline-offset: 2px;
         }
-        .card-rgr:hover {
-            border-color: rgba(200, 255, 46, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 40px rgba(200, 255, 46, 0.06);
-        }
-        .card-rgr-glass {
-            background: rgba(21, 24, 29, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .card-rgr-glass:hover {
-            border-color: rgba(200, 255, 46, 0.2);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-        }
-
-        /* Badges */
-        .badge-rgr {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            background: rgba(200, 255, 46, 0.12);
-            color: #C8FF2E;
-            border: 1px solid rgba(200, 255, 46, 0.25);
-            border-radius: 6px;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .badge-rgr-orange {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            background: rgba(245, 166, 35, 0.12);
-            color: #F5A623;
-            border: 1px solid rgba(245, 166, 35, 0.25);
-            border-radius: 6px;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .badge-rgr-neutral {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            background: rgba(255,255,255,0.06);
-            color: #9CA3AF;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 6px;
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* Section Headings */
-        .section-eyebrow {
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 800;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #C8FF2E;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .section-eyebrow::before {
-            content: '';
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: #C8FF2E;
-            flex-shrink: 0;
-        }
-        .section-title-std {
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 900;
-            font-size: clamp(1.8rem, 3vw, 2.8rem);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: #FFFFFF;
-            margin-bottom: 1rem;
-        }
-        .section-subtitle {
-            font-family: 'Sora', sans-serif;
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #9CA3AF;
-            max-width: 580px;
-        }
-
-        /* Empty State */
-        .empty-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 2rem;
-            text-align: center;
-            border: 1px dashed rgba(255,255,255,0.12);
-            border-radius: 16px;
-            color: #9CA3AF;
-        }
-        .empty-state svg {
-            margin-bottom: 1rem;
-            opacity: 0.4;
-        }
-        .empty-state h4 {
-            font-family: 'Albert Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #FFFFFF;
-            margin-bottom: 0.5rem;
-        }
-        .empty-state p {
-            font-family: 'Sora', sans-serif;
-            font-size: 0.9rem;
-            color: #9CA3AF;
-        }
-
-        /* Focus Visibility (Accessibility) */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid #C8FF2E;
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* Skip Navigation (Accessibility) */
         .skip-nav {
-            position: absolute;
-            top: -100px;
-            left: 1rem;
-            z-index: 10000;
-            background: #C8FF2E;
-            color: #0B0D10;
-            font-weight: 800;
-            font-size: 0.85rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: top 0.2s;
+            position: absolute; top: -100px; left: 1rem; z-index: 10000;
+            background: #B8E637; color: #111315; font-weight: 800; font-size: 0.85rem;
+            padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; transition: top 0.2s;
         }
-        .skip-nav:focus {
-            top: 1rem;
-        }
+        .skip-nav:focus { top: 1rem; }
     </style>
 
     @stack('styles')
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-[#111315] text-[#D2D6DC]">
 <a href="#main-content" class="skip-nav">Lewati ke konten utama</a>
 
-
-
-{{-- ═══════════════════════════════ TOPBAR ════════════════════════════════ --}}
+{{-- TOPBAR --}}
 <div class="rgr-topbar" id="rgr-topbar">
     <div class="topbar-inner">
         <div class="topbar-text hidden sm:flex items-center gap-3">
@@ -853,15 +787,15 @@
             <a href="#" aria-label="YouTube">YT</a>
             <span class="topbar-divider"></span>
             @auth
-                <a href="{{ route('fan.dashboard') }}" style="color:rgba(200,255,46,0.9);">Fan Zone</a>
+                <a href="{{ route('fan.dashboard') }}" class="text-primary font-bold">Fan Zone</a>
             @else
-                <a href="{{ route('fan.login') }}" style="color:rgba(200,255,46,0.9);">Fan Login</a>
+                <a href="{{ route('fan.login') }}" class="text-primary font-bold">Fan Login</a>
             @endauth
         </div>
     </div>
 </div>
 
-{{-- ═══════════════════════════════ NAVBAR ════════════════════════════════ --}}
+{{-- NAVBAR --}}
 <nav class="rgr-nav" id="rgr-nav" role="navigation" aria-label="Navigasi Utama"
      x-data="{ 
          mobileMenuOpen: false, 
@@ -880,18 +814,16 @@
      }"
      @keydown.escape.window="mobileMenuOpen = false; activePanel = null">
 
-    {{-- Main row --}}
     <div class="max-w-[1280px] mx-auto px-6 h-[64px] xl:h-[68px] flex items-center justify-between mega-nav-row" id="nav-main-row">
 
         {{-- Logo --}}
         <a href="{{ route('home') }}" id="nav-logo" class="flex items-center gap-3 group flex-shrink-0">
-            <div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
-                 style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(200,255,46,0.1); border:1.5px solid rgba(200,255,46,0.35);">
-                <span class="font-display font-black text-rgr" style="font-size:0.5rem;letter-spacing:0.04em;">M1TRG</span>
+            <div class="relative w-9 h-9 flex items-center justify-center flex-shrink-0 rounded-lg bg-[#20252C] border border-[#B8E637]/30 group-hover:border-[#B8E637] transition-all">
+                <span class="font-display font-black text-[#B8E637]" style="font-size:0.55rem;letter-spacing:0.04em;">M1TRG</span>
             </div>
             <div class="flex flex-col leading-none">
                 <span class="rgr-logo text-sm xl:text-base uppercase font-display font-black tracking-wider whitespace-nowrap">Mobil 1 Team RG</span>
-                <span class="font-ui text-[0.54rem] text-muted tracking-[0.18em] uppercase mt-0.5 hidden xl:block">Official Motorsport</span>
+                <span class="font-ui text-[0.54rem] text-[#8C96A3] tracking-[0.18em] uppercase mt-0.5 hidden xl:block">Official Motorsport Enterprise</span>
             </div>
         </a>
 
@@ -943,32 +875,29 @@
                id="nav-shop">Shop</a>
         </div>
 
-        {{-- Right: CTA + Hamburger --}}
+        {{-- Right CTA --}}
         <div class="flex items-center gap-3 flex-shrink-0">
             @auth
                 <div class="dropdown-parent hidden xl:inline-flex">
-                    <button class="btn-rgr flex items-center gap-1.5 focus:outline-none text-xs"
-                            style="background:#96B81C;border-color:#96B81C;border-radius:0;padding:0.45rem 1rem;">
-                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
-                        {{ Auth::user()->name }}
-                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                    <button class="btn-m1-primary text-xs py-2 px-3 flex items-center gap-1.5 max-w-[210px] truncate" style="border-radius:6px !important;">
+                        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+                        <span class="truncate block max-w-[120px]">{{ Auth::user()->name }}</span>
+                        <svg class="w-2.5 h-2.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div class="dropdown-menu-list">
-                        <a href="{{ route('fan.dashboard') }}" class="dropdown-item">Dasbor Fan Zone</a>
+                        <a href="{{ route('fan.dashboard') }}" class="dropdown-item">Fan Portal Dashboard</a>
                         <a href="{{ route('dashboard') }}" class="dropdown-item">VIP Paddock Club</a>
-                        <div class="h-px bg-gray-100 my-1"></div>
+                        <div class="h-px bg-white/10 my-1"></div>
                         <form action="{{ route('fan.logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="dropdown-item w-full text-left" style="color:#C8FF2E;">Keluar</button>
+                            <button type="submit" class="dropdown-item w-full text-left text-danger">Keluar</button>
                         </form>
                     </div>
                 </div>
             @else
                 <a href="{{ route('fan.login') }}"
-                   class="hidden xl:inline-flex items-center btn-rgr text-xs gap-1.5"
-                   id="nav-cta"
-                   style="border-radius:0;padding:0.45rem 1.1rem;letter-spacing:0.1em;">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                   class="hidden xl:inline-flex items-center btn-m1-primary text-xs py-2 px-4 gap-2">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                     Fan Portal
                 </a>
             @endauth
@@ -978,68 +907,64 @@
                     @click="mobileMenuOpen = !mobileMenuOpen"
                     aria-label="Buka menu"
                     :aria-expanded="mobileMenuOpen ? 'true' : 'false'">
-                <span class="hline" :style="mobileMenuOpen ? 'transform:translateY(6.5px) rotate(45deg)' : ''"></span>
+                <span class="hline" :style="mobileMenuOpen ? 'transform:translateY(7px) rotate(45deg)' : ''"></span>
                 <span class="hline" :style="mobileMenuOpen ? 'opacity:0;transform:scaleX(0)' : ''"></span>
-                <span class="hline" :style="mobileMenuOpen ? 'transform:translateY(-6.5px) rotate(-45deg)' : ''"></span>
+                <span class="hline" :style="mobileMenuOpen ? 'transform:translateY(-7px) rotate(-45deg)' : ''"></span>
             </button>
         </div>
     </div>
 
-    {{-- ═══ MEGA PANELS ═══ --}}
-
-    {{-- Racing Programs Panel —— 3 Columns --}}
+    {{-- MEGA PANELS --}}
     <div class="mega-panel" id="panel-racing"
          :class="{ 'mega-active': activePanel === 'racing' }"
          @mouseenter="openPanel('racing')" @mouseleave="closePanel()">
         <div class="mega-panel-inner">
             <div class="flex gap-8">
-                {{-- Col 1: Formula --}}
                 <div class="flex-1 min-w-0">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                         Formula &amp; Open-Wheel
                     </p>
                     <a href="{{ route('f1.division') }}" class="mega-item">
                         <span class="mega-item-icon">F1</span>
-                        <span class="mega-item-label">Formula 1<span class="mega-item-sub">FIA World Championship · Constructor</span></span>
+                        <span class="mega-item-label">Formula 1<span class="mega-item-sub">FIA World Championship &middot; Constructor</span></span>
                     </a>
                     <a href="{{ route('indycar') }}" class="mega-item">
                         <span class="mega-item-icon">IC</span>
-                        <span class="mega-item-label">NTT IndyCar Series<span class="mega-item-sub">Oval &amp; Road Course · North America</span></span>
+                        <span class="mega-item-label">NTT IndyCar Series<span class="mega-item-sub">Oval &amp; Road Course &middot; North America</span></span>
                     </a>
                     <a href="{{ route('fe') }}" class="mega-item">
                         <span class="mega-item-icon">FE</span>
-                        <span class="mega-item-label">FIA Formula E<span class="mega-item-sub">Electric Single-Seater · Street Circuits</span></span>
+                        <span class="mega-item-label">FIA Formula E<span class="mega-item-sub">Electric Single-Seater &middot; Street Circuits</span></span>
                     </a>
                 </div>
 
                 <div class="mega-divider"></div>
 
-                {{-- Col 2: Endurance & GT --}}
                 <div class="flex-1 min-w-0">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         Endurance &amp; GT
                     </p>
                     <a href="{{ route('endurance.show', '24h-le-mans') }}" class="mega-item">
                         <span class="mega-item-icon">LM</span>
-                        <span class="mega-item-label">Le Mans 24 Jam<span class="mega-item-sub">FIA WEC Hypercar · La Sarthe</span></span>
+                        <span class="mega-item-label">Le Mans 24 Jam<span class="mega-item-sub">FIA WEC Hypercar &middot; La Sarthe</span></span>
                     </a>
                     <a href="{{ route('endurance.show', 'imsa-6h-the-glen') }}" class="mega-item">
                         <span class="mega-item-icon">IM</span>
-                        <span class="mega-item-label">IMSA 6H The Glen<span class="mega-item-sub">GTD Pro · Watkins Glen</span></span>
+                        <span class="mega-item-label">IMSA 6H The Glen<span class="mega-item-sub">GTD Pro &middot; Watkins Glen</span></span>
                     </a>
                     <a href="{{ route('endurance.show', '24h-nurburgring') }}" class="mega-item">
                         <span class="mega-item-icon">NR</span>
-                        <span class="mega-item-label">Nürburgring 24 Jam<span class="mega-item-sub">Nordschleife · 25.378 km</span></span>
+                        <span class="mega-item-label">Nürburgring 24 Jam<span class="mega-item-sub">Nordschleife &middot; 25.378 km</span></span>
                     </a>
                     <a href="{{ route('gt.europe') }}" class="mega-item">
                         <span class="mega-item-icon">GT</span>
-                        <span class="mega-item-label">GT World Challenge Europe<span class="mega-item-sub">GT3 Pro-Am · SRO Motorsports</span></span>
+                        <span class="mega-item-label">GT World Challenge Europe<span class="mega-item-sub">GT3 Pro-Am &middot; SRO Motorsports</span></span>
                     </a>
                     <a href="{{ route('gt.asia') }}" class="mega-item">
                         <span class="mega-item-icon">AS</span>
-                        <span class="mega-item-label">GT World Challenge Asia<span class="mega-item-sub">GT3 Silver Cup · Asian Circuits</span></span>
+                        <span class="mega-item-label">GT World Challenge Asia<span class="mega-item-sub">GT3 Silver Cup &middot; Asian Circuits</span></span>
                     </a>
                     <a href="{{ route('ewc') }}" class="mega-item">
                         <span class="mega-item-icon">EW</span>
@@ -1049,15 +974,14 @@
 
                 <div class="mega-divider"></div>
 
-                {{-- Col 3: Stock/Off-Road + Feature Card --}}
-                <div style="min-width:220px;max-width:245px;">
+                <div style="min-width:230px;max-width:260px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         Stock &amp; Off-Road
                     </p>
                     <a href="{{ route('nascar') }}" class="mega-item">
                         <span class="mega-item-icon">NC</span>
-                        <span class="mega-item-label">NASCAR Cup Series<span class="mega-item-sub">Next Gen · Daytona 500</span></span>
+                        <span class="mega-item-label">NASCAR Cup Series<span class="mega-item-sub">Next Gen &middot; Daytona 500</span></span>
                     </a>
                     <a href="{{ route('wrc') }}" class="mega-item">
                         <span class="mega-item-icon">WR</span>
@@ -1065,11 +989,10 @@
                     </a>
                     <div class="mega-featured-card mt-4">
                         <span class="mega-featured-badge">&#9679; Musim 2026</span>
-                        <p class="mega-featured-title">10 Kejuaraan<br>Aktif</p>
-                        <p class="mega-featured-sub">M1TRG bersaing di seluruh disiplin balap dunia dari sirkuit kota hingga hutan rally.</p>
+                        <p class="mega-featured-title">10 Kejuaraan Aktif</p>
+                        <p class="mega-featured-sub">M1TRG bersaing di seluruh disiplin balap dunia dari sirkuit jalanan hingga endurance rally.</p>
                         <a href="{{ route('endurance.index') }}" class="mega-featured-link">
-                            Lihat Semua Program
-                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M9 5l7 7-7 7"/></svg>
+                            Lihat Semua Program &rarr;
                         </a>
                     </div>
                 </div>
@@ -1077,7 +1000,7 @@
         </div>
     </div>
 
-    {{-- Drivers & Crew Panel —— 2 Columns --}}
+    {{-- Drivers Panel --}}
     <div class="mega-panel" id="panel-drivers"
          :class="{ 'mega-active': activePanel === 'drivers' }"
          @mouseenter="openPanel('drivers')" @mouseleave="closePanel()">
@@ -1085,7 +1008,7 @@
             <div class="flex gap-8">
                 <div style="min-width:280px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
                         Tim &amp; Personel
                     </p>
                     <a href="{{ route('drivers') }}" class="mega-item">
@@ -1094,7 +1017,7 @@
                     </a>
                     <a href="{{ route('about.corporate') }}" class="mega-item">
                         <span class="mega-item-icon">MG</span>
-                        <span class="mega-item-label">Manajemen &amp; Strategi<span class="mega-item-sub">Principal · Engineers · Crew Chief</span></span>
+                        <span class="mega-item-label">Manajemen &amp; Strategi<span class="mega-item-sub">Principal &middot; Engineers &middot; Crew Chief</span></span>
                     </a>
                     <a href="{{ route('about.academy') }}" class="mega-item">
                         <span class="mega-item-icon">AC</span>
@@ -1103,15 +1026,14 @@
                 </div>
                 <div class="mega-divider"></div>
                 <div class="flex-1">
-                    <div class="mega-featured-card h-full flex flex-col justify-between" style="min-height:150px;">
+                    <div class="mega-featured-card h-full flex flex-col justify-between">
                         <div>
                             <span class="mega-featured-badge">&#9679; Driver Program</span>
                             <p class="mega-featured-title">M1TRG Driver Academy</p>
                             <p class="mega-featured-sub">Bergabung dengan program pengembangan pembalap muda terbaik Indonesia untuk bersaing di panggung dunia.</p>
                         </div>
                         <a href="{{ route('about.academy') }}" class="mega-featured-link">
-                            Daftar Sekarang
-                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M9 5l7 7-7 7"/></svg>
+                            Daftar Sekarang &rarr;
                         </a>
                     </div>
                 </div>
@@ -1119,15 +1041,15 @@
         </div>
     </div>
 
-    {{-- Race Center Panel —— 2 Columns --}}
+    {{-- Race Center Panel --}}
     <div class="mega-panel" id="panel-race"
          :class="{ 'mega-active': activePanel === 'race' }"
          @mouseenter="openPanel('race')" @mouseleave="closePanel()">
         <div class="mega-panel-inner">
             <div class="flex gap-8">
-                <div style="min-width:260px;">
+                <div style="min-width:280px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         Pusat Data Balapan
                     </p>
                     <a href="{{ route('race.schedule') }}" class="mega-item">
@@ -1138,20 +1060,19 @@
                         <span class="mega-item-icon">ST</span>
                         <span class="mega-item-label">Results &amp; Standings<span class="mega-item-sub">Klasemen &amp; Hasil Balapan</span></span>
                     </a>
-                    <a href="{{ route('paddock.club') }}" class="mega-item" style="border-left-color:rgba(200,255,46,0.4);">
-                        <span class="mega-item-icon" style="background:rgba(200,255,46,0.1);border-color:rgba(200,255,46,0.25);">VIP</span>
-                        <span class="mega-item-label" style="color:#111827;font-weight:700;">VIP Paddock Club<span class="mega-item-sub" style="color:#C8FF2E;">Akses Eksklusif Area Paddock</span></span>
+                    <a href="{{ route('paddock.club') }}" class="mega-item">
+                        <span class="mega-item-icon">VIP</span>
+                        <span class="mega-item-label text-primary">VIP Paddock Club<span class="mega-item-sub text-primary/80">Akses Eksklusif Area Paddock</span></span>
                     </a>
                 </div>
                 <div class="mega-divider"></div>
                 <div class="flex-1">
-                    <div class="mega-featured-card" style="min-height:150px;">
+                    <div class="mega-featured-card">
                         <span class="mega-featured-badge">&#9889; Live Season</span>
-                        <p class="mega-featured-title">Musim 2026<br>Sedang Berjalan</p>
+                        <p class="mega-featured-title">Musim 2026 Sedang Berjalan</p>
                         <p class="mega-featured-sub">Pantau perkembangan klasemen dan jadwal balapan selanjutnya secara real-time di Race Center M1TRG.</p>
                         <a href="{{ route('race.schedule') }}" class="mega-featured-link">
-                            Buka Race Center
-                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M9 5l7 7-7 7"/></svg>
+                            Buka Race Center &rarr;
                         </a>
                     </div>
                 </div>
@@ -1159,15 +1080,15 @@
         </div>
     </div>
 
-    {{-- Media Hub Panel —— 2 Columns --}}
+    {{-- Media Hub Panel --}}
     <div class="mega-panel" id="panel-media"
          :class="{ 'mega-active': activePanel === 'media' }"
          @mouseenter="openPanel('media')" @mouseleave="closePanel()">
         <div class="mega-panel-inner">
             <div class="flex gap-8">
-                <div style="min-width:260px;">
+                <div style="min-width:280px;">
                     <p class="mega-col-header">
-                        <svg fill="none" stroke="#C8FF2E" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9"/></svg>
+                        <svg fill="none" stroke="#B8E637" stroke-width="2.5" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9"/></svg>
                         Konten &amp; Media
                     </p>
                     <a href="{{ route('about.news') }}" class="mega-item">
@@ -1176,7 +1097,7 @@
                     </a>
                     <a href="{{ route('about.magazine') }}" class="mega-item">
                         <span class="mega-item-icon">GL</span>
-                        <span class="mega-item-label">Gallery &amp; Podcasts<span class="mega-item-sub">Foto, Video dan Audio Tim</span></span>
+                        <span class="mega-item-label">Gallery &amp; Media<span class="mega-item-sub">Foto, Video dan Audio Tim</span></span>
                     </a>
                     <a href="{{ route('about.media') }}" class="mega-item">
                         <span class="mega-item-icon">KT</span>
@@ -1186,12 +1107,11 @@
                 <div class="mega-divider"></div>
                 <div class="flex-1">
                     <div class="mega-featured-card">
-                        <span class="mega-featured-badge">&#128240; Latest</span>
-                        <p class="mega-featured-title">Press Room<br>M1TRG 2026</p>
+                        <span class="mega-featured-badge">Media Room</span>
+                        <p class="mega-featured-title">Press Room M1TRG 2026</p>
                         <p class="mega-featured-sub">Akses semua materi media resmi, liputan pers, dan konten eksklusif tim M1TRG.</p>
                         <a href="{{ route('about.news') }}" class="mega-featured-link">
-                            Buka Press Room
-                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M9 5l7 7-7 7"/></svg>
+                            Buka Press Room &rarr;
                         </a>
                     </div>
                 </div>
@@ -1199,8 +1119,8 @@
         </div>
     </div>
 
-    {{-- ═══ MOBILE MENU ═══ --}}
-    <div class="xl:hidden fixed inset-0 z-50 bg-white flex flex-col overflow-y-auto"
+    {{-- MOBILE MENU DRAWER (DARK ENFORCED) --}}
+    <div class="xl:hidden fixed inset-0 z-50 bg-[#111315] flex flex-col overflow-y-auto"
          id="mob-menu"
          x-show="mobileMenuOpen"
          x-transition:enter="transition ease-out duration-250"
@@ -1211,341 +1131,164 @@
          x-transition:leave-end="opacity-0"
          style="display:none;">
 
-        {{-- Header --}}
-        <div class="px-5 py-4 flex items-center justify-between flex-shrink-0"
-             style="background:#0f172a; border-bottom:2px solid rgba(200,255,46,0.3);">
+        <div class="px-5 py-4 flex items-center justify-between flex-shrink-0 bg-[#171B20] border-b border-white/10">
             <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 flex items-center justify-center"
-                     style="clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%); background:rgba(200,255,46,0.15); border:1px solid rgba(200,255,46,0.4);">
-                    <span class="font-display font-black" style="font-size:0.46rem; color:rgba(255,80,80,1);">M1TRG</span>
+                <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-[#20252C] border border-[#B8E637]/40">
+                    <span class="font-display font-black text-[#B8E637] text-xs">M1TRG</span>
                 </div>
                 <div>
-                    <span class="font-display font-black text-white text-sm tracking-wider uppercase block">Mobil 1 Team RG</span>
-                    <span class="font-ui text-[0.54rem] tracking-widest uppercase" style="color:rgba(200,255,46,0.7);">Official Motorsport · 2026</span>
+                    <span class="font-display font-black text-[#F8FAFC] text-sm tracking-wider uppercase block">Mobil 1 Team RG</span>
+                    <span class="font-ui text-[0.54rem] tracking-widest uppercase text-[#B8E637]">Official Motorsport Enterprise</span>
                 </div>
             </div>
-            <button @click="mobileMenuOpen = false" class="p-1.5" style="color:rgba(200,255,46,0.8);" aria-label="Tutup menu">
+            <button @click="mobileMenuOpen = false" class="p-2 text-[#B8E637]" aria-label="Tutup menu">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
         </div>
 
-        {{-- Accordion body --}}
-        <div class="flex-1 overflow-y-auto" x-data="{ openSection: 'racing' }">
-
-            {{-- Racing Programs --}}
-            <div class="border-b border-gray-100">
+        <div class="flex-1 overflow-y-auto bg-[#111315] p-5 space-y-4" x-data="{ openSection: 'racing' }">
+            <div>
                 <button @click="openSection = openSection === 'racing' ? null : 'racing'"
-                        class="w-full px-5 py-4 flex items-center justify-between">
-                    <span class="font-display font-black text-xs text-red-600 uppercase tracking-wider">Racing Programs</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openSection === 'racing' ? 'rotate-180' : ''"
-                         fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                        class="w-full py-3 flex items-center justify-between text-xs font-display font-black text-[#B8E637] uppercase tracking-wider border-b border-white/10">
+                    Racing Programs
+                    <svg class="w-4 h-4 transition-transform duration-200" :class="openSection === 'racing' ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div x-show="openSection === 'racing'" x-transition class="px-5 pb-5" style="display:none;">
-                    <p class="text-[0.6rem] font-ui font-bold text-gray-400 uppercase tracking-widest mb-2">Formula &amp; Open-Wheel</p>
-                    <a href="{{ route('f1.division') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">F1</span>Formula 1
-                    </a>
-                    <a href="{{ route('indycar') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">IC</span>IndyCar Series
-                    </a>
-                    <a href="{{ route('fe') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">FE</span>Formula E
-                    </a>
-                    <p class="text-[0.6rem] font-ui font-bold text-gray-400 uppercase tracking-widest mb-2 mt-4">Endurance &amp; GT</p>
-                    <a href="{{ route('endurance.show', '24h-le-mans') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">LM</span>Le Mans 24H
-                    </a>
-                    <a href="{{ route('endurance.show', 'imsa-6h-the-glen') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">IM</span>IMSA 6H Glen
-                    </a>
-                    <a href="{{ route('endurance.show', '24h-nurburgring') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">NR</span>Nürburgring 24H
-                    </a>
-                    <a href="{{ route('gt.europe') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">GT</span>GTC Europe
-                    </a>
-                    <a href="{{ route('gt.asia') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">AS</span>GTC Asia
-                    </a>
-                    <a href="{{ route('ewc') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">EW</span>FIM EWC
-                    </a>
-                    <p class="text-[0.6rem] font-ui font-bold text-gray-400 uppercase tracking-widest mb-2 mt-4">Stock &amp; Off-Road</p>
-                    <a href="{{ route('nascar') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">NC</span>NASCAR Cup
-                    </a>
-                    <a href="{{ route('wrc') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">WR</span>FIA WRC Rally
-                    </a>
+                <div x-show="openSection === 'racing'" x-transition class="py-3 space-y-2">
+                    <a href="{{ route('f1.division') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">Formula 1</a>
+                    <a href="{{ route('indycar') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">IndyCar Series</a>
+                    <a href="{{ route('fe') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">Formula E</a>
+                    <a href="{{ route('endurance.index') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">Endurance Championship</a>
+                    <a href="{{ route('nascar') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">NASCAR Cup Series</a>
+                    <a href="{{ route('wrc') }}" @click="mobileMenuOpen=false" class="block text-sm font-semibold text-[#D2D6DC] hover:text-[#B8E637]">WRC Rally</a>
                 </div>
             </div>
 
-            {{-- Drivers & Crew --}}
-            <div class="border-b border-gray-100">
-                <button @click="openSection = openSection === 'drivers' ? null : 'drivers'"
-                        class="w-full px-5 py-4 flex items-center justify-between">
-                    <span class="font-display font-black text-xs text-red-600 uppercase tracking-wider">Drivers &amp; Crew</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openSection === 'drivers' ? 'rotate-180' : ''"
-                         fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div x-show="openSection === 'drivers'" x-transition class="px-5 pb-5 space-y-0.5" style="display:none;">
-                    <a href="{{ route('drivers') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">DR</span>Pembalap
-                    </a>
-                    <a href="{{ route('about.corporate') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">MG</span>Manajemen
-                    </a>
-                    <a href="{{ route('about.academy') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">AC</span>Driver Academy
-                    </a>
-                </div>
+            <div>
+                <a href="{{ route('drivers') }}" @click="mobileMenuOpen=false" class="block py-3 text-xs font-display font-black text-[#F8FAFC] uppercase tracking-wider border-b border-white/10 hover:text-[#B8E637]">
+                    Drivers &amp; Crew
+                </a>
             </div>
 
-            {{-- Race Center --}}
-            <div class="border-b border-gray-100">
-                <button @click="openSection = openSection === 'race' ? null : 'race'"
-                        class="w-full px-5 py-4 flex items-center justify-between">
-                    <span class="font-display font-black text-xs text-red-600 uppercase tracking-wider">Race Center</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openSection === 'race' ? 'rotate-180' : ''"
-                         fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div x-show="openSection === 'race'" x-transition class="px-5 pb-5 space-y-0.5" style="display:none;">
-                    <a href="{{ route('race.schedule') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">SC</span>Schedule
-                    </a>
-                    <a href="{{ route('standings') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">ST</span>Standings
-                    </a>
-                    <a href="{{ route('paddock.club') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-bold text-red-600 hover:text-red-700 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-100 border border-red-200 flex items-center justify-center text-[0.48rem] font-black font-display text-red-600 flex-shrink-0">VIP</span>VIP Paddock Club
-                    </a>
-                </div>
+            <div>
+                <a href="{{ route('race.schedule') }}" @click="mobileMenuOpen=false" class="block py-3 text-xs font-display font-black text-[#F8FAFC] uppercase tracking-wider border-b border-white/10 hover:text-[#B8E637]">
+                    Race Center &amp; Schedule
+                </a>
             </div>
 
-            <a href="{{ route('partners') }}" @click="mobileMenuOpen=false"
-               class="flex items-center justify-between px-5 py-4 border-b border-gray-100 text-sm font-ui font-bold uppercase tracking-wider text-gray-700 hover:text-red-600 transition-colors">
-                Partners
-                <svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
-
-            {{-- Media Hub --}}
-            <div class="border-b border-gray-100">
-                <button @click="openSection = openSection === 'media' ? null : 'media'"
-                        class="w-full px-5 py-4 flex items-center justify-between">
-                    <span class="font-display font-black text-xs text-red-600 uppercase tracking-wider">Media Hub</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openSection === 'media' ? 'rotate-180' : ''"
-                         fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div x-show="openSection === 'media'" x-transition class="px-5 pb-5 space-y-0.5" style="display:none;">
-                    <a href="{{ route('about.news') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">PR</span>Press Releases
-                    </a>
-                    <a href="{{ route('about.magazine') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">GL</span>Gallery
-                    </a>
-                    <a href="{{ route('about.media') }}" @click="mobileMenuOpen=false" class="flex items-center gap-2.5 py-2 text-sm font-ui font-semibold text-gray-700 hover:text-red-600 transition-colors uppercase tracking-wider">
-                        <span class="w-5 h-5 bg-red-50 border border-red-100 flex items-center justify-center text-[0.48rem] font-black font-display text-red-500 flex-shrink-0">KT</span>Media Kit
-                    </a>
-                </div>
+            <div>
+                <a href="{{ route('standings') }}" @click="mobileMenuOpen=false" class="block py-3 text-xs font-display font-black text-[#F8FAFC] uppercase tracking-wider border-b border-white/10 hover:text-[#B8E637]">
+                    Standings &amp; Results
+                </a>
             </div>
 
-            <a href="{{ route('shop') }}" @click="mobileMenuOpen=false"
-               class="flex items-center justify-between px-5 py-4 border-b border-gray-100 text-sm font-ui font-bold uppercase tracking-wider text-gray-700 hover:text-red-600 transition-colors">
-                Shop
-                <svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
+            <div>
+                <a href="{{ route('shop') }}" @click="mobileMenuOpen=false" class="block py-3 text-xs font-display font-black text-[#F8FAFC] uppercase tracking-wider border-b border-white/10 hover:text-[#B8E637]">
+                    Official Merchandise Shop
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ route('partners') }}" @click="mobileMenuOpen=false" class="block py-3 text-xs font-display font-black text-[#F8FAFC] uppercase tracking-wider border-b border-white/10 hover:text-[#B8E637]">
+                    Partners &amp; Sponsors
+                </a>
+            </div>
         </div>
 
-        {{-- Footer CTA --}}
-        <div class="flex-shrink-0 p-4 border-t border-gray-100 bg-gray-50">
+        <div class="p-5 border-t border-white/10 bg-[#171B20]">
             @auth
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white text-xs font-bold">
-                        {{ substr(Auth::user()->name, 0, 1) }}
-                    </div>
-                    <div>
-                        <p class="text-xs font-ui font-bold text-gray-800 uppercase">{{ Auth::user()->name }}</p>
-                        <a href="{{ route('fan.dashboard') }}" class="text-[0.65rem] text-red-600 font-ui uppercase tracking-wider">Dasbor Fan Zone &rarr;</a>
-                    </div>
-                </div>
-                <form action="{{ route('fan.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="w-full py-2.5 text-xs font-ui font-bold uppercase tracking-wider text-red-600 border border-red-200 hover:bg-red-50 transition-colors">Keluar</button>
-                </form>
+                <a href="{{ route('fan.dashboard') }}" class="w-full btn-m1-primary text-center block text-xs">
+                    Fan Portal Dashboard
+                </a>
             @else
-                <a href="{{ route('fan.login') }}" class="w-full btn-rgr flex items-center justify-center gap-2 text-xs" style="border-radius:0;">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                <a href="{{ route('fan.login') }}" class="w-full btn-m1-primary text-center block text-xs">
                     Masuk Fan Portal
                 </a>
             @endauth
         </div>
     </div>
-
 </nav>
 
-{{-- Page Content --}}
-<main id="main-content">
+{{-- PAGE MAIN CONTENT --}}
+<main id="main-content" class="min-h-screen pt-[100px] bg-[#111315]">
     @yield('content')
 </main>
 
-{{-- ═══════════════════════════════ FOOTER ════════════════════════════════ --}}
-<footer class="rgr-footer" role="contentinfo">
+{{-- FOOTER --}}
+<footer class="rgr-footer bg-[#171B20] border-t border-white/10 text-[#D2D6DC]" role="contentinfo">
     <div class="max-w-7xl mx-auto px-6 pt-16 pb-8">
-
-        {{-- Top Grid: Brand + Nav + Contact --}}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-
-            {{-- Brand --}}
             <div>
-                <a href="{{ route('home') }}" class="rgr-logo text-xl block mb-5">RG RACING</a>
-                <p class="text-muted text-sm leading-relaxed max-w-xs">
-                    Kekuatan motorsport global bentukan Indonesia yang berkompetisi di ajang F1, WEC, IMSA, dan berbagai kejuaraan ketahanan dunia sejak 2018.
+                <a href="{{ route('home') }}" class="rgr-logo text-xl block mb-4">MOBIL 1 TEAM RG</a>
+                <p class="text-[#8C96A3] text-sm leading-relaxed max-w-xs">
+                    Tim balap internasional berkelas dunia dari Indonesia yang bersaing di Formula 1, WEC Hypercar, IMSA GTD, IndyCar, dan World Rally Championship.
                 </p>
                 <div class="flex gap-2.5 mt-6">
                     @foreach(['X', 'IG', 'YT', 'TK'] as $soc)
-                    <span class="w-8 h-8 flex items-center justify-center border border-faint hover:border-rgr hover:text-rgr transition-all duration-200 text-muted cursor-pointer font-ui font-bold text-xs">{{ $soc }}</span>
+                    <span class="w-8 h-8 flex items-center justify-center border border-white/10 rounded hover:border-[#B8E637] hover:text-[#B8E637] transition-all text-[#8C96A3] cursor-pointer font-ui font-bold text-xs">{{ $soc }}</span>
                     @endforeach
                 </div>
             </div>
 
-            {{-- Navigation --}}
             <div>
-                <h3 class="section-label mb-5">TENTANG KAMI</h3>
-                <ul class="grid grid-cols-2 gap-x-4 gap-y-3">
-                    @foreach([
-                        ['about.history', 'Tentang Kami'],
-                        ['about.achievements', 'Prestasi & Statistik'],
-                        ['about.partnership', 'Partnership'],
-                        ['about.sustainability', 'Keberlanjutan'],
-                        ['about.media', 'Pusat Media'],
-                        ['about.news', 'Berita Terbaru'],
-                        ['about.magazine', 'Majalah Tim'],
-                        ['about.join', 'Karir & Lowongan']
-                    ] as $link)
-                    <li>
-                        <a href="{{ route($link[0]) }}" class="text-muted text-sm hover:text-rgr transition-colors duration-200">
-                            {{ $link[1] }}
-                        </a>
-                    </li>
-                    @endforeach
+                <h3 class="section-eyebrow mb-4">TENTANG TIM</h3>
+                <ul class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
+                    <li><a href="{{ route('about.history') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Sejarah Team</a></li>
+                    <li><a href="{{ route('about.achievements') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Prestasi</a></li>
+                    <li><a href="{{ route('about.partnership') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Partnership</a></li>
+                    <li><a href="{{ route('about.sustainability') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Keberlanjutan</a></li>
+                    <li><a href="{{ route('about.media') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Media Kit</a></li>
+                    <li><a href="{{ route('about.news') }}" class="text-[#8C96A3] hover:text-[#B8E637] transition-colors">Berita Resmi</a></li>
                 </ul>
             </div>
 
-            {{-- Contact --}}
             <div>
-                <h3 class="section-label mb-5">Markas Tim</h3>
-                <p class="text-muted text-sm">Jakarta, Indonesia</p>
-                <p class="text-muted text-sm mt-2">Principal: <span class="text-pure font-medium">Rey Gilang</span></p>
-                <div class="mt-5 pt-5 border-t border-faint/30">
-                    <p class="text-muted text-xs">FIA Formula 1 · FIA WEC · IMSA WeatherTech</p>
-                    <p class="text-muted text-xs mt-1">VLN Endurance · ADAC Nürburgring 24H</p>
+                <h3 class="section-eyebrow mb-4">MARKAS UTAMA</h3>
+                <p class="text-[#8C96A3] text-sm">Jakarta Operational Base, Indonesia</p>
+                <p class="text-[#8C96A3] text-sm mt-1">Team Principal: <span class="text-[#F8FAFC] font-semibold">Rey Gilang</span></p>
+                <div class="mt-4 pt-4 border-t border-white/10 text-xs text-[#8C96A3]">
+                    <p>FIA Formula 1 World Championship &middot; WEC Hypercar</p>
                 </div>
             </div>
         </div>
 
-        {{-- Sponsor Grid by Tier --}}
+        {{-- Sponsors --}}
         @if(isset($sponsorsByTier) && !empty(array_filter(array_map(fn($t) => count($t), $sponsorsByTier ?? []))))
-        <div class="mb-10">
-            <div class="cyan-line mb-8"></div>
-
-            {{-- Desktop Sponsor Grid --}}
-            <div class="hidden xl:block">
-                {{-- Title Sponsors --}}
-                @if(isset($sponsorsByTier['Title Sponsor']) && count($sponsorsByTier['Title Sponsor']) > 0)
-                <div class="mb-6">
-                    <p class="text-faint text-xs font-ui tracking-widest uppercase mb-4">Sponsor Utama (Title Partners)</p>
-                    <div class="flex flex-wrap gap-3">
-                        @foreach($sponsorsByTier['Title Sponsor'] as $sp)
-                        <div class="sponsor-logo-box sponsor-logo-title min-w-[160px]">
-                            <span class="font-display font-black text-rgr text-sm tracking-widest uppercase">{{ $sp->name }}</span>
+        <div class="mb-10 pt-8 border-t border-white/10">
+            <p class="text-[#8C96A3] text-xs font-display tracking-widest uppercase mb-4 text-center">OFFICIAL TEAM PARTNERS</p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                @foreach($sponsorsByTier as $tier => $list)
+                    @foreach($list as $sp)
+                        <div class="sponsor-logo-box px-4 py-2">
+                            <span class="font-display font-bold text-xs tracking-wider text-[#D2D6DC] uppercase">{{ $sp->name }}</span>
                         </div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-
-                {{-- Technical Partners --}}
-                @if(isset($sponsorsByTier['Technical Partner']) && count($sponsorsByTier['Technical Partner']) > 0)
-                <div class="mb-6">
-                    <p class="text-faint text-xs font-ui tracking-widest uppercase mb-4">Mitra Teknis (Technical Partners)</p>
-                    <div class="flex flex-wrap gap-2.5">
-                        @foreach($sponsorsByTier['Technical Partner'] as $sp)
-                        <div class="sponsor-logo-box sponsor-logo-technical min-w-[110px]">
-                            <span class="font-ui font-bold text-muted hover:text-pure text-xs tracking-widest uppercase transition-colors">{{ $sp->name }}</span>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-
-                {{-- Official Suppliers --}}
-                @if(isset($sponsorsByTier['Official Supplier']) && count($sponsorsByTier['Official Supplier']) > 0)
-                <div>
-                    <p class="text-faint text-xs font-ui tracking-widest uppercase mb-4">Pemasok Resmi (Official Suppliers)</p>
-                    <div class="flex flex-wrap gap-2">
-                        @foreach($sponsorsByTier['Official Supplier'] as $sp)
-                        <div class="sponsor-logo-box sponsor-logo-supplier min-w-[90px]">
-                            <span class="font-ui text-faint hover:text-muted text-[0.72rem] tracking-wide uppercase font-semibold transition-colors">{{ $sp->name }}</span>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
+                    @endforeach
+                @endforeach
             </div>
-
-            {{-- Mobile Infinite Sponsor Ticker --}}
-            <div class="xl:hidden block">
-                <p class="text-faint text-[0.55rem] font-ui tracking-widest uppercase mb-4 text-center">OFFICIAL TEAM PARTNERS (INFINITE TICKER)</p>
-                <div class="sponsor-ticker-container relative py-3 bg-pitch/50 border-y border-steel/10">
-                    <div class="sponsor-ticker-wrapper">
-                        @foreach($sponsorsByTier as $tier => $list)
-                            @foreach($list as $sp)
-                                <div class="sponsor-ticker-item">
-                                    {{ $sp->name }}
-                                </div>
-                            @endforeach
-                        @endforeach
-                        {{-- Duplicate items for infinite loop --}}
-                        @foreach($sponsorsByTier as $tier => $list)
-                            @foreach($list as $sp)
-                                <div class="sponsor-ticker-item">
-                                    {{ $sp->name }}
-                                </div>
-                            @endforeach
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
         </div>
         @endif
 
-        {{-- Bottom bar --}}
-        <div class="cyan-line mb-6"></div>
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 text-faint text-xs font-ui">
-            <p>&copy; {{ date('Y') }} Mobil 1 Team RG (M1TRG) Motorsport. Seluruh hak cipta dilindungi.</p>
-            <p class="text-rgr/50 tracking-[0.3em] uppercase text-[0.6rem]">Ultimate Speed · Gold Standard</p>
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-[#8C96A3]">
+            <p>&copy; {{ date('Y') }} Mobil 1 Team RG Enterprise. All rights reserved.</p>
+            <p class="text-[#B8E637] font-mono tracking-widest text-[0.65rem] uppercase">ENTERPRISE MOTORSPORT STANDARD</p>
         </div>
     </div>
 </footer>
 
-{{-- ═══════════════════════════════ SCRIPTS ════════════════════════════════ --}}
 <script>
-    // -- Topbar + Navbar scroll logic -----------------------------------------
-    const nav     = document.getElementById('rgr-nav');
-    const topbar  = document.getElementById('rgr-topbar');
-    const panels  = document.querySelectorAll('.mega-panel');
+    const nav = document.getElementById('rgr-nav');
+    const topbar = document.getElementById('rgr-topbar');
+    const panels = document.querySelectorAll('.mega-panel');
     let ticking = false;
     function updateNav() {
-        const scrolled   = window.scrollY > 50;
+        const scrolled = window.scrollY > 40;
         const topbarGone = window.scrollY > 80;
         nav.classList.toggle('scrolled', scrolled);
         if (topbar) topbar.classList.toggle('hidden-topbar', topbarGone);
         nav.classList.toggle('topbar-gone', topbarGone);
         const navBottom = nav.getBoundingClientRect().bottom;
-        panels.forEach(function(p) { p.style.top = navBottom + 'px'; });
+        panels.forEach(p => { p.style.top = navBottom + 'px'; });
         ticking = false;
     }
     window.addEventListener('scroll', function() {
@@ -1554,9 +1297,6 @@
     window.addEventListener('resize', updateNav, { passive: true });
     updateNav();
 
-
-
-    // ── Scroll reveal ─────────────────────────────────────────────
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
@@ -1564,33 +1304,23 @@
                 revealObserver.unobserve(e.target);
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08 });
 
     document.querySelectorAll('[data-reveal]').forEach((el, i) => {
-        el.style.transitionDelay = `${(i % 4) * 100}ms`;
+        el.style.transitionDelay = `${(i % 4) * 80}ms`;
         revealObserver.observe(el);
     });
 </script>
 
-<!-- Slide-over Cart (Alpine.js) -->
+{{-- SLIDE-OVER CART DRAWER (DARK ENFORCED) --}}
 <div x-data="globalCart()" x-init="initCart()" @open-cart.window="open = true" @add-to-cart.window="addToCart($event.detail)" class="relative z-50">
-    <!-- Floating Proposal Button -->
-    <a href="{{ route('partners') }}" class="fixed bottom-24 right-6 bg-[#96B81C] text-white p-4 shadow-xl hover:scale-110 transition-transform flex items-center justify-center z-40 group" style="border-radius: 0 !important;" title="Download Proposal">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-        </svg>
-    </a>
-
-    <!-- Floating Cart Badge -->
-    <button @click="open = true" class="fixed bottom-6 right-6 bg-[#96B81C] text-white p-4 shadow-xl hover:scale-110 transition-transform flex items-center justify-center gap-2 z-40 group" style="border-radius: 0 !important;">
+    <button @click="open = true" class="fixed bottom-6 right-6 bg-[#B8E637] text-[#111315] p-3.5 shadow-2xl rounded-full hover:bg-[#C7F157] hover:scale-105 transition-all flex items-center justify-center gap-2 z-40">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-        <span x-text="itemsCount()" class="font-bold font-mono text-xs bg-white text-[#96B81C] px-2 py-0.5 rounded-full">0</span>
+        <span x-text="itemsCount()" class="font-bold font-mono text-xs bg-[#111315] text-[#B8E637] px-2 py-0.5 rounded-full">0</span>
     </button>
 
-    <!-- Backdrop -->
-    <div x-show="open" x-transition.opacity @click="open = false" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm" style="display:none;"></div>
+    <div x-show="open" x-transition.opacity @click="open = false" class="fixed inset-0 bg-black/80 z-50 backdrop-blur-md" style="display:none;"></div>
 
-    <!-- Drawer Panel -->
     <div x-show="open" 
          x-transition:enter="transition ease-out duration-300 transform" 
          x-transition:enter-start="translate-x-full" 
@@ -1598,53 +1328,49 @@
          x-transition:leave="transition ease-in duration-200 transform" 
          x-transition:leave-start="translate-x-0" 
          x-transition:leave-end="translate-x-full" 
-         class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-carbon border-l border-steel/10 shadow-2xl z-50 flex flex-col justify-between"
-         style="border-radius: 0 !important; display:none;">
+         class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-[#171B20] border-l border-white/10 shadow-2xl z-50 flex flex-col justify-between"
+         style="display:none;">
          
-         <!-- Header -->
-         <div class="p-6 border-b border-steel/10 flex justify-between items-center bg-pitch">
+         <div class="p-6 border-b border-white/10 flex justify-between items-center bg-[#111315]">
              <div>
-                 <span class="text-[0.62rem] font-ui tracking-widest text-rgr font-bold uppercase block mb-1">M1TRG MERCHANDISE</span>
-                 <h3 class="font-display font-black text-lg text-pure tracking-tight uppercase">KERANJANG BELANJA</h3>
+                 <span class="text-[0.65rem] font-display tracking-widest text-[#B8E637] font-bold uppercase block mb-0.5">M1TRG OFFICIAL MERCHANDISE</span>
+                 <h3 class="font-display font-black text-lg text-[#F8FAFC] tracking-tight uppercase">KERANJANG BELANJA</h3>
              </div>
-             <button @click="open = false" class="text-muted hover:text-pure font-bold text-lg">&times;</button>
+             <button @click="open = false" class="text-[#8C96A3] hover:text-[#F8FAFC] font-bold text-2xl">&times;</button>
          </div>
 
-         <!-- Items List -->
-         <div class="flex-1 overflow-y-auto p-6 space-y-4 bg-carbon-2">
+         <div class="flex-1 overflow-y-auto p-6 space-y-4 bg-[#171B20]">
              <template x-if="items.length === 0">
-                 <div class="text-center py-12 text-muted text-xs font-body">
+                 <div class="text-center py-16 text-[#8C96A3] text-sm">
                      Keranjang belanja Anda kosong.
                  </div>
              </template>
              <template x-for="(item, index) in items" :key="index">
-                 <div class="flex items-center justify-between border-b border-steel/5 pb-3">
+                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
                      <div class="flex-1 pr-4">
-                         <h4 class="font-display font-bold text-sm text-pure" x-text="item.name"></h4>
-                         <p class="text-xs text-muted font-mono mt-0.5" x-text="'Rp' + Number(item.price).toLocaleString()"></p>
-                         <p class="text-[0.62rem] text-faint font-mono" x-show="item.customInfo" x-text="'Kustom: ' + item.customInfo"></p>
+                         <h4 class="font-display font-bold text-sm text-[#F8FAFC]" x-text="item.name"></h4>
+                         <p class="text-xs text-[#B8E637] font-mono mt-0.5" x-text="'Rp ' + Number(item.price).toLocaleString('id-ID')"></p>
+                         <p class="text-[0.65rem] text-[#8C96A3] font-mono" x-show="item.customInfo" x-text="'Kustom: ' + item.customInfo"></p>
                      </div>
                      <div class="flex items-center gap-3">
-                         <div class="flex items-center border border-steel/10">
-                             <button @click="updateQty(index, item.qty - 1)" class="px-2 py-0.5 bg-pitch text-pure hover:bg-steel/10 font-bold">-</button>
-                             <span x-text="item.qty" class="px-3 font-mono text-xs text-pure"></span>
-                             <button @click="updateQty(index, item.qty + 1)" class="px-2 py-0.5 bg-pitch text-pure hover:bg-steel/10 font-bold">+</button>
+                         <div class="flex items-center border border-white/10 rounded bg-[#20252C]">
+                             <button @click="updateQty(index, item.qty - 1)" class="px-2.5 py-1 text-[#F8FAFC] hover:bg-white/10 font-bold">-</button>
+                             <span x-text="item.qty" class="px-3 font-mono text-xs text-[#F8FAFC]"></span>
+                             <button @click="updateQty(index, item.qty + 1)" class="px-2.5 py-1 text-[#F8FAFC] hover:bg-white/10 font-bold">+</button>
                          </div>
-                         <button @click="removeItem(index)" class="text-rgr hover:text-rgr-dark font-bold text-xs">&times; Hapus</button>
+                         <button @click="removeItem(index)" class="text-[#E5484D] hover:text-red-400 font-bold text-xs">&times;</button>
                      </div>
                  </div>
              </template>
          </div>
 
-         <!-- Footer -->
-         <div class="p-6 border-t border-steel/10 bg-pitch">
-             <div class="flex justify-between items-center mb-4 text-xs font-bold text-pure">
+         <div class="p-6 border-t border-white/10 bg-[#111315]">
+             <div class="flex justify-between items-center mb-4 text-sm font-bold text-[#F8FAFC]">
                  <span>Subtotal:</span>
-                 <span class="font-mono text-sm" x-text="'Rp' + getSubtotal().toLocaleString()"></span>
+                 <span class="font-mono text-base text-[#B8E637]" x-text="'Rp ' + getSubtotal().toLocaleString('id-ID')"></span>
              </div>
-             <p class="text-[0.62rem] text-muted mb-4 font-body">Biaya pengiriman dan pajak dihitung pada saat proses checkout.</p>
-             <button @click="goToCheckout()" class="w-full btn-rgr btn-ferrari justify-center text-xs py-3 font-semibold uppercase tracking-wider" :disabled="items.length === 0">
-                 PROSES CHECKOUT
+             <button @click="goToCheckout()" class="w-full btn-m1-primary justify-center text-xs py-3 font.semibold uppercase tracking-wider" :disabled="items.length === 0">
+                 PROSES CHECKOUT &rarr;
              </button>
          </div>
     </div>
@@ -1658,11 +1384,7 @@ function globalCart() {
         initCart() {
             const raw = localStorage.getItem('rgr_cart');
             if (raw) {
-                try {
-                    this.items = JSON.parse(raw);
-                } catch(e) {
-                    this.items = [];
-                }
+                try { this.items = JSON.parse(raw); } catch(e) { this.items = []; }
             }
             window.addEventListener('storage', () => {
                 const updatedRaw = localStorage.getItem('rgr_cart');
@@ -1673,7 +1395,6 @@ function globalCart() {
         },
         saveCart() {
             localStorage.setItem('rgr_cart', JSON.stringify(this.items));
-            // Sync with local shop page instances if present
             window.dispatchEvent(new CustomEvent('storage'));
         },
         addToCart(item) {
@@ -1690,7 +1411,7 @@ function globalCart() {
                 });
             }
             this.saveCart();
-            this.open = true; // Auto open cart on add
+            this.open = true;
         },
         updateQty(index, newQty) {
             if (newQty <= 0) {
@@ -1715,8 +1436,6 @@ function globalCart() {
         }
     }
 }
-
-
 </script>
 
 @stack('scripts')

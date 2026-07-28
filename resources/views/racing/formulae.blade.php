@@ -5,77 +5,89 @@
 
 @push('styles')
 <style>
-.fe-hero {
-    position: relative; padding-top: 130px; padding-bottom: 60px;
-    background: #0B0D10; overflow: hidden;
-}
 .fe-hero-grid {
     position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(0, 163, 224, 0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0, 163, 224, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(56,193,114,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(56,193,114,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
-}
-.fe-card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(0, 163, 224, 0.08);
-    position: relative; overflow: hidden;
-    transition: all 0.4s ease;
-}
-.fe-card:hover {
-    border-color: rgba(0, 163, 224, 0.2);
-    transform: translateY(-4px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.06);
 }
 </style>
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-pitch">
-    
-    {{-- Hero Section --}}
-    <section class="fe-hero">
+<div class="min-h-screen" style="background:#111315;">
+
+    {{-- Hero --}}
+    <section class="position-relative" style="padding-top:130px;padding-bottom:60px;overflow:hidden;">
         <div class="fe-hero-grid"></div>
-        <div class="max-w-7xl mx-auto px-6 relative">
-            <p class="section-label mb-3 flex items-center gap-3" style="color:#00A3E0;"><span class="w-6 h-px bg-cyan-500"></span>FORMULA E DIVISION</p>
-            <h1 class="section-title text-5xl lg:text-7xl mb-4">ABB FIA Formula E</h1>
-            <p class="text-muted text-lg max-w-2xl leading-relaxed">
+        <div class="max-w-7xl mx-auto px-6 position-relative">
+            <p class="section-eyebrow mb-4" style="color:#38C172!important;">FORMULA E DIVISION</p>
+            <h1 class="display-title mb-4">ABB FIA Formula E</h1>
+            <p class="section-subtitle" style="max-width:600px;">
                 Masa depan balap listrik jalan raya perkotaan. Mengandalkan efisiensi energi regeneratif puncak dan mesin Nissan e-4ORCE Powertrain Gen3 terbaru.
             </p>
         </div>
     </section>
 
-    {{-- Format & Sirkuit --}}
-    <section class="py-12 border-b border-steel/15 bg-white/20">
+    {{-- Key Stats --}}
+    <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-1 fe-card p-6 border-l-4" style="border-left-color: #00A3E0;">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-cyan-500 font-bold uppercase">TEKNOLOGI LISTRIK</span>
-                    <h3 class="font-display font-bold text-xl text-pure mt-1 mb-3">Gen3 & Nissan e-4ORCE</h3>
-                    <p class="text-xs text-muted leading-relaxed font-body">
+            <div class="d-flex justify-content-between align-items-start gap-4 mb-12 flex-wrap">
+                <div>
+                    <p class="section-eyebrow" style="color:#38C172!important;">GEN3 STATS</p>
+                    <h2 class="section-title-std mt-2">Electric Performance</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#38C172;font-family:'Albert Sans',sans-serif;">350 kW</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Peak Power Output</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">470 HP · Nissan e-4ORCE Powertrain Gen3</p>
+                </div>
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#38C172;font-family:'Albert Sans',sans-serif;">40%+</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Energy Regeneration</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">Energi dipulihkan selama pengereman regeneratif</p>
+                </div>
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#38C172;font-family:'Albert Sans',sans-serif;">840 kg</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Minimum Weight</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">Sasis Carbon Fiber Monocoque · Hankook iON Race</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Circuits --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 align-items-start">
+                <div class="m1-card-elevated p-5">
+                    <span class="m1-badge mb-2 d-inline-block" style="background:rgba(56,193,114,0.12)!important;color:#38C172!important;border-color:rgba(56,193,114,0.25)!important;">TEKNOLOGI LISTRIK</span>
+                    <h3 class="fw-bold mt-2 mb-3" style="font-family:'Albert Sans',sans-serif;font-size:1.2rem;color:#F8FAFC;">Gen3 & Nissan e-4ORCE</h3>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;line-height:1.65;">
                         Formula E Gen3 adalah jet darat listrik paling efisien di dunia. Dengan motor listrik depan dan belakang yang mampu memulihkan lebih dari 40% energi selama pengereman, mobil ini menyemburkan daya hingga 350kW (470 HP) tanpa emisi.
                     </p>
                 </div>
-                
-                <div class="md:col-span-2 space-y-4">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-muted font-bold uppercase">SIRKUIT JALANAN UTAMA</span>
-                    <h3 class="font-display font-bold text-2xl text-pure">Eprix Street Circuit</h3>
-                    
+                <div class="md:col-span-2">
+                    <p class="mb-2" style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;text-transform:uppercase;">SIRKUIT JALANAN UTAMA</p>
+                    <h3 class="fw-bold mb-4" style="font-family:'Albert Sans',sans-serif;font-size:1.5rem;color:#F8FAFC;">Eprix Street Circuits</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Diriyah (Arab Saudi)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Balapan malam hari di sirkuit warisan UNESCO yang cepat, sempit, berdebu, dan menantang.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Diriyah (Arab Saudi)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Balapan malam di sirkuit warisan UNESCO yang cepat dan menantang.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Tokyo Street Circuit (Jepang)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Sirkuit jalanan perkotaan pertama di Jepang yang melingkari Tokyo Big Sight dengan trek bergelombang.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Tokyo Street (Jepang)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Sirkuit perkotaan pertama di Jepang melingkari Tokyo Big Sight.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Monaco Street Circuit (Monaco)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Trek legendaris F1 yang disesuaikan, menawarkan menyalip spektakuler berkat strategi Attack Mode.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Monaco Eprix</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Trek legendaris dengan strategi Attack Mode untuk menyalip.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">London ExCeL (Inggris Raya)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Sirkuit unik semi-indoor/semi-outdoor yang melintasi pusat pameran ExCeL London.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">London ExCeL</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Sirkuit unik semi-indoor/semi-outdoor di pusat pameran London.</p>
                         </div>
                     </div>
                 </div>
@@ -83,81 +95,65 @@
         </div>
     </section>
 
-    {{-- Lineup Pembalap & Mesin --}}
-    <section class="py-16">
+    {{-- Drivers --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-10">
-                <h2 class="font-display font-bold text-2xl text-pure">Roster Driver & Mesin Nissan</h2>
-                <div class="cyan-line my-3"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                {{-- Car Specs Card --}}
-                <div class="fe-card p-6 flex flex-col justify-between lg:col-span-1">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <span class="px-2.5 py-0.5 text-[0.62rem] font-display font-bold tracking-widest text-cyan-500 bg-cyan-500/10 rounded uppercase">
-                                    GEN3 · #22
-                                </span>
-                                <h3 class="font-display font-bold text-2xl text-pure mt-3">FE Gen3 Nissan</h3>
-                            </div>
-                            <span class="font-display font-black text-4xl text-cyan-500">#22</span>
+            <p class="section-eyebrow mb-2" style="color:#38C172!important;">ROSTER DRIVER</p>
+            <h2 class="section-title-std mb-10">Formula E Line-Up</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="m1-card-elevated p-5">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
+                        <div>
+                            <span class="m1-badge mb-2 d-inline-block" style="background:rgba(56,193,114,0.12)!important;color:#38C172!important;border-color:rgba(56,193,114,0.25)!important;">GEN3 · #22</span>
+                            <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.3rem;color:#F8FAFC;">FE Gen3 Nissan</h3>
                         </div>
-                        <p class="text-xs text-muted mb-6">Mesin Powertrain: Nissan e-4ORCE · Tenaga: 350 kW (470 HP) · Sasis: Carbon Fiber Monocoque · Ban: Hankook iON Race.</p>
-                        
-                        <div class="pt-4 border-t border-steel/20 text-xs">
-                            <p class="font-bold text-pure">Spesifikasi Aero:</p>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Desain sayap delta dengan hambatan aerodinamika minimum untuk memaksimalkan slipstream dan pengereman regeneratif pada sirkuit perkotaan yang sempit.</p>
-                        </div>
+                        <span class="fw-black" style="font-family:'Albert Sans',sans-serif;font-size:2.2rem;color:#38C172;">#22</span>
                     </div>
-                    <div class="border-t border-steel/20 pt-4 mt-6 text-center text-xs font-mono flex justify-around">
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Bobot</p>
-                            <p class="font-display font-bold text-pure mt-1">840 kg</p>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;">Nissan e-4ORCE · 350 kW (470 HP) · Carbon Fiber Monocoque · Hankook iON Race.</p>
+                    <div class="pt-3 mt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.8rem;color:#F8FAFC;">Spesifikasi Aero:</p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Sayap delta dengan hambatan aerodinamika minimum untuk slipstream dan pengereman regeneratif.</p>
+                    </div>
+                    <div class="d-flex gap-3 mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Bobot</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">840 kg</p>
                         </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Regenerasi</p>
-                            <p class="font-display font-bold text-pure mt-1">&gt; 40%</p>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Regenerasi</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#38C172;">&gt; 40%</p>
                         </div>
                     </div>
                 </div>
-
-                {{-- Driver Card --}}
                 <div class="lg:col-span-2">
                     @foreach($drivers as $driver)
-                    <div class="fe-card p-8 flex flex-col justify-between" style="border-radius: 0 !important;">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="text-xs text-cyan-500 font-ui font-bold tracking-widest uppercase block mb-1">RACE DRIVER</span>
-                                    <h3 class="font-display font-bold text-2xl text-pure mb-2">{{ $driver->name }}</h3>
-                                    <p class="text-[0.68rem] text-muted font-ui">{{ $driver->country }} (#{{ $driver->permanent_number }})</p>
-                                </div>
-                                <span class="font-display font-black text-4xl text-cyan-500">#{{ $driver->permanent_number }}</span>
+                    <div class="m1-card-elevated p-5 mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="m1-badge mb-2 d-inline-block" style="background:rgba(56,193,114,0.12)!important;color:#38C172!important;border-color:rgba(56,193,114,0.25)!important;">RACE DRIVER</span>
+                                <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.3rem;color:#F8FAFC;">{{ $driver->name }}</h3>
+                                <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">{{ $driver->country }} (#{{ $driver->permanent_number }})</p>
                             </div>
-                            <p class="text-xs text-muted leading-relaxed font-body mb-6">{{ $driver->bio }}</p>
+                            <span class="fw-black" style="font-family:'Albert Sans',sans-serif;font-size:2.2rem;color:#38C172;">#{{ $driver->permanent_number }}</span>
                         </div>
-                        
-                        <div class="border-t border-steel/10 pt-4 grid grid-cols-3 gap-4 text-center text-xs font-mono">
-                            <div>
-                                <p class="text-faint uppercase font-ui tracking-wider">Podium FE</p>
-                                <p class="font-display font-bold text-pure mt-1">{{ $driver->podiums }}</p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;line-height:1.65;">{{ $driver->bio }}</p>
+                        <div class="d-flex gap-4 mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                            <div class="text-center flex-fill">
+                                <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Podium FE</p>
+                                <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">{{ $driver->podiums }}</p>
                             </div>
-                            <div>
-                                <p class="text-faint uppercase font-ui tracking-wider">Poin Karir</p>
-                                <p class="font-display font-bold text-pure mt-1">{{ number_format($driver->career_points) }}</p>
+                            <div class="text-center flex-fill">
+                                <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Poin Karir</p>
+                                <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">{{ number_format($driver->career_points) }}</p>
                             </div>
-                            <div>
-                                <p class="text-faint uppercase font-ui tracking-wider">Lisensi</p>
-                                <p class="font-display font-bold text-cyan-500 mt-1">Platinum</p>
+                            <div class="text-center flex-fill">
+                                <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Lisensi</p>
+                                <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#38C172;">Platinum</p>
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </section>

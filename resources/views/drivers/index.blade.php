@@ -4,108 +4,46 @@
 @section('meta_description', 'Temui roster pembalap kelas dunia Mobil 1 Team RG yang berlaga di Formula 1, Le Mans 24 Jam, Spa 24 Jam, Nürburgring 24 Jam, dan IMSA.')
 
 @section('content')
-{{-- Grid Background & Spacing --}}
-<div class="relative min-h-screen pt-24 pb-20 grid-bg" x-data="{ activeTab: 'ALL' }">
+<div class="relative min-h-screen pt-24 pb-20" x-data="{ activeTab: 'ALL' }" style="background:#111315">
 
-    {{-- Title Header --}}
     <div class="max-w-7xl mx-auto px-6 mb-12">
-        <p class="section-label mb-2">ROSTER PEMBALAP AKTIF</p>
-        <h1 class="section-title text-4xl lg:text-6xl mb-4">DRIVERS LINE-UP</h1>
-        <div class="cyan-line my-4"></div>
-        <p class="text-muted text-sm max-w-xl">
+        <div class="section-eyebrow mb-4">ROSTER PEMBALAP AKTIF</div>
+        <h1 class="section-title-std mb-4">DRIVERS LINE-UP</h1>
+        <p class="font-['Sora'] text-[#D2D6DC] text-sm max-w-xl leading-relaxed">
             Kombinasi antara talenta kelas dunia, presisi teknologi tinggi, dan ambisi motorsport murni di 5 kategori balap utama global.
         </p>
     </div>
 
-    {{-- Interactive Tab Filter (Alpine.js) --}}
     <div class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="flex flex-wrap gap-2 border-b border-steel/20 pb-3" role="tablist" aria-label="Filter Kategori Pembalap">
-            <button 
-                @click="activeTab = 'ALL'"
-                :class="activeTab === 'ALL' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'ALL'" aria-controls="driver-grid">
-                Semua Kategori
+        <div class="flex flex-wrap gap-2 border-b border-[rgba(255,255,255,0.06)] pb-3" role="tablist" aria-label="Filter Kategori Pembalap">
+            @php
+            $filterTabs = [
+                'ALL' => 'Semua Kategori',
+                'F1' => 'Formula 1',
+                'Endurance' => 'WEC / Endurance',
+                'IMSA' => 'IMSA',
+                'IndyCar' => 'IndyCar',
+                'WRC' => 'WRC Rally',
+                'NASCAR' => 'NASCAR',
+                'GTWCE' => 'GTWCE Europe',
+                'GTWCA' => 'GTWCA Asia',
+                'EWC' => 'FIM EWC (Motor)',
+                'FormulaE' => 'Formula E',
+                'Academy' => 'M1TRG Academy',
+            ];
+            @endphp
+            @foreach($filterTabs as $key => $label)
+            <button
+                @click="activeTab = '{{ $key }}'"
+                :class="activeTab === '{{ $key }}' ? 'border-[#B8E637] text-[#F8FAFC] bg-[#B8E637]/10' : 'border-transparent text-[#8C96A3] hover:text-[#F8FAFC]'"
+                class="px-4 py-2 text-xs font-['Albert_Sans'] tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
+                role="tab" :aria-selected="activeTab === '{{ $key }}'">
+                {{ $label }}
             </button>
-            <button 
-                @click="activeTab = 'F1'"
-                :class="activeTab === 'F1' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'F1'" aria-controls="driver-grid">
-                Formula 1
-            </button>
-            <button 
-                @click="activeTab = 'Endurance'"
-                :class="activeTab === 'Endurance' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'Endurance'" aria-controls="driver-grid">
-                WEC / Endurance
-            </button>
-            <button 
-                @click="activeTab = 'IMSA'"
-                :class="activeTab === 'IMSA' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'IMSA'" aria-controls="driver-grid">
-                IMSA
-            </button>
-            <button 
-                @click="activeTab = 'IndyCar'"
-                :class="activeTab === 'IndyCar' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'IndyCar'" aria-controls="driver-grid">
-                IndyCar
-            </button>
-            <button 
-                @click="activeTab = 'WRC'"
-                :class="activeTab === 'WRC' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'WRC'" aria-controls="driver-grid">
-                WRC Rally
-            </button>
-            <button 
-                @click="activeTab = 'NASCAR'"
-                :class="activeTab === 'NASCAR' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'NASCAR'" aria-controls="driver-grid">
-                NASCAR
-            </button>
-            <button 
-                @click="activeTab = 'GTWCE'"
-                :class="activeTab === 'GTWCE' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'GTWCE'" aria-controls="driver-grid">
-                GTWCE Europe
-            </button>
-            <button 
-                @click="activeTab = 'GTWCA'"
-                :class="activeTab === 'GTWCA' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'GTWCA'" aria-controls="driver-grid">
-                GTWCA Asia
-            </button>
-            <button 
-                @click="activeTab = 'EWC'"
-                :class="activeTab === 'EWC' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300"
-                role="tab" :aria-selected="activeTab === 'EWC'" aria-controls="driver-grid">
-                FIM EWC (Motor)
-            </button>
-            <button 
-                @click="activeTab = 'FormulaE'"
-                :class="activeTab === 'FormulaE' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
-                Formula E
-            </button>
-            <button 
-                @click="activeTab = 'Academy'"
-                :class="activeTab === 'Academy' ? 'border-rgr text-pure bg-rgr/10' : 'border-transparent text-muted hover:text-pure'"
-                class="px-4 py-2 text-xs font-ui tracking-wider uppercase border-b-2 font-bold transition-all duration-300">
-                M1TRG Academy
-            </button>
+            @endforeach
         </div>
     </div>
 
-    {{-- Drivers Grid --}}
     @php
     $driverImages = [
         'F1' => [
@@ -151,10 +89,10 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             @if($drivers->isEmpty())
-            <div class="empty-state" role="status">
-                <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-11h2v4h-2zm0 6h2v2h-2z" fill="currentColor"/></svg>
-                <h4>Belum Ada Pembalap</h4>
-                <p>Data pembalap sedang diperbarui. Silakan kembali lagi nanti.</p>
+            <div class="col-span-full flex flex-col items-center justify-center py-16 text-center">
+                <svg class="w-12 h-12 text-[#8C96A3] mb-4" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-11h2v4h-2zm0 6h2v2h-2z" fill="currentColor"/></svg>
+                <h4 class="font-['Albert_Sans'] font-bold text-lg text-[#F8FAFC] mb-1">Belum Ada Pembalap</h4>
+                <p class="font-['Sora'] text-sm text-[#8C96A3]">Data pembalap sedang diperbarui. Silakan kembali lagi nanti.</p>
             </div>
             @else
             @foreach($drivers as $driver)
@@ -162,8 +100,7 @@
             $categoryImages = $driverImages[$driver->category] ?? $driverImages['Academy'];
             $imageIndex = $loop->index % count($categoryImages);
             $imgUrl = $categoryImages[$imageIndex];
-            
-            // Atribut Teknis BMW
+
             $license = match($driver->category) {
                 'F1' => 'Platinum',
                 'Endurance', 'IMSA', 'IndyCar', 'WRC', 'NASCAR' => 'Gold',
@@ -184,25 +121,22 @@
                 default => 'Wet Weather Mastery'
             };
             @endphp
-            <div 
+            <div
                 x-show="activeTab === 'ALL' || activeTab === '{{ $driver->category }}'"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-95"
                 x-transition:enter-end="opacity-100 scale-100"
-                class="rgr-card flex flex-col justify-between overflow-hidden"
-                style="border-radius: 0 !important;"
+                class="m1-card relative overflow-hidden"
                 id="driver-card-{{ $driver->id }}">
-                
-                {{-- Background Big Number --}}
-                <div class="absolute right-[-1rem] bottom-[-2rem] font-display font-black text-9xl text-pure/[0.03] select-none pointer-events-none">
+
+                <div class="absolute right-[-1rem] bottom-[-2rem] font-['Albert_Sans'] font-black text-9xl text-[#F8FAFC]/[0.03] select-none pointer-events-none">
                     {{ str_pad($driver->permanent_number, 2, '0', STR_PAD_LEFT) }}
                 </div>
 
-                {{-- Driver Info Body --}}
                 <div class="p-6">
                     <div class="flex items-start justify-between mb-4">
                         <div>
-                            <span class="px-2 py-0.5 text-[0.6rem] font-display font-bold tracking-widest text-rgr bg-rgr/10 rounded uppercase">
+                            <span class="m1-badge text-[0.6rem] px-2 py-0.5">
                                 @if($driver->category === 'Endurance')
                                      WEC / Endurance
                                 @elseif($driver->category === 'IMSA')
@@ -225,48 +159,46 @@
                                      {{ $driver->category }}
                                 @endif
                             </span>
-                            <h3 class="font-display font-bold text-lg text-pure mt-2 leading-tight">{{ $driver->name }}</h3>
-                            <p class="text-xs text-muted uppercase tracking-wider font-ui mt-1">{{ $driver->country }} ({{ $driver->country_code }})</p>
+                            <h3 class="font-['Albert_Sans'] font-bold text-lg text-[#F8FAFC] mt-2 leading-tight">{{ $driver->name }}</h3>
+                            <p class="text-xs text-[#8C96A3] uppercase tracking-wider font-['Albert_Sans'] mt-1">{{ $driver->country }} ({{ $driver->country_code }})</p>
                         </div>
-                        <span class="font-display font-black text-2xl text-rgr">#{{ $driver->permanent_number }}</span>
+                        <span class="font-['Albert_Sans'] font-black text-2xl text-[#B8E637]">#{{ $driver->permanent_number }}</span>
                     </div>
 
-                    <p class="text-xs text-muted leading-relaxed font-body">
+                    <p class="text-xs text-[#D2D6DC] leading-relaxed font-['Sora']">
                         {{ $driver->bio }}
                     </p>
                 </div>
 
-                {{-- Atribut Atribut Teknis BMW (Tabel Spesifikasi) --}}
-                <div class="px-6 pb-6 pt-3 border-t border-steel/10 bg-black/[0.01]">
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[0.68rem] font-mono">
-                        <div class="flex justify-between border-b border-steel/5 pb-1">
-                            <span class="text-muted">Lisensi FIA:</span>
-                            <span class="font-bold text-pure">{{ $license }}</span>
+                <div class="px-6 pb-6 pt-3 border-t border-[rgba(255,255,255,0.06)]">
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[0.68rem] font-['JetBrains_Mono']">
+                        <div class="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-1">
+                            <span class="text-[#8C96A3]">Lisensi FIA:</span>
+                            <span class="font-bold text-[#F8FAFC]">{{ $license }}</span>
                         </div>
-                        <div class="flex justify-between border-b border-steel/5 pb-1">
-                            <span class="text-muted">Lap Terbaik:</span>
-                            <span class="font-bold text-pure">{{ $bestLap }}</span>
+                        <div class="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-1">
+                            <span class="text-[#8C96A3]">Lap Terbaik:</span>
+                            <span class="font-bold text-[#F8FAFC]">{{ $bestLap }}</span>
                         </div>
                         <div class="flex justify-between col-span-2">
-                            <span class="text-muted">Gaya Balap:</span>
-                            <span class="font-bold text-rgr">{{ $drivingStyle }}</span>
+                            <span class="text-[#8C96A3]">Gaya Balap:</span>
+                            <span class="font-bold text-[#B8E637]">{{ $drivingStyle }}</span>
                         </div>
                     </div>
                 </div>
 
-                {{-- Driver Stats Foot --}}
-                <div class="border-t border-steel/20 bg-black/[0.02] p-4 grid grid-cols-3 gap-2 text-center">
+                <div class="border-t border-[rgba(255,255,255,0.06)] p-4 grid grid-cols-3 gap-2 text-center" style="background:#111315">
                     <div>
-                        <p class="text-xs text-faint uppercase font-ui tracking-wider">Podium</p>
-                        <p class="text-sm font-display font-bold text-pure mt-1">{{ $driver->podiums }}</p>
+                        <p class="text-xs text-[#8C96A3] uppercase font-['Albert_Sans'] tracking-wider">Podium</p>
+                        <p class="text-sm font-['Albert_Sans'] font-bold text-[#F8FAFC] mt-1">{{ $driver->podiums }}</p>
                     </div>
                     <div>
-                        <p class="text-xs text-faint uppercase font-ui tracking-wider">Poin Karir</p>
-                        <p class="text-sm font-display font-bold text-pure mt-1">{{ number_format($driver->career_points, 0) }}</p>
+                        <p class="text-xs text-[#8C96A3] uppercase font-['Albert_Sans'] tracking-wider">Poin Karir</p>
+                        <p class="text-sm font-['Albert_Sans'] font-bold text-[#F8FAFC] mt-1">{{ number_format($driver->career_points, 0) }}</p>
                     </div>
                     <div>
-                        <p class="text-xs text-faint uppercase font-ui tracking-wider">Gelar Juara</p>
-                        <p class="text-sm font-display font-bold text-pure mt-1">{{ $driver->world_championships }}</p>
+                        <p class="text-xs text-[#8C96A3] uppercase font-['Albert_Sans'] tracking-wider">Gelar Juara</p>
+                        <p class="text-sm font-['Albert_Sans'] font-bold text-[#F8FAFC] mt-1">{{ $driver->world_championships }}</p>
                     </div>
                 </div>
             </div>
@@ -276,110 +208,100 @@
         </div>
     </div>
 
-    {{-- ── INTERACTIVE DRIVER COMPARE TOOL ────────────────────────────────────── --}}
     <div class="max-w-7xl mx-auto px-6 mt-20" x-data="driverComparer()">
-        <div class="mb-10 text-center" data-reveal>
-            <p class="section-label mb-2 flex items-center justify-center gap-3">
-                <span class="w-6 h-px bg-rgr"></span>KOMPARASI STRATEGIS
-            </p>
-            <h2 class="section-title text-3xl lg:text-4xl">Alat Banding Pembalap Interaktif</h2>
-            <p class="text-muted max-w-lg mx-auto mt-2">Bandingkan atribut performa, keahlian teknis sirkuit, dan insting balap antar pembalap utama secara langsung.</p>
+        <div class="mb-10 text-center">
+            <div class="section-eyebrow justify-center mb-3">KOMPARASI STRATEGIS</div>
+            <h2 class="section-title-std">Alat Banding Pembalap Interaktif</h2>
+            <p class="font-['Sora'] text-[#8C96A3] max-w-lg mx-auto mt-2 text-sm">Bandingkan atribut performa, keahlian teknis sirkuit, dan insting balap antar pembalap utama secara langsung.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {{-- Driver 1 Selection --}}
-            <div class="lg:col-span-4 rgr-card p-6" data-reveal>
-                <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-2">PEMBALAP KIRI</label>
-                <select x-model="driverLeft" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-ui text-pure uppercase tracking-wider rounded focus:outline-none focus:border-rgr transition-colors mb-6">
+
+            <div class="lg:col-span-4 m1-card p-6">
+                <label class="text-[0.62rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider block mb-2">PEMBALAP KIRI</label>
+                <select x-model="driverLeft" class="w-full bg-[#111315] border border-[rgba(255,255,255,0.06)] p-3 text-xs font-['Albert_Sans'] text-[#F8FAFC] uppercase tracking-wider rounded focus:outline-none focus:border-[#B8E637] transition-colors mb-6">
                     <template x-for="d in driverData">
                         <option :value="d.id" x-text="d.name"></option>
                     </template>
                 </select>
 
                 <div class="text-center">
-                    <div class="w-24 h-24 rounded-full bg-rgr/10 border-2 border-rgr/30 flex items-center justify-center mx-auto mb-4">
-                        <span class="font-display font-black text-3xl text-rgr" x-text="'#' + getDriver(driverLeft).number">#00</span>
+                    <div class="w-24 h-24 rounded-full bg-[#B8E637]/10 border-2 border-[#B8E637]/30 flex items-center justify-center mx-auto mb-4">
+                        <span class="font-['Albert_Sans'] font-black text-3xl text-[#B8E637]" x-text="'#' + getDriver(driverLeft).number">#00</span>
                     </div>
-                    <h3 class="font-display font-bold text-lg text-pure" x-text="getDriver(driverLeft).name">Driver Name</h3>
-                    <p class="text-xs text-muted font-ui tracking-wider mt-1" x-text="getDriver(driverLeft).championship + ' Division'"></p>
+                    <h3 class="font-['Albert_Sans'] font-bold text-lg text-[#F8FAFC]" x-text="getDriver(driverLeft).name">Driver Name</h3>
+                    <p class="text-xs text-[#8C96A3] font-['Albert_Sans'] tracking-wider mt-1" x-text="getDriver(driverLeft).championship + ' Division'"></p>
                 </div>
             </div>
 
-            {{-- Stat Comparison Bars (Middle) --}}
-            <div class="lg:col-span-4 rgr-card p-6" data-reveal>
-                <h3 class="font-display font-bold text-center text-base text-pure mb-6">ATRIBUT SKILL SIRKUIT</h3>
-                
+            <div class="lg:col-span-4 m1-card p-6">
+                <h3 class="font-['Albert_Sans'] font-bold text-center text-base text-[#F8FAFC] mb-6">ATRIBUT SKILL SIRKUIT</h3>
+
                 <div class="space-y-5">
-                    {{-- Pace / Speed --}}
                     <div>
-                        <div class="flex justify-between text-[0.65rem] font-ui text-muted uppercase tracking-wider mb-1.5">
-                            <span class="text-rgr font-bold" x-text="getDriver(driverLeft).stats.pace"></span>
+                        <div class="flex justify-between text-[0.65rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider mb-1.5">
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverLeft).stats.pace"></span>
                             <span>Kualifikasi / Pace</span>
-                            <span class="text-cyan-500 font-bold" x-text="getDriver(driverRight).stats.pace"></span>
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverRight).stats.pace"></span>
                         </div>
-                        <div class="h-2 bg-pitch rounded overflow-hidden flex">
-                            <div class="h-full bg-rgr transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.pace / 2) + '%'"></div>
-                            <div class="h-full bg-cyan-400 transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.pace / 2) + '%'"></div>
+                        <div class="h-2 bg-[#111315] rounded overflow-hidden flex">
+                            <div class="h-full bg-[#B8E637] transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.pace / 2) + '%'"></div>
+                            <div class="h-full bg-[#F4B63D] transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.pace / 2) + '%'"></div>
                         </div>
                     </div>
 
-                    {{-- Tyre Preservation --}}
                     <div>
-                        <div class="flex justify-between text-[0.65rem] font-ui text-muted uppercase tracking-wider mb-1.5">
-                            <span class="text-rgr font-bold" x-text="getDriver(driverLeft).stats.tyre"></span>
+                        <div class="flex justify-between text-[0.65rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider mb-1.5">
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverLeft).stats.tyre"></span>
                             <span>Manajemen Ban</span>
-                            <span class="text-cyan-500 font-bold" x-text="getDriver(driverRight).stats.tyre"></span>
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverRight).stats.tyre"></span>
                         </div>
-                        <div class="h-2 bg-pitch rounded overflow-hidden flex">
-                            <div class="h-full bg-rgr transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.tyre / 2) + '%'"></div>
-                            <div class="h-full bg-cyan-400 transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.tyre / 2) + '%'"></div>
+                        <div class="h-2 bg-[#111315] rounded overflow-hidden flex">
+                            <div class="h-full bg-[#B8E637] transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.tyre / 2) + '%'"></div>
+                            <div class="h-full bg-[#F4B63D] transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.tyre / 2) + '%'"></div>
                         </div>
                     </div>
 
-                    {{-- Wet / Rain pace --}}
                     <div>
-                        <div class="flex justify-between text-[0.65rem] font-ui text-muted uppercase tracking-wider mb-1.5">
-                            <span class="text-rgr font-bold" x-text="getDriver(driverLeft).stats.wet"></span>
+                        <div class="flex justify-between text-[0.65rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider mb-1.5">
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverLeft).stats.wet"></span>
                             <span>Kendali Hujan (Wet)</span>
-                            <span class="text-cyan-500 font-bold" x-text="getDriver(driverRight).stats.wet"></span>
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverRight).stats.wet"></span>
                         </div>
-                        <div class="h-2 bg-pitch rounded overflow-hidden flex">
-                            <div class="h-full bg-rgr transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.wet / 2) + '%'"></div>
-                            <div class="h-full bg-cyan-400 transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.wet / 2) + '%'"></div>
+                        <div class="h-2 bg-[#111315] rounded overflow-hidden flex">
+                            <div class="h-full bg-[#B8E637] transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.wet / 2) + '%'"></div>
+                            <div class="h-full bg-[#F4B63D] transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.wet / 2) + '%'"></div>
                         </div>
                     </div>
 
-                    {{-- Aggression --}}
                     <div>
-                        <div class="flex justify-between text-[0.65rem] font-ui text-muted uppercase tracking-wider mb-1.5">
-                            <span class="text-rgr font-bold" x-text="getDriver(driverLeft).stats.aggression"></span>
+                        <div class="flex justify-between text-[0.65rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider mb-1.5">
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverLeft).stats.aggression"></span>
                             <span>Agresivitas Salip</span>
-                            <span class="text-cyan-500 font-bold" x-text="getDriver(driverRight).stats.aggression"></span>
+                            <span class="text-[#B8E637] font-bold" x-text="getDriver(driverRight).stats.aggression"></span>
                         </div>
-                        <div class="h-2 bg-pitch rounded overflow-hidden flex">
-                            <div class="h-full bg-rgr transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.aggression / 2) + '%'"></div>
-                            <div class="h-full bg-cyan-400 transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.aggression / 2) + '%'"></div>
+                        <div class="h-2 bg-[#111315] rounded overflow-hidden flex">
+                            <div class="h-full bg-[#B8E637] transition-all duration-500" :style="'width: ' + (getDriver(driverLeft).stats.aggression / 2) + '%'"></div>
+                            <div class="h-full bg-[#F4B63D] transition-all duration-500 ml-auto" :style="'width: ' + (getDriver(driverRight).stats.aggression / 2) + '%'"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {{-- Driver 2 Selection --}}
-            <div class="lg:col-span-4 rgr-card p-6" data-reveal>
-                <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-2">PEMBALAP KANAN</label>
-                <select x-model="driverRight" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-ui text-pure uppercase tracking-wider rounded focus:outline-none focus:border-rgr transition-colors mb-6">
+            <div class="lg:col-span-4 m1-card p-6">
+                <label class="text-[0.62rem] font-['Albert_Sans'] text-[#8C96A3] uppercase tracking-wider block mb-2">PEMBALAP KANAN</label>
+                <select x-model="driverRight" class="w-full bg-[#111315] border border-[rgba(255,255,255,0.06)] p-3 text-xs font-['Albert_Sans'] text-[#F8FAFC] uppercase tracking-wider rounded focus:outline-none focus:border-[#B8E637] transition-colors mb-6">
                     <template x-for="d in driverData">
                         <option :value="d.id" x-text="d.name" :disabled="d.id == driverLeft"></option>
                     </template>
                 </select>
 
                 <div class="text-center">
-                    <div class="w-24 h-24 rounded-full bg-cyan-400/10 border-2 border-cyan-400/30 flex items-center justify-center mx-auto mb-4">
-                        <span class="font-display font-black text-3xl text-cyan-500" x-text="'#' + getDriver(driverRight).number">#00</span>
+                    <div class="w-24 h-24 rounded-full bg-[#F4B63D]/10 border-2 border-[#F4B63D]/30 flex items-center justify-center mx-auto mb-4">
+                        <span class="font-['Albert_Sans'] font-black text-3xl text-[#F4B63D]" x-text="'#' + getDriver(driverRight).number">#00</span>
                     </div>
-                    <h3 class="font-display font-bold text-lg text-pure" x-text="getDriver(driverRight).name">Driver Name</h3>
-                    <p class="text-xs text-muted font-ui tracking-wider mt-1" x-text="getDriver(driverRight).championship + ' Division'"></p>
+                    <h3 class="font-['Albert_Sans'] font-bold text-lg text-[#F8FAFC]" x-text="getDriver(driverRight).name">Driver Name</h3>
+                    <p class="text-xs text-[#8C96A3] font-['Albert_Sans'] tracking-wider mt-1" x-text="getDriver(driverRight).championship + ' Division'"></p>
                 </div>
             </div>
 

@@ -5,308 +5,238 @@
 
 @push('styles')
 <style>
-.gta-hero {
-    position: relative; padding-top: 130px; padding-bottom: 60px;
-    background: #0B0D10; overflow: hidden;
-}
 .gta-hero-grid {
     position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(196, 229, 56, 0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(196, 229, 56, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(184,230,55,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(184,230,55,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
-}
-.gta-card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(196, 229, 56, 0.08);
-    position: relative; overflow: hidden;
-    transition: all 0.4s ease;
-}
-.gta-card:hover {
-    border-color: rgba(196, 229, 56, 0.2);
-    transform: translateY(-4px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.06);
 }
 </style>
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-pitch">
-    
-    {{-- Hero Section --}}
-    <section class="gta-hero">
+<div class="min-h-screen" style="background:#111315;">
+
+    {{-- Hero --}}
+    <section class="position-relative" style="padding-top:130px;padding-bottom:60px;overflow:hidden;">
         <div class="gta-hero-grid"></div>
-        <div class="max-w-7xl mx-auto px-6 relative">
-            <p class="section-label mb-3 flex items-center gap-3"><span class="w-6 h-px bg-rgr"></span>GT3 DIVISION ASIA</p>
-            <h1 class="section-title text-5xl lg:text-7xl mb-4">GT World Challenge Asia</h1>
-            <p class="text-muted text-lg max-w-2xl leading-relaxed">
+        <div class="max-w-7xl mx-auto px-6 position-relative">
+            <p class="section-eyebrow mb-4">GT3 DIVISION ASIA</p>
+            <h1 class="display-title mb-4">GT World Challenge Asia</h1>
+            <p class="section-subtitle" style="max-width:600px;">
                 Persaingan balap ketahanan GT3 bergengsi di wilayah Asia Pasifik. Mobil 1 Team RG menurunkan dua armada Porsche 911 GT3 R generasi terbaru untuk merebut mahkota kejuaraan kontinental.
             </p>
         </div>
     </section>
 
-    {{-- Format Kompetisi & Kalender Sirkuit Utama --}}
-    <section class="py-12 border-b border-steel/15 bg-white/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8">
-                {{-- Format --}}
-                <div class="md:col-span-1 rgr-card p-6 border-l-4 border-rgr">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-rgr font-bold uppercase">KARAKTERISTIK SERI</span>
-                    <h3 class="font-display font-bold text-xl text-pure mt-1 mb-3">Persaingan Asia Pasifik</h3>
-                    <p class="text-xs text-muted leading-relaxed font-body">
-                        Seri ini sangat menarik karena jaraknya dekat dengan Indonesia, bahkan banyak pembalap dan tim papan atas dari Asia Tenggara (termasuk Indonesia) yang langganan turun di sini. Karakteristiknya didominasi oleh sirkuit-sirkuit modern berstandar F1.
-                    </p>
-                </div>
-                {{-- Sirkuit --}}
-                <div class="md:col-span-2 space-y-4">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-muted font-bold uppercase">KALENDER SIRKUIT UTAMA</span>
-                    <h3 class="font-display font-bold text-2xl text-pure">Sirkuit Utama Asia</h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Sepang International Circuit (Malaysia)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Usually menjadi seri pembuka atau penutup. Banyak tim regional yang sangat hafal dengan karakter sirkuit ini.</p>
-                        </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Fuji Speedway & Suzuka Circuit (Jepang)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Dua sirkuit legendaris di Jepang. Seri di Jepang ini sangat bergengsi karena tim-tim pabrikan lokal Jepang ikut turun gunung sebagai wildcard.</p>
-                        </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Chang International Circuit (Buriram, Thailand)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Sirkuit modern yang sangat panas, menguji ketahanan fisik pembalap dan sistem pendingin mobil.</p>
-                        </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Mandalika International Circuit (Indonesia)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Menariknya, dalam kalender musim balap terbaru, Sirkuit Mandalika di Lombok mulai dilirik dan masuk sebagai salah satu tuan rumah resmi untuk seri GTWC Asia!</p>
-                        </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded md:col-span-2">
-                            <h4 class="text-xs font-bold text-pure">Shanghai International Circuit (China)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Salah satu sirkuit F1 dengan trek lurus terpanjang yang menguji performa mesin.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Lineup Pembalap & Mobil --}}
+    {{-- Format & Circuits --}}
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-10">
-                <h2 class="font-display font-bold text-2xl text-pure">Roster Pembalap & Armada Porsche</h2>
-                <div class="cyan-line my-3"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                {{-- Car #55 Pro-Am --}}
-                <div class="gta-card p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <span class="px-2.5 py-0.5 text-[0.62rem] font-display font-bold tracking-widest text-rgr bg-rgr/10 rounded uppercase">
-                                    PRO-AM CLASS · #55
-                                </span>
-                                <h3 class="font-display font-bold text-2xl text-pure mt-3">Porsche 911 GT3 R (992)</h3>
-                                <p class="text-xs text-muted font-body mt-1">Mesin: 4.2L Flat-Six Naturally Aspirated · Tenaga: 565 HP · Sasis: Lightweight Aluminium-Steel</p>
-                            </div>
-                            <span class="font-display font-black text-4xl text-rgr">#55</span>
+            <div class="grid md:grid-cols-3 gap-8 align-items-start">
+                <div class="m1-card-elevated p-5">
+                    <span class="m1-badge mb-2 d-inline-block">KARAKTERISTIK SERI</span>
+                    <h3 class="fw-bold mt-2 mb-3" style="font-family:'Albert Sans',sans-serif;font-size:1.2rem;color:#F8FAFC;">Persaingan Asia Pasifik</h3>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;line-height:1.65;">
+                        Seri ini diminati tim dari Asia Tenggara termasuk Indonesia. Didominasi sirkuit modern berstandar F1 dengan cuaca tropis menantang.
+                    </p>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="mb-2" style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;text-transform:uppercase;">KALENDER SIRKUIT</p>
+                    <h3 class="fw-bold mb-4" style="font-family:'Albert Sans',sans-serif;font-size:1.5rem;color:#F8FAFC;">Sirkuit Utama Asia</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Sepang (Malaysia)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Seri pembuka/penutup. Tim regional hafal karakter sirkuit.</p>
                         </div>
-
-                        <div class="space-y-4 border-t border-steel/20 pt-4 mb-6">
-                            <h4 class="text-xs font-display font-bold text-pure">PANDUAN PEMBALAP:</h4>
-                            <div>
-                                <p class="text-xs font-bold text-pure">Rio Haryanto <span class="text-muted font-normal">(Indonesia)</span></p>
-                                <p class="text-[0.65rem] text-muted font-body mt-0.5">Pembalap kebanggaan Indonesia, mantan bintang Formula 1 dengan pengalaman balap GT Asia yang sangat kaya.</p>
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold text-pure">Alessio Picariello <span class="text-muted font-normal">(Belgia)</span></p>
-                                <p class="text-[0.65rem] text-muted font-body mt-0.5">Pembalap pabrikan Porsche, pemegang gelar juara GT Cup Asia dengan konsistensi lap terbaik.</p>
-                            </div>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Fuji & Suzuka (Jepang)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Dua sirkuit legendaris, tim pabrikan Jepang ikut wildcard.</p>
                         </div>
-                    </div>
-
-                    <div class="border-t border-steel/20 pt-4 grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Kemenangan</p>
-                            <p class="font-display font-bold text-pure mt-1">4 Kali</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Chang International (Thailand)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Sirkuit modern super panas, uji fisik dan pendingin mobil.</p>
                         </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Podium</p>
-                            <p class="font-display font-bold text-pure mt-1">11 Kali</p>
-                        </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Pole</p>
-                            <p class="font-display font-bold text-pure mt-1">5 Kali</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Mandalika (Indonesia)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Sirkuit Lombok mulai dilirik sebagai tuan rumah seri resmi.</p>
                         </div>
                     </div>
                 </div>
-
-                {{-- Car #66 Silver Cup --}}
-                <div class="gta-card p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <span class="px-2.5 py-0.5 text-[0.62rem] font-display font-bold tracking-widest text-cyan-500 bg-cyan-500/10 rounded uppercase">
-                                    SILVER CUP · #66
-                                </span>
-                                <h3 class="font-display font-bold text-2xl text-pure mt-3">Porsche 911 GT3 R (992)</h3>
-                                <p class="text-xs text-muted font-body mt-1">Mesin: 4.2L Flat-Six Naturally Aspirated · Transmisi: 6-Speed Sequential Constant-Mesh</p>
-                            </div>
-                            <span class="font-display font-black text-4xl text-cyan-500">#66</span>
-                        </div>
-
-                        <div class="space-y-4 border-t border-steel/20 pt-4 mb-6">
-                            <h4 class="text-xs font-display font-bold text-pure">PANDUAN PEMBALAP:</h4>
-                            <div>
-                                <p class="text-xs font-bold text-pure">Yifei Ye <span class="text-muted font-normal">(Tiongkok)</span></p>
-                                <p class="text-[0.65rem] text-muted font-body mt-0.5">Pembalap elit Porsche Asia Pasifik, ahli sirkuit Shanghai dan Suzuka.</p>
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold text-pure">Tanart Sathienthirakul <span class="text-muted font-normal">(Thailand)</span></p>
-                                <p class="text-[0.65rem] text-muted font-body mt-0.5">Pembalap berpengalaman tinggi di kancah GT Asia Tenggara, mahir dalam menjaga daya tahan ban.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-steel/20 pt-4 grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Kemenangan</p>
-                            <p class="font-display font-bold text-pure mt-1">2 Kali</p>
-                        </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Podium</p>
-                            <p class="font-display font-bold text-pure mt-1">6 Kali</p>
-                        </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Pole</p>
-                            <p class="font-display font-bold text-pure mt-1">3 Kali</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    {{-- Interactive Simulator: Pit Stop Penalty Ballast --}}
-    <section class="py-16 border-t border-steel/20" x-data="bopSimulator()">
+    {{-- Cars & Drivers --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="rgr-card p-8 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-rgr/03 to-transparent pointer-events-none"></div>
-                
-                <div class="flex flex-col md:flex-row items-start justify-between gap-6 border-b border-steel/20 pb-4 mb-6">
-                    <div>
-                        <span class="text-xs font-ui tracking-widest text-rgr font-bold uppercase">SUCCESS BALLAST & PIT PENALTY</span>
-                        <h2 class="font-display font-bold text-2xl text-pure mt-1">Kalkulator Penalti Pit Stop Sukses (Success Penalty)</h2>
+            <p class="section-eyebrow mb-2">ARMADA PORSCHE</p>
+            <h2 class="section-title-std mb-10">Line-Up GTWCA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {{-- #55 Pro-Am --}}
+                <div class="m1-card-elevated p-5">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
+                        <div>
+                            <span class="m1-badge mb-2 d-inline-block">PRO-AM CLASS · #55</span>
+                            <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.3rem;color:#F8FAFC;">Porsche 911 GT3 R (992)</h3>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.75rem;color:#8C96A3;">4.2L Flat-Six NA · 565 HP · Lightweight Aluminium-Steel</p>
+                        </div>
+                        <span class="fw-black" style="font-family:'Albert Sans',sans-serif;font-size:2.5rem;color:#B8E637;">#55</span>
                     </div>
-                    <span class="px-2.5 py-1 text-[0.62rem] font-display font-bold text-cyan-400 bg-cyan-400/10 rounded uppercase">
-                        GT ASIA REGULATION
-                    </span>
+                    <div class="pt-3 mb-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <h4 class="fw-bold mb-2" style="font-family:'Albert Sans',sans-serif;font-size:0.78rem;color:#F8FAFC;">PANDUAN PEMBALAP:</h4>
+                        <p class="fw-bold mb-0" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Rio Haryanto <span style="color:#8C96A3;font-weight:400;font-size:0.75rem;">(Indonesia)</span></p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Pembalap kebanggaan Indonesia, mantan bintang F1.</p>
+                        <p class="fw-bold mt-2 mb-0" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Alessio Picariello <span style="color:#8C96A3;font-weight:400;font-size:0.75rem;">(Belgia)</span></p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Pembalap pabrikan Porsche, gelar GT Cup Asia.</p>
+                    </div>
+                    <div class="d-flex gap-3 pt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Kemenangan</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">4</p>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Podium</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">11</p>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Pole</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">5</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    
-                    <div class="space-y-4">
+                {{-- #66 Silver Cup --}}
+                <div class="m1-card-elevated p-5">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
                         <div>
-                            <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-1.5">POSISI HASIL BALAPAN SEBELUMNYA</label>
-                            <select x-model="lastPosition" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-ui text-pure uppercase tracking-wider rounded focus:outline-none focus:border-rgr transition-colors">
-                                <option value="1">Juara 1 (P1)</option>
-                                <option value="2">Juara 2 (P2)</option>
-                                <option value="3">Juara 3 (P3)</option>
-                                <option value="4">Luar Podium (P4 ke bawah)</option>
+                            <span class="m1-badge mb-2 d-inline-block" style="background:rgba(244,181,61,0.12)!important;color:#F4B63D!important;border-color:rgba(244,181,61,0.25)!important;">SILVER CUP · #66</span>
+                            <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.3rem;color:#F8FAFC;">Porsche 911 GT3 R (992)</h3>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.75rem;color:#8C96A3;">4.2L Flat-Six NA · 6-Speed Sequential Constant-Mesh</p>
+                        </div>
+                        <span class="fw-black" style="font-family:'Albert Sans',sans-serif;font-size:2.5rem;color:#F4B63D;">#66</span>
+                    </div>
+                    <div class="pt-3 mb-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <h4 class="fw-bold mb-2" style="font-family:'Albert Sans',sans-serif;font-size:0.78rem;color:#F8FAFC;">PANDUAN PEMBALAP:</h4>
+                        <p class="fw-bold mb-0" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Yifei Ye <span style="color:#8C96A3;font-weight:400;font-size:0.75rem;">(Tiongkok)</span></p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Pembalap elit Porsche Asia Pasifik, ahli Shanghai & Suzuka.</p>
+                        <p class="fw-bold mt-2 mb-0" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Tanart Sathienthirakul <span style="color:#8C96A3;font-weight:400;font-size:0.75rem;">(Thailand)</span></p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Berpengalaman di GT Asia Tenggara, mahir manajemen ban.</p>
+                    </div>
+                    <div class="d-flex gap-3 pt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Kemenangan</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">2</p>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Podium</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">6</p>
+                        </div>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Pole</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- BoP Simulator --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;" x-data="bopSimulator()">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="m1-card-elevated p-6 position-relative overflow-hidden">
+                <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4 mb-4 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                    <div>
+                        <p class="section-eyebrow">SUCCESS BALLAST</p>
+                        <h3 class="section-title-std" style="font-size:clamp(1.2rem,2.5vw,1.6rem);">Kalkulator Penalti Pit Stop</h3>
+                    </div>
+                    <span class="m1-badge" style="background:rgba(244,181,61,0.12)!important;color:#F4B63D!important;border-color:rgba(244,181,61,0.25)!important;">GT ASIA REGULATION</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 align-items-center">
+                    <div>
+                        <div class="mb-3">
+                            <label class="d-block mb-1" style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.1em;text-transform:uppercase;">POSISI SEBELUMNYA</label>
+                            <select x-model="lastPosition" class="w-100" style="background:#111315;border:1px solid rgba(255,255,255,0.1);padding:0.6rem 0.75rem;font-family:'Sora',sans-serif;font-size:0.78rem;color:#F8FAFC;border-radius:8px;">
+                                <option value="1">P1</option>
+                                <option value="2">P2</option>
+                                <option value="3">P3</option>
+                                <option value="4">P4 ke bawah</option>
                             </select>
                         </div>
-
-                        <div>
-                            <label class="text-[0.62rem] font-ui text-muted uppercase tracking-wider block mb-1.5">KATEGORI KELAS PEMBALAP</label>
-                            <select x-model="driverClass" class="w-full bg-pitch border border-steel/60 p-3 text-xs font-ui text-pure uppercase tracking-wider rounded focus:outline-none focus:border-rgr transition-colors">
-                                <option value="pro_am">Pro-Am Cup (#55 - Rio / Alessio)</option>
-                                <option value="silver">Silver Cup (#66 - Yifei / Tanart)</option>
+                        <div class="mb-3">
+                            <label class="d-block mb-1" style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.1em;text-transform:uppercase;">KELAS</label>
+                            <select x-model="driverClass" class="w-100" style="background:#111315;border:1px solid rgba(255,255,255,0.1);padding:0.6rem 0.75rem;font-family:'Sora',sans-serif;font-size:0.78rem;color:#F8FAFC;border-radius:8px;">
+                                <option value="pro_am">Pro-Am (#55)</option>
+                                <option value="silver">Silver (#66)</option>
                             </select>
                         </div>
-
-                        <button @click="calculatePenalty()" class="btn-rgr text-xs w-full justify-center">Simulasikan Waktu Wajib Pit Stop</button>
+                        <button @click="calculatePenalty()" class="btn-m1-primary w-100 justify-content-center">Simulasikan Waktu Pit Stop</button>
                     </div>
-
-                    <div class="bg-pitch/60 border border-steel/20 p-6 rounded-md min-h-[160px] flex flex-col justify-between">
+                    <div class="m1-glass p-4 d-flex flex-column justify-content-between" style="min-height:160px;">
                         <div>
-                            <p class="text-[0.58rem] font-ui text-faint tracking-wider uppercase mb-3">DURASI MINIMUM PIT STOP BERIKUTNYA</p>
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-xs font-mono">
-                                    <span class="text-muted">Tambahan Waktu Penalti:</span>
-                                    <span class="text-rgr font-bold" x-text="penaltyTime">0 Detik</span>
-                                </div>
-                                <div class="flex justify-between text-xs font-mono">
-                                    <span class="text-muted">Total Durasi Wajib Pit:</span>
-                                    <span class="text-pure font-bold" x-text="totalPitTime">0 Detik</span>
-                                </div>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.6rem;color:#8C96A3;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;">DURASI MINIMUM PIT</p>
+                            <div class="d-flex justify-content-between mb-2" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;">
+                                <span style="color:#8C96A3;">Tambahan Penalti:</span>
+                                <span class="fw-bold" style="color:#B8E637;" x-text="penaltyTime">0 Detik</span>
+                            </div>
+                            <div class="d-flex justify-content-between" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;">
+                                <span style="color:#8C96A3;">Total Durasi Wajib:</span>
+                                <span class="fw-bold" style="color:#F8FAFC;" x-text="totalPitTime">0 Detik</span>
                             </div>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-steel/20 text-xs font-mono text-cyan-400 font-bold" x-text="penaltyStatus">
-                            &gt; Siap menghitung regulasi pit-stop GT World Challenge Asia...
+                        <div class="mt-3 pt-2" style="border-top:1px solid rgba(255,255,255,0.06);font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#B8E637;" x-text="penaltyStatus">
+                            &gt; Siap menghitung regulasi pit-stop...
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- GTWCA Specific Gallery --}}
-    <section class="py-16 bg-white/20 border-t border-steel/20">
+    {{-- Gallery --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <p class="section-label mb-2">GALLERY & MEDIA</p>
-                <h2 class="font-display font-bold text-2xl text-pure">GTWCA Action Gallery</h2>
-                <div class="cyan-line my-3"></div>
-            </div>
+            <p class="section-eyebrow mb-2">GALLERY</p>
+            <h2 class="section-title-std mb-8">GTWCA Action Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="rgr-card p-4 rounded overflow-hidden" data-reveal>
-                    <div class="h-48 bg-white/05 rounded mb-3 flex items-center justify-center border border-white/05 relative">
-                        <span class="text-[0.62rem] font-ui tracking-widest text-muted">SUZUKA 10h GT3 DENSE PACK</span>
+                <div class="m1-card p-3">
+                    <div class="d-flex align-items-center justify-content-center mb-3" style="height:180px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;">
+                        <span style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;">SUZUKA 10H GT3</span>
                     </div>
-                    <h4 class="font-display font-bold text-sm text-pure">Suzuka 10h GT3 Pack</h4>
-                    <p class="text-[0.68rem] text-muted leading-relaxed mt-1">Porsche 911 GT3 R #55 meluncur cepat menuruni tikungan 130R sirkuit Suzuka.</p>
+                    <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Suzuka 10h GT3 Pack</h4>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;line-height:1.6;">Porsche #55 meluncur cepat menuruni tikungan 130R Suzuka.</p>
                 </div>
-                <div class="rgr-card p-4 rounded overflow-hidden" data-reveal>
-                    <div class="h-48 bg-white/05 rounded mb-3 flex items-center justify-center border border-white/05 relative">
-                        <span class="text-[0.62rem] font-ui tracking-widest text-muted">FUJI SPEEDWAY STRAIGHT</span>
+                <div class="m1-card p-3">
+                    <div class="d-flex align-items-center justify-content-center mb-3" style="height:180px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;">
+                        <span style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;">FUJI SPEEDWAY</span>
                     </div>
-                    <h4 class="font-display font-bold text-sm text-pure">Fuji Speedway Straight Run</h4>
-                    <p class="text-[0.68rem] text-muted leading-relaxed mt-1">Yifei Ye memanfaatkan slipstream di lintasan lurus utama sepanjang 1.47 km sirkuit Fuji.</p>
+                    <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Fuji Speedway Straight Run</h4>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;line-height:1.6;">Yifei Ye memanfaatkan slipstream di lintasan lurus 1.47 km.</p>
                 </div>
-                <div class="rgr-card p-4 rounded overflow-hidden" data-reveal>
-                    <div class="h-48 bg-white/05 rounded mb-3 flex items-center justify-center border border-white/05 relative">
-                        <span class="text-[0.62rem] font-ui tracking-widest text-muted">MANDALIKA ROAD CRUISE</span>
+                <div class="m1-card p-3">
+                    <div class="d-flex align-items-center justify-content-center mb-3" style="height:180px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;">
+                        <span style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;">MANDALIKA</span>
                     </div>
-                    <h4 class="font-display font-bold text-sm text-pure">Mandalika Heat Testing</h4>
-                    <p class="text-[0.68rem] text-muted leading-relaxed mt-1">Kru mekanik mengukur suhu ban Porsche #66 pada aspal panas sirkuit Mandalika.</p>
+                    <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.9rem;color:#F8FAFC;">Mandalika Heat Testing</h4>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;line-height:1.6;">Kru mengukur suhu ban Porsche #66 pada aspal panas Mandalika.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- GTWCA Division Specific Sponsors --}}
-    <section class="py-16 border-t border-steel/20 bg-white/40">
+    {{-- Sponsors --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <p class="section-label mb-2">DIVISION PARTNERS</p>
-                <h2 class="font-display font-bold text-2xl text-pure">GTWCA Series Sponsors</h2>
-                <div class="cyan-line my-3"></div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <p class="section-eyebrow mb-2">DIVISION PARTNERS</p>
+            <h2 class="section-title-std mb-8">GTWCA Series Sponsors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 @php
                     $gtwcaSponsors = ['Bank Mandiri', 'Telkomsel Flash', 'Pirelli Indonesia', 'Brembo', 'Oakley Indonesia'];
                 @endphp
                 @foreach($gtwcaSponsors as $name)
-                    <div class="rgr-card p-4 rounded flex flex-col justify-center items-center text-center border-white/05 min-h-[100px]" data-reveal>
-                        <span class="text-xs font-display font-bold text-pure">{{ $name }}</span>
-                        <span class="text-[0.55rem] font-ui text-rgr uppercase font-bold mt-2">GTWCA Partner</span>
+                    <div class="m1-card p-4 d-flex flex-column align-items-center justify-content-center text-center" style="min-height:100px;">
+                        <span class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">{{ $name }}</span>
+                        <span class="mt-2 fw-bold text-uppercase" style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#B8E637;letter-spacing:0.12em;">GTWCA Partner</span>
                     </div>
                 @endforeach
             </div>
@@ -324,26 +254,19 @@ function bopSimulator() {
         driverClass: 'pro_am',
         penaltyTime: '0 Detik',
         totalPitTime: '0 Detik',
-        penaltyStatus: '> Siap menghitung regulasi pit-stop GT World Challenge Asia...',
-
+        penaltyStatus: '> Siap menghitung regulasi pit-stop...',
         calculatePenalty() {
-            let basePit = this.driverClass === 'pro_am' ? 65 : 75; // Pro-Am base pit stop is shorter in regulations
+            let basePit = this.driverClass === 'pro_am' ? 65 : 75;
             let extra = 0;
-
             if (this.lastPosition === '1') {
-                extra = 15; // 15s penalty for winning
-                this.penaltyStatus = '> PENALTI SUKSES MAKSIMAL: Wajib diam tambahan 15 detik pada pit-stop berikutnya.';
+                extra = 15; this.penaltyStatus = '> PENALTI SUKSES MAKSIMAL: +15 detik.';
             } else if (this.lastPosition === '2') {
-                extra = 10;
-                this.penaltyStatus = '> PENALTI MODERAT: Tambahan 10 detik karena finis P2.';
+                extra = 10; this.penaltyStatus = '> PENALTI MODERAT: +10 detik.';
             } else if (this.lastPosition === '3') {
-                extra = 5;
-                this.penaltyStatus = '> PENALTI RINGAN: Tambahan 5 detik karena finis P3.';
+                extra = 5; this.penaltyStatus = '> PENALTI RINGAN: +5 detik.';
             } else {
-                extra = 0;
-                this.penaltyStatus = '> TANPA PENALTI: Durasi pit-stop standar sesuai kelas masing-masing.';
+                extra = 0; this.penaltyStatus = '> TANPA PENALTI: Durasi standar.';
             }
-
             this.penaltyTime = extra + ' Detik';
             this.totalPitTime = (basePit + extra) + ' Detik';
         }

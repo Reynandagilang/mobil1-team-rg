@@ -5,77 +5,89 @@
 
 @push('styles')
 <style>
-.ewc-hero {
-    position: relative; padding-top: 130px; padding-bottom: 60px;
-    background: #0B0D10; overflow: hidden;
-}
 .ewc-hero-grid {
     position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(196, 229, 56, 0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(196, 229, 56, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(184,230,55,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(184,230,55,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
-}
-.ewc-card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,249,250,0.94));
-    border: 1px solid rgba(196, 229, 56, 0.08);
-    position: relative; overflow: hidden;
-    transition: all 0.4s ease;
-}
-.ewc-card:hover {
-    border-color: rgba(196, 229, 56, 0.2);
-    transform: translateY(-4px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.06);
 }
 </style>
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-pitch">
-    
-    {{-- Hero Section --}}
-    <section class="ewc-hero">
+<div class="min-h-screen" style="background:#111315;">
+
+    {{-- Hero --}}
+    <section class="position-relative" style="padding-top:130px;padding-bottom:60px;overflow:hidden;">
         <div class="ewc-hero-grid"></div>
-        <div class="max-w-7xl mx-auto px-6 relative">
-            <p class="section-label mb-3 flex items-center gap-3"><span class="w-6 h-px bg-rgr"></span>FIM EWC DIVISION</p>
-            <h1 class="section-title text-5xl lg:text-7xl mb-4">FIM Endurance World Championship</h1>
-            <p class="text-muted text-lg max-w-2xl leading-relaxed">
+        <div class="max-w-7xl mx-auto px-6 position-relative">
+            <p class="section-eyebrow mb-4">FIM EWC DIVISION</p>
+            <h1 class="display-title mb-4">FIM Endurance World Championship</h1>
+            <p class="section-subtitle" style="max-width:600px;">
                 Tantangan ketahanan fisik ekstrem 24 jam di atas roda dua. Mobil 1 Team RG menurunkan motor Yamaha YZF-R1 berspesifikasi pabrikan terbaik untuk menaklukkan Le Mans, Spa, dan Bol d'Or.
             </p>
         </div>
     </section>
 
-    {{-- Format & Sirkuit --}}
-    <section class="py-12 border-b border-steel/15 bg-white/20">
+    {{-- Key Stats --}}
+    <section class="py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-1 ewc-card p-6 border-l-4 border-rgr">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-rgr font-bold uppercase">FORMAT DIVISI MOTOR</span>
-                    <h3 class="font-display font-bold text-xl text-pure mt-1 mb-3">Balap Ketahanan 24 Jam</h3>
-                    <p class="text-xs text-muted leading-relaxed font-body">
-                        FIM EWC menguji batas absolut manusia dan mesin. Tiga pembalap bergantian mengendarai satu motor sepanjang 24 jam tanpa henti, menghadapi transisi cuaca malam hari, kelelahan fisik, dan kecepatan pit stop krusial.
+            <div class="d-flex justify-content-between align-items-start gap-4 mb-12 flex-wrap">
+                <div>
+                    <p class="section-eyebrow">DIVISION STATS</p>
+                    <h2 class="section-title-std mt-2">Two-Wheel Endurance</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#B8E637;font-family:'Albert Sans',sans-serif;">220 HP</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Peak Power</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">998cc Crossplane CP4 Inline-4 · Aluminium Deltabox</p>
+                </div>
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#B8E637;font-family:'Albert Sans',sans-serif;">168 kg</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Dry Weight</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">Bodi serat karbon ringan dengan winglets aerodinamika</p>
+                </div>
+                <div class="m1-card p-6">
+                    <p class="text-xl fw-bold" style="color:#B8E637;font-family:'Albert Sans',sans-serif;">24 L</p>
+                    <p class="text-muted" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:#8C96A3;">Fuel Capacity</p>
+                    <p class="mt-2" style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#8C96A3;">Kapasitas tangki untuk balapan ketahanan 24 jam</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Format & Circuits --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 align-items-start">
+                <div class="m1-card-elevated p-5">
+                    <span class="m1-badge mb-2 d-inline-block">FORMAT DIVISI MOTOR</span>
+                    <h3 class="fw-bold mt-2 mb-3" style="font-family:'Albert Sans',sans-serif;font-size:1.2rem;color:#F8FAFC;">Balap Ketahanan 24 Jam</h3>
+                    <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;line-height:1.65;">
+                        FIM EWC menguji batas absolut manusia dan mesin. Tiga pembalap bergantian mengendarai satu motor selama 24 jam, menghadapi transisi cuaca malam, kelelahan fisik, dan pit stop krusial.
                     </p>
                 </div>
-                
-                <div class="md:col-span-2 space-y-4">
-                    <span class="text-[0.62rem] font-ui tracking-widest text-muted font-bold uppercase">SIRKUIT UTAMA KALENDER</span>
-                    <h3 class="font-display font-bold text-2xl text-pure">Arena EWC Terkejam</h3>
-                    
+                <div class="md:col-span-2">
+                    <p class="mb-2" style="font-family:'Sora',sans-serif;font-size:0.65rem;color:#8C96A3;letter-spacing:0.12em;text-transform:uppercase;">SIRKUIT KALENDER</p>
+                    <h3 class="fw-bold mb-4" style="font-family:'Albert Sans',sans-serif;font-size:1.5rem;color:#F8FAFC;">Arena EWC Terkejam</h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Le Mans Bugatti (Prancis)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Tuan rumah dari 24 Heures Motos, balapan pembuka yang dingin dan menuntut ketahanan rem maksimal.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Le Mans Bugatti (Prancis)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">24 Heures Motos, balapan pembuka yang dingin dan menuntut rem.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Circuit de Spa-Francorchamps (Belgia)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Balapan 24 jam legendaris dengan trek super cepat dan perubahan cuaca Ardennes yang sangat sulit diprediksi.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Spa-Francorchamps (Belgia)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Trek supercepat dengan perubahan cuaca Ardennes tidak terprediksi.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Suzuka Circuit (Jepang)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Suzuka 8 Hours yang legendaris, menguji ketahanan rider di bawah panas lembab musim panas Jepang.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Suzuka Circuit (Jepang)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Suzuka 8 Hours legendaris, panas lembab musim panas Jepang.</p>
                         </div>
-                        <div class="bg-carbon/40 p-4 border border-steel/10 rounded">
-                            <h4 class="text-xs font-bold text-pure">Paul Ricard (Prancis)</h4>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Bol d'Or 24 Hours dengan trek lurus Mistral sepanjang 1.8 km yang menyiksa mesin di rpm maksimal.</p>
+                        <div class="m1-card p-4">
+                            <h4 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.85rem;color:#F8FAFC;">Paul Ricard (Prancis)</h4>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Bol d'Or 24 Hours, trek lurus Mistral 1.8 km menyiksa mesin.</p>
                         </div>
                     </div>
                 </div>
@@ -83,67 +95,59 @@
         </div>
     </section>
 
-    {{-- Lineup Pembalap & Motor --}}
-    <section class="py-16">
+    {{-- Bike & Riders --}}
+    <section class="py-16 border-top" style="border-color:rgba(255,255,255,0.06)!important;">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-10">
-                <h2 class="font-display font-bold text-2xl text-pure">Roster Riders & Yamaha YZF-R1</h2>
-                <div class="cyan-line my-3"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                {{-- Motor Specs Card --}}
-                <div class="ewc-card p-6 flex flex-col justify-between lg:col-span-1">
+            <p class="section-eyebrow mb-2">ROSTER RIDERS</p>
+            <h2 class="section-title-std mb-10">Line-Up EWC</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {{-- Bike Specs --}}
+                <div class="m1-card-elevated p-5 d-flex flex-column">
                     <div>
-                        <div class="flex justify-between items-start mb-6">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
                             <div>
-                                <span class="px-2.5 py-0.5 text-[0.62rem] font-display font-bold tracking-widest text-rgr bg-rgr/10 rounded uppercase">
-                                    FORMULA EWC · #7
-                                </span>
-                                <h3 class="font-display font-bold text-2xl text-pure mt-3">Yamaha YZF-R1</h3>
+                                <span class="m1-badge mb-2 d-inline-block">FORMULA EWC · #7</span>
+                                <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.3rem;color:#F8FAFC;">Yamaha YZF-R1</h3>
                             </div>
-                            <span class="font-display font-black text-4xl text-rgr">#7</span>
+                            <span class="fw-black" style="font-family:'Albert Sans',sans-serif;font-size:2.2rem;color:#B8E637;">#7</span>
                         </div>
-                        <p class="text-xs text-muted mb-6">Mesin: 998cc Crossplane CP4 Inline-4 · Tenaga: 220 HP · Sasis: Aluminium Deltabox · Ban: Bridgestone EWC Spec.</p>
-                        
-                        <div class="pt-4 border-t border-steel/20 text-xs">
-                            <p class="font-bold text-pure">Spesifikasi Aero:</p>
-                            <p class="text-[0.68rem] text-muted mt-1 leading-relaxed">Bodi serat karbon ringan dengan winglets aerodinamika depan untuk meminimalkan wheelie dan menjaga stabilitas traksi roda depan di kecepatan 300+ km/jam.</p>
+                        <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:#D2D6DC;">998cc Crossplane CP4 Inline-4 · 220 HP · Aluminium Deltabox · Bridgestone EWC Spec.</p>
+                        <div class="pt-3 mt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:0.8rem;color:#F8FAFC;">Spesifikasi Aero:</p>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">Bodi serat karbon dengan winglets depan untuk stabilitas di 300+ km/jam.</p>
                         </div>
                     </div>
-                    <div class="border-t border-steel/20 pt-4 mt-6 text-center text-xs font-mono flex justify-around">
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Bobot</p>
-                            <p class="font-display font-bold text-pure mt-1">168 kg</p>
+                    <div class="d-flex gap-3 mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.06);">
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Bobot</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">168 kg</p>
                         </div>
-                        <div>
-                            <p class="text-faint text-[0.6rem] uppercase tracking-widest">Kapasitas</p>
-                            <p class="font-display font-bold text-pure mt-1">24 Liter</p>
+                        <div class="text-center flex-fill">
+                            <p style="font-family:'Sora',sans-serif;font-size:0.55rem;color:#8C96A3;text-transform:uppercase;letter-spacing:0.12em;">Kapasitas</p>
+                            <p class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">24 L</p>
                         </div>
                     </div>
                 </div>
 
-                {{-- Riders List --}}
-                <div class="lg:col-span-2 space-y-6">
-                    <div class="grid md:grid-cols-3 gap-6">
+                {{-- Rider Cards --}}
+                <div class="lg:col-span-2">
+                    <div class="grid md:grid-cols-3 gap-4">
                         @foreach($riders as $rider)
-                        <div class="ewc-card p-6 flex flex-col justify-between" style="border-radius: 0 !important;">
-                            <div>
-                                <span class="text-xs text-rgr font-ui font-bold tracking-widest uppercase block mb-1">RACE RIDER</span>
-                                <h3 class="font-display font-bold text-lg text-pure mb-2">{{ $rider->name }}</h3>
-                                <p class="text-[0.68rem] text-muted font-ui mb-4">{{ $rider->country }} (#{{ $rider->permanent_number }})</p>
-                                <p class="text-xs text-muted leading-relaxed font-body mb-4">{{ $rider->bio }}</p>
-                            </div>
-                            <div class="border-t border-steel/10 pt-3 text-[0.65rem] font-mono text-muted">
-                                <div>Best Lap: <span class="text-pure font-bold">1:34.850</span></div>
-                                <div>Lisensi: <span class="text-rgr font-bold">FIA Gold</span></div>
+                        <div class="m1-card-elevated p-4 d-flex flex-column">
+                            <span class="m1-badge mb-2 d-inline-block">RACE RIDER</span>
+                            <h3 class="fw-bold" style="font-family:'Albert Sans',sans-serif;font-size:1.1rem;color:#F8FAFC;">{{ $rider->name }}</h3>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.72rem;color:#8C96A3;">{{ $rider->country }} (#{{ $rider->permanent_number }})</p>
+                            <p style="font-family:'Sora',sans-serif;font-size:0.75rem;color:#D2D6DC;line-height:1.6;" class="mt-2 mb-3 flex-fill">{{ $rider->bio }}</p>
+                            <div class="pt-2" style="border-top:1px solid rgba(255,255,255,0.06);">
+                                <div class="d-flex justify-content-between" style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#8C96A3;">
+                                    <span>Best Lap: <span class="fw-bold" style="color:#F8FAFC;">1:34.850</span></span>
+                                    <span>Lisensi: <span class="fw-bold" style="color:#B8E637;">FIA Gold</span></span>
+                                </div>
                             </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
