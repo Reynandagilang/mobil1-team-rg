@@ -22,7 +22,14 @@ class Order extends Model
         'discount',
         'total',
         'status',
-        'invoice_number'
+        'invoice_number',
+        'midtrans_order_id',
+        'snap_token',
+        'transaction_id',
+        'transaction_status',
+        'fraud_status',
+        'paid_at',
+        'expired_at'
     ];
 
     public function items(): HasMany

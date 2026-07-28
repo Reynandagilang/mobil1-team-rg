@@ -115,9 +115,13 @@ Route::middleware(['auth'])->prefix('fan')->name('fan.')->group(function () {
     Route::post('/predict', [FanController::class, 'storePrediction'])->name('predict');
 });
 
+// ── Midtrans Integration ──────────────────────────────────────────────────
+Route::post('/midtrans/callback', [App\Http\Controllers\Public\MidtransCallbackController::class, 'handle'])->name('midtrans.callback');
+
 // ── Sitemap ───────────────────────────────────────────────────────────────
 Route::get('/sitemap.xml', function () {
     return response()->view('sitemap', [], 200, [
         'Content-Type' => 'application/xml',
     ]);
 })->name('sitemap');
+

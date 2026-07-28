@@ -390,15 +390,69 @@ class HomeController extends Controller
 
             // Validate that cart items are a non-empty array before any DB writes
             if (!is_array($items) || empty($items)) {
-                return back()->withErrors(['cart' => 'Keranjang belanja tidak valid.']);
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Keranjang belanja tidak valid.'
+                ], 400);
             }
 
-            // TODO (production): Recalculate subtotal, discount, and total server-side
-            // by fetching current prices from the products table for each item in $items.
-            // Never trust price values sent from the client to prevent price tampering.
+            // Recalculate prices and validate items server-side to prevent price tampering.
+            $availableProducts = [
+                1 => ['name' => 'M1TRG F1 Aero Cap (Edition 2026)', 'price' => 450000, 'stock' => 50],
+                2 => ['name' => 'RGR Team Softshell Jacket', 'price' => 1850000, 'stock' => 20],
+                3 => ['name' => 'RGR Valkyrie-H WEC Miniature', 'price' => 1200000, 'stock' => 15],
+                4 => ['name' => 'Mercedes-AMG GT3 M1TRG 1:18 Model', 'price' => 2400000, 'stock' => 8],
+                5 => ['name' => 'RGR Pit-Wall Carbon Keychain', 'price' => 180000, 'stock' => 100],
+                6 => ['name' => 'RGR Official Thermal Bottle', 'price' => 350000, 'stock' => 40],
+                999 => ['name' => 'M1TRG Custom Racing Jersey 2026', 'price' => 650000, 'stock' => 999] // Custom Jersey is always available
+            ];
 
-            return DB::transaction(function () use ($data, $items) {
-                $invoice = 'INV-RGR-' . date('Ymd') . '-' . rand(1000, 9999);
+            $calculatedSubtotal = 0;
+            foreach ($items as $item) {
+                $pid = $item['id'] ?? null;
+                if (!isset($availableProducts[$pid])) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Produk tidak ditemukan atau tidak valid.'
+                    ], 400);
+                }
+
+                $prod = $availableProducts[$pid];
+                // Check stock
+                if ($item['qty'] > $prod['stock']) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => "Stok produk '{$prod['name']}' tidak mencukupi."
+                    ], 400);
+                }
+
+                $calculatedSubtotal += $prod['price'] * $item['qty'];
+            }
+
+            // Recalculate discount
+            $calculatedDiscount = 0;
+            $promoCode = trim(strtoupper($data['promo_code'] ?? ''));
+            if ($promoCode === 'RGR2026') {
+                $calculatedDiscount = $calculatedSubtotal * 0.20;
+            } else if ($promoCode === 'INDOPRIDE') {
+                $calculatedDiscount = $calculatedSubtotal * 0.15;
+            } else if ($promoCode === 'LASER10') {
+                $calculatedDiscount = $calculatedSubtotal * 0.10;
+            }
+
+            // Ensure shipping cost is valid
+            $courier = $data['shipping_courier'];
+            $expectedShippingCost = 15000;
+            if ($courier === 'DHL') {
+                $expectedShippingCost = 95000;
+            } else if ($courier === 'FedEx') {
+                $expectedShippingCost = 120000;
+            }
+
+            $calculatedTotal = $calculatedSubtotal - $calculatedDiscount + $expectedShippingCost;
+
+            return DB::transaction(function () use ($data, $items, $calculatedSubtotal, $calculatedDiscount, $expectedShippingCost, $calculatedTotal) {
+                $invoice = 'INV-RGR-' . date('Ymd') . '-' . rand(10000, 99999);
 
                 $order = \App\Models\Order::create([
                     'user_id' => \Illuminate\Support\Facades\Auth::id(),
@@ -407,14 +461,15 @@ class HomeController extends Controller
                     'customer_phone' => $data['customer_phone'],
                     'shipping_address' => $data['shipping_address'],
                     'shipping_courier' => $data['shipping_courier'],
-                    'shipping_cost' => $data['shipping_cost'],
+                    'shipping_cost' => $expectedShippingCost,
                     'payment_method' => $data['payment_method'],
-                    'promo_code' => $data['promo_code'],
-                    'subtotal' => $data['subtotal'],
-                    'discount' => $data['discount'],
-                    'total' => $data['total'],
+                    'promo_code' => $data['promo_code'] ?? null,
+                    'subtotal' => $calculatedSubtotal,
+                    'discount' => $calculatedDiscount,
+                    'total' => $calculatedTotal,
                     'status' => 'Pending',
-                    'invoice_number' => $invoice
+                    'invoice_number' => $invoice,
+                    'midtrans_order_id' => $invoice
                 ]);
 
                 foreach ($items as $item) {
@@ -428,9 +483,79 @@ class HomeController extends Controller
                     ]);
                 }
 
+                // Integrate Midtrans snap token generator
+                \Midtrans\Config::$serverKey = config('services.midtrans.server_key');
+                \Midtrans\Config::$isProduction = config('services.midtrans.is_production');
+                \Midtrans\Config::$isSanitized = config('services.midtrans.is_sanitized');
+                \Midtrans\Config::$is3ds = config('services.midtrans.is_3ds');
+
+                $itemDetails = [];
+                foreach ($items as $item) {
+                    $itemDetails[] = [
+                        'id' => $item['id'],
+                        'price' => $item['price'],
+                        'quantity' => $item['qty'],
+                        'name' => substr($item['name'], 0, 50)
+                    ];
+                }
+
+                // Add shipping as item detail in Midtrans Snap
+                $itemDetails[] = [
+                    'id' => 'SHIPPING',
+                    'price' => $expectedShippingCost,
+                    'quantity' => 1,
+                    'name' => 'Shipping Cost (' . $data['shipping_courier'] . ')'
+                ];
+
+                // Add discount if exists as negative item
+                if ($calculatedDiscount > 0) {
+                    $itemDetails[] = [
+                        'id' => 'DISCOUNT',
+                        'price' => -1 * $calculatedDiscount,
+                        'quantity' => 1,
+                        'name' => 'Promo Discount'
+                    ];
+                }
+
+                $params = [
+                    'transaction_details' => [
+                        'order_id' => $invoice,
+                        'gross_amount' => $calculatedTotal,
+                    ],
+                    'customer_details' => [
+                        'first_name' => $data['customer_name'],
+                        'email' => $data['customer_email'],
+                        'phone' => $data['customer_phone'],
+                        'billing_address' => [
+                            'first_name' => $data['customer_name'],
+                            'email' => $data['customer_email'],
+                            'phone' => $data['customer_phone'],
+                            'address' => $data['shipping_address']
+                        ],
+                        'shipping_address' => [
+                            'first_name' => $data['customer_name'],
+                            'email' => $data['customer_email'],
+                            'phone' => $data['customer_phone'],
+                            'address' => $data['shipping_address']
+                        ]
+                    ],
+                    'item_details' => $itemDetails
+                ];
+
+                $snapToken = '';
+                try {
+                    $snapToken = \Midtrans\Snap::getSnapToken($params);
+                    $order->update([
+                        'snap_token' => $snapToken
+                    ]);
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Midtrans Snap Generation Error: ' . $e->getMessage());
+                }
+
                 return response()->json([
                     'success' => true,
                     'order_id' => $order->id,
+                    'snap_token' => $snapToken,
                     'redirect_url' => route('checkout.success', $order->id)
                 ]);
             });

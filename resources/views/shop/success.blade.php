@@ -1,4 +1,4 @@
-﻿@extends('layouts.rgr-premium')
+@extends('layouts.rgr-premium')
 
 @section('title', 'Pesanan Sukses — Mobil 1 Team RG Fan Shop')
 @section('meta_description', 'Detail invoice pesanan kustomisasi jersey dan merchandise resmi Mobil 1 Team RG.')
@@ -106,14 +106,54 @@
                     <span>TOTAL PEMBAYARAN:</span>
                     <span class="text-rgr text-base font-black">Rp {{ number_format($order->total, 0, ',', '.') }}</span>
                 </div>
+                <div class="flex justify-between text-xs pt-3 border-t border-steel/10">
+                    <span class="text-muted">STATUS PEMBAYARAN:</span>
+                    @if($order->status == 'Paid')
+                        <span class="px-2 py-0.5 text-[0.62rem] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 uppercase rounded">Lunas / Settlement</span>
+                    @elseif($order->status == 'Pending')
+                        <span class="px-2 py-0.5 text-[0.62rem] font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20 uppercase rounded">Menunggu Pembayaran</span>
+                    @elseif($order->status == 'Expired')
+                        <span class="px-2 py-0.5 text-[0.62rem] font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase rounded">Kedaluwarsa</span>
+                    @elseif($order->status == 'Cancelled')
+                        <span class="px-2 py-0.5 text-[0.62rem] font-bold bg-gray-500/10 text-gray-500 border border-gray-500/20 uppercase rounded">Dibatalkan</span>
+                    @else
+                        <span class="px-2 py-0.5 text-[0.62rem] font-bold bg-red-500/10 text-red-500 border border-red-500/20 uppercase rounded">{{ $order->status }}</span>
+                    @endif
+                </div>
             </div>
+
+            {{-- Midtrans Snap pay button if pending --}}
+            @if($order->status == 'Pending' && $order->snap_token)
+            <div class="p-5 border border-amber-500/20 bg-amber-500/03 rounded text-center space-y-3">
+                <p class="text-xs text-pure">Pembayaran Anda belum diselesaikan. Silakan klik tombol di bawah untuk melanjutkan pembayaran.</p>
+                <button type="button" onclick="payNow()" class="btn-rgr text-xs px-6 py-2.5 font-bold uppercase tracking-wider">Bayar Sekarang via Midtrans</button>
+            </div>
+            <script>
+                function payNow() {
+                    window.snap.pay('{{ $order->snap_token }}', {
+                        onSuccess: function(result) {
+                            window.location.reload();
+                        },
+                        onPending: function(result) {
+                            window.location.reload();
+                        },
+                        onError: function(result) {
+                            alert('Pembayaran gagal dilakukan. Silakan coba kembali.');
+                        }
+                    });
+                }
+            </script>
+            @endif
 
             {{-- Barcode & Return Button --}}
             <div class="text-center pt-4 space-y-4">
                 <div class="barcode-sim opacity-40"></div>
                 <p class="text-[0.62rem] font-mono text-muted tracking-widest">{{ strtoupper($order->invoice_number) }}</p>
-                <div class="pt-4">
-                    <a href="{{ route('shop') }}" class="btn-rgr text-xs">Kembali ke Toko</a>
+                <div class="pt-4 flex justify-center gap-3">
+                    <a href="{{ route('shop') }}" class="btn-rgr-ghost text-xs">Kembali ke Toko</a>
+                    @if($order->status == 'Paid')
+                        <span class="btn-rgr text-xs bg-emerald-500 border-emerald-500 text-white cursor-default">✔ LUNAS</span>
+                    @endif
                 </div>
             </div>
 

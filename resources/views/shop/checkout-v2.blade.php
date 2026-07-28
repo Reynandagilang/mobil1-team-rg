@@ -75,57 +75,14 @@
                     </div>
 
                     <div>
-                        <h3 class="font-display font-bold text-lg text-pure border-b border-steel/10 pb-2 mb-4">3. Metode & Simulasi Pembayaran</h3>
+                        <h3 class="font-display font-bold text-lg text-pure border-b border-steel/10 pb-2 mb-4">3. Gerbang Pembayaran Midtrans</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                            <label class="border p-4 flex flex-col items-center justify-center text-center cursor-pointer" :class="paymentMethod === 'Simulasi Visa/CC' ? 'border-rgr bg-rgr/03' : 'border-steel/15 bg-pitch/10'" style="border-radius:0 !important;">
-                                <input type="radio" name="payment" value="Simulasi Visa/CC" x-model="paymentMethod" class="sr-only">
-                                <span class="text-xs font-bold text-pure">Kartu Kredit / Visa</span>
-                            </label>
-                            <label class="border p-4 flex flex-col items-center justify-center text-center cursor-pointer" :class="paymentMethod === 'Simulasi Mandiri/BCA' ? 'border-rgr bg-rgr/03' : 'border-steel/15 bg-pitch/10'" style="border-radius:0 !important;">
-                                <input type="radio" name="payment" value="Simulasi Mandiri/BCA" x-model="paymentMethod" class="sr-only">
-                                <span class="text-xs font-bold text-pure">Transfer Bank (Mandiri/BCA)</span>
-                            </label>
-                            <label class="border p-4 flex flex-col items-center justify-center text-center cursor-pointer" :class="paymentMethod === 'Simulasi Gopay' ? 'border-rgr bg-rgr/03' : 'border-steel/15 bg-pitch/10'" style="border-radius:0 !important;">
-                                <input type="radio" name="payment" value="Simulasi Gopay" x-model="paymentMethod" class="sr-only">
-                                <span class="text-xs font-bold text-pure">E-Wallet (Gopay / OVO)</span>
-                            </label>
-                        </div>
-
-                        {{-- Credit Card fields --}}
-                        <div x-show="paymentMethod === 'Simulasi Visa/CC'" class="p-4 border border-steel/15 bg-pitch/30 space-y-4">
-                            <div>
-                                <label class="block text-[0.62rem] font-ui text-pure uppercase tracking-wider font-bold mb-1">Nomor Kartu Kredit (Simulasi)</label>
-                                <input type="text" x-model="ccNumber" placeholder="4111 2222 3333 4444" maxlength="19"
-                                       class="w-full bg-white border border-steel/20 px-3 py-2 text-xs text-pure focus:outline-none focus:border-rgr font-mono"
-                                       style="border-radius:0 !important;">
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-[0.62rem] font-ui text-pure uppercase tracking-wider font-bold mb-1">Masa Berlaku (MM/YY)</label>
-                                    <input type="text" x-model="ccExpiry" placeholder="12/29" maxlength="5"
-                                           class="w-full bg-white border border-steel/20 px-3 py-2 text-xs text-pure focus:outline-none focus:border-rgr font-mono"
-                                           style="border-radius:0 !important;">
-                                </div>
-                                <div>
-                                    <label class="block text-[0.62rem] font-ui text-pure uppercase tracking-wider font-bold mb-1">CVV</label>
-                                    <input type="password" x-model="ccCvv" placeholder="•••" maxlength="3"
-                                           class="w-full bg-white border border-steel/20 px-3 py-2 text-xs text-pure focus:outline-none focus:border-rgr font-mono"
-                                           style="border-radius:0 !important;">
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- Bank Transfer --}}
-                        <div x-show="paymentMethod === 'Simulasi Mandiri/BCA'" class="p-4 border border-steel/15 bg-pitch/30 text-xs text-muted leading-relaxed font-body">
-                            <p class="font-bold text-pure mb-1">Panduan Transfer Bank:</p>
-                            Silakan lakukan transfer fiktif ke Rekening Mandiri M1TRG: <span class="font-mono font-bold text-pure">124-00-998822-1</span> atau Virtual Account BCA: <span class="font-mono font-bold text-pure">8822909922</span>. Sistem pembayaran akan mendeteksi status transaksi secara instan saat tombol bayar ditekan.
-                        </div>
-
-                        {{-- E-Wallet --}}
-                        <div x-show="paymentMethod === 'Simulasi Gopay'" class="p-4 border border-steel/15 bg-pitch/30 text-xs text-muted leading-relaxed font-body">
-                            <p class="font-bold text-pure mb-1">Metode E-Wallet:</p>
-                            Gunakan kode QR dinamis yang akan langsung diverifikasi oleh gateway pembayaran e-wallet. Pastikan saldo Anda mencukupi sebelum checkout.
+                        <div class="p-4 border border-steel/15 bg-pitch/30 text-xs text-muted leading-relaxed font-body" style="border-radius:0 !important;">
+                            <p class="font-bold text-pure mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-rgr" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                Transaksi Aman dengan Midtrans Snap
+                            </p>
+                            Pembayaran Anda akan diproses secara aman menggunakan teknologi enkripsi Midtrans Snap. Anda dapat memilih metode pembayaran seperti Kartu Kredit, Transfer Virtual Account Bank (BCA, Mandiri, BNI, BRI), QRIS/Gopay, Alfamart/Indomaret secara instan.
                         </div>
                     </div>
 
@@ -273,13 +230,6 @@ function checkoutV2System() {
         },
 
         submitOrder() {
-            if (this.paymentMethod === 'Simulasi Visa/CC') {
-                if (this.ccNumber.length < 16 || this.ccExpiry.length < 5 || this.ccCvv.length < 3) {
-                    alert('Mohon lengkapi data Kartu Kredit simulasi Anda.');
-                    return;
-                }
-            }
-
             this.loading = true;
 
             let csrfElement = document.querySelector('meta[name="csrf-token"]');
@@ -292,42 +242,57 @@ function checkoutV2System() {
             formData.append('shipping_address', this.shippingAddress);
             formData.append('shipping_courier', this.shippingCourier);
             formData.append('shipping_cost', this.shippingCost);
-            formData.append('payment_method', this.paymentMethod);
+            formData.append('payment_method', 'Midtrans Gateway');
             formData.append('promo_code', this.appliedPromoName);
             formData.append('subtotal', this.getSubtotal());
             formData.append('discount', this.getDiscountAmount());
             formData.append('total', this.getTotal());
             formData.append('cart_items', JSON.stringify(this.cart));
 
-            // Wait 1.5s for simulation payment loading effect
-            setTimeout(() => {
-                fetch('{{ route("checkout.place") }}', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    this.loading = false;
-                    if (data.success) {
-                        // Clear cart
-                        localStorage.removeItem('rgr_cart');
-                        window.dispatchEvent(new CustomEvent('storage'));
-                        
-                        // Redirect to success
-                        window.location.href = data.redirect_url;
-                    } else {
-                        alert('Gagal mengirim pesanan.');
-                    }
-                })
-                .catch(err => {
-                    this.loading = false;
-                    console.error(err);
-                    alert('Terjadi kesalahan koneksi.');
-                });
-            }, 1500);
+            fetch('{{ route("checkout.place") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                this.loading = false;
+                if (data.success && data.snap_token) {
+                    // Open Midtrans Snap popup
+                    window.snap.pay(data.snap_token, {
+                        onSuccess: (result) => {
+                            // Clear cart
+                            localStorage.removeItem('rgr_cart');
+                            window.dispatchEvent(new CustomEvent('storage'));
+                            // Redirect to success page
+                            window.location.href = data.redirect_url;
+                        },
+                        onPending: (result) => {
+                            // Clear cart
+                            localStorage.removeItem('rgr_cart');
+                            window.dispatchEvent(new CustomEvent('storage'));
+                            // Redirect to success page to see payment status
+                            window.location.href = data.redirect_url;
+                        },
+                        onError: (result) => {
+                            alert('Pembayaran gagal dilakukan. Silakan coba kembali.');
+                        },
+                        onClose: () => {
+                            // If closed, we can still redirect to success page to let them pay later or see details
+                            window.location.href = data.redirect_url;
+                        }
+                    });
+                } else {
+                    alert(data.message || 'Gagal memproses pesanan.');
+                }
+            })
+            .catch(err => {
+                this.loading = false;
+                console.error(err);
+                alert('Terjadi kesalahan koneksi.');
+            });
         }
     }
 }

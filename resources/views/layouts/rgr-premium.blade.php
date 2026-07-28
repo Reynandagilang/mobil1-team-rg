@@ -43,6 +43,8 @@
     {{-- Tailwind CSS CDN --}}
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
+    {{-- Midtrans Snap.js Client Library --}}
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
     <script>
         tailwind.config = {
             theme: {
