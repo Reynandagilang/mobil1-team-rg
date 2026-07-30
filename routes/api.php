@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// ── Enterprise REST API Endpoints ─────────────────────────────────────────
+use App\Http\Controllers\Api\EnterpriseApiController;
+
+Route::prefix('v1')->group(function () {
+    Route::get('/team', [EnterpriseApiController::class, 'teamInfo']);
+    Route::get('/drivers', [EnterpriseApiController::class, 'drivers']);
+    Route::get('/schedule', [EnterpriseApiController::class, 'schedule']);
+    Route::get('/telemetry', [EnterpriseApiController::class, 'telemetryData']);
+});

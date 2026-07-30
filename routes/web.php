@@ -125,3 +125,14 @@ Route::get('/sitemap.xml', function () {
     ]);
 })->name('sitemap');
 
+// ── Enterprise Modules ───────────────────────────────────────────────────
+use App\Http\Controllers\Public\EnterpriseModuleController;
+
+Route::prefix('enterprise')->name('enterprise.')->group(function () {
+    Route::get('/live-race-center', [EnterpriseModuleController::class, 'liveRaceCenter'])->name('live-race');
+    Route::get('/statistics-center', [EnterpriseModuleController::class, 'statisticsCenter'])->name('statistics');
+    Route::get('/team-museum', [EnterpriseModuleController::class, 'teamMuseum'])->name('museum');
+    Route::get('/sponsor-portal', [EnterpriseModuleController::class, 'sponsorPortal'])->name('sponsor-portal');
+    Route::get('/engineering-dashboard', [EnterpriseModuleController::class, 'engineeringDashboard'])->name('engineering');
+    Route::get('/membership', [EnterpriseModuleController::class, 'membership'])->name('membership');
+});
